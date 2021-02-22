@@ -11,6 +11,7 @@ func _ready():
 
 func _on_tile_selected(tile):
 	#map.build(tile, road)
-	map.build_road(tile, 0)
+	if map.can_build(tile):
+		map.build_road(tile, 0)
 	
 

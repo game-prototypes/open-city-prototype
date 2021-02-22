@@ -13,6 +13,10 @@ func _ready():
 	tile_size=terrain.cell_size[0]
 	print(roads.tile_set.get_tiles_ids(), roads.tile_set.tile_get_name(0))
 
+func can_build(tile) -> bool:
+	var road_id=roads.get_cell(tile.x, tile.y)
+	return road_id==-1
+	
 
 func build(tile, build):
 	print("Build in ", tile)
