@@ -2,6 +2,7 @@ extends Node2D
 
 onready var terrain = $Terrain
 onready var roads = $Roads
+onready var markers = $Markers
 
 var tile_size: int
 
@@ -16,12 +17,14 @@ func _ready():
 func can_build(tile) -> bool:
 	var road_id=roads.get_cell(tile.x, tile.y)
 	return road_id==-1
-	
 
-func build(tile, build):
+func build(tile, build, size=1):
 	print("Build in ", tile)
 	var build_instance=build.instance()
-	build_instance.position=tile2pos(tile)
+	
+	var centered_tile_position=tile2pos(tile)
+	# get left top corner
+	build_instance.position=Vector2(centered_tile_position.x-tile_size/2, centered_tile_position.y-tile_size/2)
 	build_instance.add_to_group(BUILDINGS_GROUP)
 	add_child(build_instance)
 
