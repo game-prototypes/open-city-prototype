@@ -37,6 +37,9 @@ func pos2tile(coords: Vector2) -> Vector2:
 
 func tile2pos(cell: Vector2)->Vector2:
 	return Vector2(cell.x*tile_size + tile_size/2.0, cell.y*tile_size+tile_size/2.0)
+	
+func get_tile_size()->int:
+	return tile_size
 
  # Only receives uncapture inputs
 func _unhandled_input(event):
