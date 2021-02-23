@@ -18,6 +18,7 @@ tent = ExtResource( 6 )
 [node name="Overlay" type="Sprite" parent="Player"]
 visible = false
 texture = ExtResource( 7 )
+centered = false
 region_enabled = true
 region_rect = Rect2( 32, 32, 32, 32 )
 

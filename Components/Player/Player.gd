@@ -8,6 +8,7 @@ export(Resource) var road: Resource
 export(Resource) var tent: Resource
 
 var selected_build_item: Resource
+var selected_build_item_size: Vector2
 
 var green_color=Color("#9516820f")
 var red_color=Color("#9582170f")
@@ -24,11 +25,13 @@ func _process(_delta):
 		var overlay_pos=mouse_tile*tile_size
 		
 		overlay.visible=true
-		if map.can_build(mouse_tile):
+		if can_build_range(mouse_tile, selected_build_item_size):
 			overlay.modulate=green_color
 		else:
 			overlay.modulate=red_color
-		overlay.position=Vector2(overlay_pos.x+tile_size/2,overlay_pos.y+tile_size/2)
+		
+		overlay.scale=Vector2.ONE*selected_build_item_size		
+		overlay.position=overlay_pos
 
 
 func _on_tile_selected(tile):
@@ -36,12 +39,12 @@ func _on_tile_selected(tile):
 		if map.can_build(tile):
 			map.build_road(tile, 0)
 	elif selected_build_item==tent:
-		if can_build_range(tile, 4):
-			map.build(tile, tent, 4)
+		if can_build_range(tile, selected_build_item_size):
+			map.build(tile, tent, selected_build_item_size)
 
-func can_build_range(tile, side) -> bool:
-	for i in range(tile.x,tile.x+side):
-		for j in range(tile.y, tile.y+side):
+func can_build_range(tile:Vector2, size: Vector2) -> bool:
+	for i in range(tile.x,tile.x+size.x):
+		for j in range(tile.y, tile.y+size.y):
 			if not map.can_build(Vector2(i, j)):
 				return false
 	return true
@@ -50,5 +53,7 @@ func can_build_range(tile, side) -> bool:
 func _on_GUI_press(button: String):
 	if button=="build_road":
 		selected_build_item=road
+		selected_build_item_size=Vector2.ONE
 	elif button == "build_tent":
 		selected_build_item=tent
+		selected_build_item_size=Vector2(4,3)
