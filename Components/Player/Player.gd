@@ -8,7 +8,7 @@ export(Resource) var road: Resource
 export(Resource) var tent: Resource
 
 var selected_build_item: Resource
-var selected_build_item_size: Vector2
+var selected_build_item_size
 
 var green_color=Color("#9516820f")
 var red_color=Color("#9582170f")
@@ -41,6 +41,8 @@ func _on_tile_selected(tile):
 	elif selected_build_item==tent:
 		if can_build_range(tile, selected_build_item_size):
 			map.build(tile, tent, selected_build_item_size)
+			deselect_build()
+
 
 func can_build_range(tile:Vector2, size: Vector2) -> bool:
 	for i in range(tile.x,tile.x+size.x):
@@ -49,6 +51,10 @@ func can_build_range(tile:Vector2, size: Vector2) -> bool:
 				return false
 	return true
 
+func deselect_build():
+	selected_build_item=null
+	selected_build_item_size=null
+	overlay.visible=false
 
 func _on_GUI_press(button: String):
 	if button=="build_road":

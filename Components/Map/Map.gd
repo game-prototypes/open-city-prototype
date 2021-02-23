@@ -3,6 +3,7 @@ extends Node2D
 onready var terrain = $Terrain
 onready var roads = $Roads
 onready var markers = $Markers
+onready var elements =$Elements
 
 var tile_size: int
 
@@ -26,7 +27,7 @@ func build(tile, build, size=1):
 	# get left top corner
 	build_instance.position=Vector2(centered_tile_position.x-tile_size/2, centered_tile_position.y-tile_size/2)
 	build_instance.add_to_group(BUILDINGS_GROUP)
-	add_child(build_instance)
+	elements.add_child(build_instance)
 
 func build_road(tile: Vector2, road_id: int)-> void:
 	print("build road ",road_id, " in tile ", tile)

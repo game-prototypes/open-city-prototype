@@ -26,3 +26,5 @@ tile_data = PoolIntArray( 0, 0, 2, 1, 0, 0, 2, 0, 0, 3, 0, 2, 4, 0, 0, 5, 0, 0, 
 tile_set = ExtResource( 4 )
 cell_size = Vector2( 32, 32 )
 format = 1
+
+[node name="Elements" type="YSort" parent="."]
