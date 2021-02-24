@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Components/GUI/GUI.gd" type="Script" id=1]
+[ext_resource path="res://Components/GUI/BuildingButton.tscn" type="PackedScene" id=2]
 
 [node name="GUI" type="CanvasLayer"]
 script = ExtResource( 1 )
+building_button = ExtResource( 2 )
 
 [node name="Container" type="MarginContainer" parent="."]
 anchor_top = 1.0
@@ -20,20 +22,7 @@ modulate = Color( 1, 1, 1, 0.482353 )
 margin_right = 1024.0
 margin_bottom = 78.0
 
-[node name="GridContainer" type="GridContainer" parent="Container"]
+[node name="BuildingButtons" type="GridContainer" parent="Container"]
 margin_right = 1024.0
 margin_bottom = 78.0
 columns = 2
-
-[node name="TentButton" type="Button" parent="Container/GridContainer"]
-margin_right = 40.0
-margin_bottom = 20.0
-text = "Tent"
-
-[node name="RoadButton" type="Button" parent="Container/GridContainer"]
-margin_left = 44.0
-margin_right = 87.0
-margin_bottom = 20.0
-text = "Road"
-[connection signal="pressed" from="Container/GridContainer/TentButton" to="." method="_on_button_pressed" binds= [ "build_tent" ]]
-[connection signal="pressed" from="Container/GridContainer/RoadButton" to="." method="_on_button_pressed" binds= [ "build_road" ]]

@@ -1,22 +1,25 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Components/Camera/MainCamera.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Components/Player/Player.gd" type="Script" id=2]
 [ext_resource path="res://Components/Map/Map.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Components/GUI/GUI.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Buildings/Road.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Buildings/Tent.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Buildings/Tent/Tent.tres" type="Resource" id=5]
+[ext_resource path="res://Buildings/Roads/StoneRoad.tres" type="Resource" id=6]
 [ext_resource path="res://Resources/TileMarkers/white.png" type="Texture" id=7]
+[ext_resource path="res://Buildings/Farm/Farm.tres" type="Resource" id=8]
+[ext_resource path="res://Main.gd" type="Script" id=9]
 
 [node name="Main" type="Node2D"]
+script = ExtResource( 9 )
+buildings = [ ExtResource( 8 ), ExtResource( 5 ), ExtResource( 6 ) ]
 
 [node name="Player" type="Node2D" parent="."]
 script = ExtResource( 2 )
-road = ExtResource( 5 )
-tent = ExtResource( 6 )
 
 [node name="Overlay" type="Sprite" parent="Player"]
 visible = false
+z_index = 10
 texture = ExtResource( 7 )
 centered = false
 region_enabled = true
@@ -29,4 +32,4 @@ position = Vector2( 515.761, 302.186 )
 
 [node name="GUI" parent="." instance=ExtResource( 4 )]
 [connection signal="tile_selected" from="Map" to="Player" method="_on_tile_selected"]
-[connection signal="press_button" from="GUI" to="Player" method="_on_GUI_press"]
+[connection signal="building_selected" from="GUI" to="Player" method="_on_building_selected"]

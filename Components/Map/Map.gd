@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name Map
+
 onready var terrain = $Terrain
 onready var roads = $Roads
 onready var buildings = $Buildings
@@ -33,10 +35,8 @@ func can_build_area(tile:Vector2, area: Vector2) -> bool:
 				return false
 	return true
 
-
-func build(tile, build, area: Vector2):
-	print("Build in ", tile)
-	var build_instance=build.instance()
+func build(tile: Vector2, scene: PackedScene, area: Vector2):
+	var build_instance=scene.instance()
 	
 	var centered_tile_position=tile2pos(tile)
 	# get left top corner
@@ -63,7 +63,7 @@ func tile2pos(cell: Vector2)->Vector2:
 func get_tile_size()->int:
 	return tile_size
 
- # Only receives uncapture inputs
+ # Only receives uncaptured inputs
 func _unhandled_input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:

@@ -1,0 +1,8 @@
+[gd_scene format=2]
+
+[node name="Button" type="Button"]
+margin_right = 40.0
+margin_bottom = 20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
