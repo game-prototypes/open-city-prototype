@@ -25,7 +25,7 @@ func _process(_delta):
 		var overlay_pos=mouse_tile*tile_size
 		
 		overlay.visible=true
-		if can_build_range(mouse_tile, selected_build_item_size):
+		if map.can_build_area(mouse_tile, selected_build_item_size):
 			overlay.modulate=green_color
 		else:
 			overlay.modulate=red_color
@@ -39,17 +39,12 @@ func _on_tile_selected(tile):
 		if map.can_build(tile):
 			map.build_road(tile, 0)
 	elif selected_build_item==tent:
-		if can_build_range(tile, selected_build_item_size):
+		if map.can_build_area(tile, selected_build_item_size):
 			map.build(tile, tent, selected_build_item_size)
 			deselect_build()
 
 
-func can_build_range(tile:Vector2, size: Vector2) -> bool:
-	for i in range(tile.x,tile.x+size.x):
-		for j in range(tile.y, tile.y+size.y):
-			if not map.can_build(Vector2(i, j)):
-				return false
-	return true
+
 
 func deselect_build():
 	selected_build_item=null

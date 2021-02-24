@@ -2,24 +2,39 @@ extends Node2D
 
 onready var terrain = $Terrain
 onready var roads = $Roads
-onready var markers = $Markers
-onready var elements =$Elements
+onready var buildings = $Buildings
+onready var elements = $Elements
 
 var tile_size: int
 
 const BUILDINGS_GROUP = "buildings"
 signal tile_selected(tile, building)
 
+var blocked_tile_id: int
+
 func _ready():
 	assert(terrain.cell_size[0]==roads.cell_size[0], "Error, terrain tile size != roads tile size")
+	assert(buildings.cell_size[0]==roads.cell_size[0], "Error, buildings tile size != roads tile size")
+	
 	tile_size=terrain.cell_size[0]
-	print(roads.tile_set.get_tiles_ids(), roads.tile_set.tile_get_name(0))
+	
+	blocked_tile_id=buildings.tile_set.find_tile_by_name("red")
+	assert(blocked_tile_id, "Error, blocked_tile_id not found")
 
 func can_build(tile) -> bool:
 	var road_id=roads.get_cell(tile.x, tile.y)
-	return road_id==-1
+	var building_id=buildings.get_cell(tile.x, tile.y)
+	return road_id==-1 and building_id==-1
 
-func build(tile, build, size=1):
+func can_build_area(tile:Vector2, area: Vector2) -> bool:
+	for i in range(tile.x,tile.x+area.x):
+		for j in range(tile.y, tile.y+area.y):
+			if not can_build(Vector2(i, j)):
+				return false
+	return true
+
+
+func build(tile, build, area: Vector2):
 	print("Build in ", tile)
 	var build_instance=build.instance()
 	
@@ -28,10 +43,16 @@ func build(tile, build, size=1):
 	build_instance.position=Vector2(centered_tile_position.x-tile_size/2, centered_tile_position.y-tile_size/2)
 	build_instance.add_to_group(BUILDINGS_GROUP)
 	elements.add_child(build_instance)
+	build_area(tile,area)
 
 func build_road(tile: Vector2, road_id: int)-> void:
 	print("build road ",road_id, " in tile ", tile)
 	roads.set_cell(tile.x, tile.y, road_id)
+
+func build_area(tile: Vector2, area: Vector2) -> void:
+	for i in range(tile.x,tile.x+area.x):
+		for j in range(tile.y, tile.y+area.y):
+			buildings.set_cell(i, j, blocked_tile_id)
 
 func pos2tile(coords: Vector2) -> Vector2:
 	return Vector2(floor(coords.x/tile_size), floor(coords.y/tile_size))
