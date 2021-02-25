@@ -27,6 +27,12 @@ func _process(_delta):
 		overlay.scale=Vector2.ONE*selected_build_item.area
 		overlay.position=overlay_pos
 
+
+
+func deselect_build():
+	selected_build_item=null
+	overlay.visible=false
+
 func _on_tile_selected(tile: Vector2) -> void:
 	if selected_build_item == null:
 		pass
@@ -37,10 +43,6 @@ func _on_tile_selected(tile: Vector2) -> void:
 		if map.can_build_area(tile, selected_build_item.area):
 			map.build(tile, selected_build_item.scene, selected_build_item.area)
 			deselect_build()
-
-func deselect_build():
-	selected_build_item=null
-	overlay.visible=false
 
 func _on_building_selected(building: Resource):
 	print(building)
