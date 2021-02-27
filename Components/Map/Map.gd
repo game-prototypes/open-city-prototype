@@ -2,9 +2,9 @@ extends Node2D
 
 class_name Map
 
-onready var terrain = $Terrain
-onready var roads = $Roads
-onready var buildings = $Buildings
+onready var terrain:TileMap = $Terrain
+onready var roads:TileMap = $RoadNavigation/Roads
+onready var buildings: TileMap = $Buildings
 onready var elements = $Elements
 
 var tile_size: int
