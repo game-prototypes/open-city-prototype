@@ -4,6 +4,7 @@ class_name Map
 
 onready var terrain:TileMap = $Terrain
 onready var roads:TileMap = $RoadNavigation/Roads
+onready var navigation:Navigation2D = $RoadNavigation
 onready var buildings: TileMap = $Buildings
 onready var elements = $Elements
 
@@ -38,15 +39,12 @@ func can_build_area(tile:Vector2, area: Vector2) -> bool:
 func build(tile: Vector2, scene: PackedScene, area: Vector2):
 	var build_instance=scene.instance()
 	
-	var centered_tile_position=tile2pos(tile)
-	# get left top corner
-	build_instance.position=Vector2(centered_tile_position.x-tile_size/2, centered_tile_position.y-tile_size/2)
+	build_instance.position=tile2pos(tile)
 	build_instance.add_to_group(BUILDINGS_GROUP)
 	elements.add_child(build_instance)
 	build_area(tile,area)
 
 func build_road(tile: Vector2, road_id: int)-> void:
-	print("build road ",road_id, " in tile ", tile)
 	roads.set_cell(tile.x, tile.y, road_id)
 
 func build_area(tile: Vector2, area: Vector2) -> void:
@@ -54,14 +52,18 @@ func build_area(tile: Vector2, area: Vector2) -> void:
 		for j in range(tile.y, tile.y+area.y):
 			buildings.set_cell(i, j, blocked_tile_id)
 
-func pos2tile(coords: Vector2) -> Vector2:
-	return Vector2(floor(coords.x/tile_size), floor(coords.y/tile_size))
+func pos2tile(tile: Vector2)->Vector2:
+	return terrain.world_to_map(tile)
 
-func tile2pos(cell: Vector2)->Vector2:
-	return Vector2(cell.x*tile_size + tile_size/2.0, cell.y*tile_size+tile_size/2.0)
+# Returns top left corner
+func tile2pos(tile: Vector2)->Vector2:
+	return terrain.map_to_world(tile)
 	
 func get_tile_size()->int:
 	return tile_size
+
+func find_path(from: Vector2, to: Vector2)->PoolVector2Array:
+	return navigation.get_simple_path(from,to)
 
  # Only receives uncaptured inputs
 func _unhandled_input(event):

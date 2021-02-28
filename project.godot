@@ -23,11 +23,17 @@ _global_script_classes=[ {
 "class": "RoadResource",
 "language": "GDScript",
 "path": "res://Components/Buildings/RoadResource.gd"
+}, {
+"base": "TileMap",
+"class": "Roads",
+"language": "GDScript",
+"path": "res://Components/Map/Roads.gd"
 } ]
 _global_script_class_icons={
 "BuildingResource": "",
 "Map": "",
-"RoadResource": ""
+"RoadResource": "",
+"Roads": ""
 }
 
 [application]

@@ -1,7 +1,6 @@
 extends Node2D
 
-onready var navigation:Navigation2D= $Navigation2D
-onready var tilemap:TileMap=$Navigation2D/TileMap
+onready var roads:Roads=$Roads
 onready var icon = $icon
 onready var line:Line2D=$Line2D
 
@@ -15,25 +14,27 @@ func _unhandled_input(event:InputEvent):
 	if not event.pressed:
 		return
 	if event.button_index==BUTTON_LEFT:
-		var new_path:=navigation.get_simple_path(icon.global_position, event.global_position)
+		var icon_tile=roads.world_to_map(icon.global_position)
+		var clicked_tile=roads.world_to_map(event.global_position)
+		var new_path:=roads.find_path(icon_tile, clicked_tile)
 		var path=PoolVector2Array()
 		for p in new_path:
-			print(tilemap.world_to_map(p))
-			path.append(p)
-			#path.append(pos2cell2pos(p))
+			print(p)
+			path.append(tile_center_pos(p))
 		print("path", path)
 		line.points=path
 	if event.button_index==BUTTON_RIGHT:
-		var tile=tilemap.world_to_map(event.global_position)
-		var tile_value=tilemap.get_cell(tile.x,tile.y)
+		var tile=roads.world_to_map(event.global_position)
+		var tile_value=roads.get_cell(tile.x,tile.y)
 		if tile_value==-1:
-			tilemap.set_cell(tile.x, tile.y,0)
+			roads.set_cell(tile.x, tile.y,0)
+			roads.add_tile(tile)
 		if tile_value==0:
-			tilemap.set_cell(tile.x, tile.y,-1)
+			roads.set_cell(tile.x, tile.y,-1)
+			roads.remove_tile(tile)
 
 
-func pos2cell2pos(pos):
-	var size=tilemap.cell_size/2
-	var original_vector= tilemap.map_to_world(tilemap.world_to_map(pos))
-	return original_vector
-	#return Vector2(original_vector.x+size.x, original_vector.y+size.y)
+
+func tile_center_pos(tile):
+	var half_size=roads.cell_size/2
+	return roads.map_to_world(tile)+half_size
