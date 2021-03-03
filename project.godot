@@ -9,10 +9,20 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Area2D",
+"class": "Building",
+"language": "GDScript",
+"path": "res://Components/Buildings/Building.gd"
+}, {
 "base": "Resource",
 "class": "BuildingResource",
 "language": "GDScript",
 "path": "res://Components/Buildings/BuildingResource.gd"
+}, {
+"base": "TileMap",
+"class": "Buildings",
+"language": "GDScript",
+"path": "res://Components/Map/Buildings.gd"
 }, {
 "base": "Node2D",
 "class": "Map",
@@ -30,7 +40,9 @@ _global_script_classes=[ {
 "path": "res://Components/Map/Roads.gd"
 } ]
 _global_script_class_icons={
+"Building": "",
 "BuildingResource": "",
+"Buildings": "",
 "Map": "",
 "RoadResource": "",
 "Roads": ""

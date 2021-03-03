@@ -21,7 +21,6 @@ func _unhandled_input(event:InputEvent):
 		for p in new_path:
 			print(p)
 			path.append(tile_center_pos(p))
-		print("path", path)
 		line.points=path
 	if event.button_index==BUTTON_RIGHT:
 		var tile=roads.world_to_map(event.global_position)

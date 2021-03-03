@@ -3,7 +3,7 @@ extends Node2D
 onready var map: Map=$"../Map"
 onready var overlay=$Overlay
 
-var selected_build_item: Resource
+var selected_build_item: BuildingResource
 
 var green_color=Color("#9516820f")
 var red_color=Color("#9582170f")
@@ -41,10 +41,9 @@ func _on_tile_selected(tile: Vector2) -> void:
 			map.build_road(tile, selected_build_item.road_id)
 	elif selected_build_item.type==BuildingResource.Type.BUILDING:
 		if map.can_build_area(tile, selected_build_item.area):
-			map.build(tile, selected_build_item.scene, selected_build_item.area)
+			var building = selected_build_item.instantiate_building()
+			map.build(tile,building, selected_build_item.area)
 			deselect_build()
 
 func _on_building_selected(building: Resource):
-	print(building)
-	
 	selected_build_item=building
