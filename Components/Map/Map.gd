@@ -16,7 +16,7 @@ func _ready():
 	assert(buildings.cell_size[0]==roads.cell_size[0], "Error, buildings tile size != roads tile size")
 	
 	tile_size=int(terrain.cell_size[0])
-	_set_collider()
+	#_set_collider()
 
 
 func can_build(tile) -> bool:
@@ -52,7 +52,8 @@ func get_tile_size()->int:
 func find_path(from: Vector2, to: Vector2)->PoolVector2Array:
 	return roads.find_path(from, to)
 
-func _input_event(viewport, event, shape_idx):
+
+func _unhandled_input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:
 			var cell=pos2tile(get_global_mouse_position())
