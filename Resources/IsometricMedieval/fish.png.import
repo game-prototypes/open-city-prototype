@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/white.png-e378995090bfedcaaadb1dfe697d0063.stex"
+path="res://.import/fish.png-eb4f2e1592e217d2e47a6e2589e2380e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/TileMarkers/white.png"
-dest_files=[ "res://.import/white.png-e378995090bfedcaaadb1dfe697d0063.stex" ]
+source_file="res://Resources/IsometricMedieval/fish.png"
+dest_files=[ "res://.import/fish.png-eb4f2e1592e217d2e47a6e2589e2380e.stex" ]
 
 [params]
 

@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource( 1 )
-name = "Stone Road"
+name = "Grass Road"
 road_id = 1

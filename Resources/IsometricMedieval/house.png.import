@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/isometric.png-f5c6a91144f8d5d713c2bef13af841dd.stex"
+path="res://.import/house.png-88a0c2cb5b022f1c3f04bb82e713ff6e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/TileMarkers/isometric.png"
-dest_files=[ "res://.import/isometric.png-f5c6a91144f8d5d713c2bef13af841dd.stex" ]
+source_file="res://Resources/IsometricMedieval/house.png"
+dest_files=[ "res://.import/house.png-88a0c2cb5b022f1c3f04bb82e713ff6e.stex" ]
 
 [params]
 

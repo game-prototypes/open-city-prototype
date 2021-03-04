@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/red.png-365ea781d420d50fc4df5057437b85bd.stex"
+path="res://.import/thatched.png-b2a5b6e6a6025687c0cb66442ba1f584.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/TileMarkers/red.png"
-dest_files=[ "res://.import/red.png-365ea781d420d50fc4df5057437b85bd.stex" ]
+source_file="res://Resources/IsometricMedieval/thatched.png"
+dest_files=[ "res://.import/thatched.png-b2a5b6e6a6025687c0cb66442ba1f584.stex" ]
 
 [params]
 

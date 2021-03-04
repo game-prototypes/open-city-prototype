@@ -1,10 +1,10 @@
 [gd_resource type="Resource" load_steps=3 format=2]
 
 [ext_resource path="res://Components/Buildings/BuildingResource.gd" type="Script" id=1]
-[ext_resource path="res://Components/Buildings/Farm/Farm.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Components/Buildings/Old/Tent/Tent.tscn" type="PackedScene" id=2]
 
 [resource]
 script = ExtResource( 1 )
-name = "Farm"
-area = Vector2( 1, 1 )
+name = "Tent"
+area = Vector2( 4, 3 )
 scene = ExtResource( 2 )

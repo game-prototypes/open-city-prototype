@@ -31,7 +31,7 @@ func can_build_area(tile:Vector2, area: Vector2) -> bool:
 				return false
 	return true
 
-func build(tile: Vector2, building: Building, area: Vector2) -> void:
+func build(tile: Vector2, building: Node2D, area: Vector2) -> void:
 	buildings.build(tile,building,area)
 	elements.add_child(building)
 	
