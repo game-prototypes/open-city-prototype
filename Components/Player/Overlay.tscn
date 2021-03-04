@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Resources/MarkersIso/markers_iso.png" type="Texture" id=1]
+
+[node name="Overlay" type="Sprite"]
+z_index = 10
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( -64, 0 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 128, 64 )

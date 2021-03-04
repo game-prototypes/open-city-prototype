@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/terrain_atlas.png-3ac703d5d815dd33fe97bf359d81c5e2.stex"
+path="res://.import/dirt.png-6e9c57accaa3d2a186c37b9b4e0df28b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Atlas/terrain_atlas.png"
-dest_files=[ "res://.import/terrain_atlas.png-3ac703d5d815dd33fe97bf359d81c5e2.stex" ]
+source_file="res://Resources/IsometricMedieval/dirt.png"
+dest_files=[ "res://.import/dirt.png-6e9c57accaa3d2a186c37b9b4e0df28b.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Resources/IsometricMedieval/house.png" type="Texture" id=1]
+
+[node name="House" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -2.45242, 12.9281 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( -64, -64 )

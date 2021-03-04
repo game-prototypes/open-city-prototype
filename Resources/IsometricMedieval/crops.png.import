@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/orange.png-fe49e2d3f9920c19d86b51064bfc9d5f.stex"
+path="res://.import/crops.png-88b3440a95da1f8e771d40ddc3880ed7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/TileMarkers/orange.png"
-dest_files=[ "res://.import/orange.png-fe49e2d3f9920c19d86b51064bfc9d5f.stex" ]
+source_file="res://Resources/IsometricMedieval/crops.png"
+dest_files=[ "res://.import/crops.png-88b3440a95da1f8e771d40ddc3880ed7.stex" ]
 
 [params]
 

@@ -2,7 +2,7 @@ extends Node2D
 
 
 export(Array, Resource) var buildings
-export(Array, Resource) var roads
+#export(Array, Resource) var roads
 
 onready var GUI=$GUI
 
