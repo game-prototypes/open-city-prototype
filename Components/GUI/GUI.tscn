@@ -7,7 +7,7 @@
 script = ExtResource( 1 )
 building_button = ExtResource( 2 )
 
-[node name="Container" type="MarginContainer" parent="."]
+[node name="BottomContainer" type="MarginContainer" parent="."]
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -17,12 +17,42 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Panel" type="Panel" parent="Container"]
+[node name="Panel" type="Panel" parent="BottomContainer"]
 modulate = Color( 1, 1, 1, 0.482353 )
 margin_right = 1024.0
 margin_bottom = 78.0
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="BuildingButtons" type="GridContainer" parent="Container"]
+[node name="BuildingButtons" type="GridContainer" parent="BottomContainer"]
 margin_right = 1024.0
 margin_bottom = 78.0
 columns = 2
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TopContainer" type="MarginContainer" parent="."]
+margin_left = 5.66031
+margin_top = 4.1509
+margin_right = 154.66
+margin_bottom = 44.1509
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="TopContainer"]
+margin_right = 149.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="MoneyLabel" type="RichTextLabel" parent="TopContainer"]
+margin_right = 149.0
+margin_bottom = 40.0
+text = "Money: 0"
+__meta__ = {
+"_edit_lock_": true
+}

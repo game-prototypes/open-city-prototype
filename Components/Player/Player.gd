@@ -23,7 +23,6 @@ func _process(_delta):
 		else:
 			overlay.modulate=red_color
 		
-		#overlay.scale=Vector2(1,2)*selected_build_item.area
 		overlay.position=overlay_pos
 
 
@@ -32,7 +31,7 @@ func deselect_build():
 	overlay.visible=false
 	_remove_overlay()
 
-func _on_tile_selected(tile: Vector2) -> void:
+func on_tile_selected(tile: Vector2) -> void:
 	if selected_build_item == null:
 		pass
 	elif selected_build_item.type==BuildingResource.Type.ROAD:
@@ -44,7 +43,7 @@ func _on_tile_selected(tile: Vector2) -> void:
 			map.build(tile,building, selected_build_item.area)
 			deselect_build()
 
-func _on_building_selected(building: Resource):
+func on_building_selected(building: Resource):
 	selected_build_item=building
 	_set_overlay(selected_build_item.area)
 
