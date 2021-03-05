@@ -13,6 +13,10 @@ func _init():
 func build_road(tile: Vector2, road_id: int) -> void:
 	set_cell(int(tile.x), int(tile.y), road_id)
 	_add_walkable_tile(tile)
+	
+func remove_road(tile: Vector2):
+	set_cell(int(tile.x), int(tile.y), -1)
+	_remove_walkable_tile(tile)
 
 func find_path(from: Vector2, to: Vector2) -> PoolVector2Array:
 	var from_id=_calculate_point_index(from)
