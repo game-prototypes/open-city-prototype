@@ -6,3 +6,4 @@
 script = ExtResource( 1 )
 name = "Grass Road"
 road_id = 1
+price = 5

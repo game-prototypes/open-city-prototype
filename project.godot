@@ -24,11 +24,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Components/Map/Buildings.gd"
 }, {
-"base": "Node",
-"class": "CityResources",
-"language": "GDScript",
-"path": "res://Scripts/CityResources.gd"
-}, {
 "base": "Node2D",
 "class": "Map",
 "language": "GDScript",
@@ -48,7 +43,6 @@ _global_script_class_icons={
 "Building": "",
 "BuildingResource": "",
 "Buildings": "",
-"CityResources": "",
 "Map": "",
 "RoadResource": "",
 "Roads": ""
@@ -59,6 +53,10 @@ _global_script_class_icons={
 config/name="Open City Test"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+CityResources="*res://Scripts/AutoLoad/CityResources.gd"
 
 [input]
 

@@ -8,3 +8,4 @@ script = ExtResource( 1 )
 name = "House"
 area = Vector2( 1, 1 )
 scene = ExtResource( 2 )
+price = 50
