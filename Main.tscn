@@ -21,5 +21,3 @@ position = Vector2( 515.761, 302.186 )
 [node name="GUI" parent="." instance=ExtResource( 4 )]
 
 [node name="Map" parent="." instance=ExtResource( 7 )]
-[connection signal="building_selected" from="GUI" to="Player" method="_on_building_selected"]
-[connection signal="tile_selected" from="Map" to="Player" method="_on_tile_selected"]

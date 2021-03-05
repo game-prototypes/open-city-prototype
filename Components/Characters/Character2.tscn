@@ -3,10 +3,11 @@
 [ext_resource path="res://Components/Characters/Animations/Character2Animation.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://Components/Characters/Character.gd" type="Script" id=2]
 
-
 [node name="Character2" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="Animation" type="AnimatedSprite" parent="."]
 frames = ExtResource( 1 )
 animation = "down"
+frame = 4
+playing = true
