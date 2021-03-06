@@ -43,14 +43,14 @@ __meta__ = {
 }
 
 [node name="Panel" type="Panel" parent="TopContainer"]
-margin_right = 149.0
+margin_right = 148.0
 margin_bottom = 40.0
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="MoneyLabel" type="RichTextLabel" parent="TopContainer"]
-margin_right = 149.0
+margin_right = 148.0
 margin_bottom = 40.0
 text = "Money: 0"
 __meta__ = {

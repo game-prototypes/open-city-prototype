@@ -7,7 +7,11 @@ onready var roads:Roads = $Roads
 onready var buildings:Buildings = $Buildings
 onready var elements = $Elements
 
+
 signal tile_selected(tile, building)
+
+var tile_to_items: Dictionary = Dictionary()
+#var items_to_tile: Dictionary = Dictionary()
 
 func _ready():
 	assert(terrain.cell_size[0]==roads.cell_size[0], "Error, terrain tile size != roads tile size")
@@ -28,10 +32,15 @@ func can_build_area(tile:Vector2, area: Vector2) -> bool:
 				return false
 	return true
 
-func build(tile: Vector2, building: Node2D, area: Vector2) -> void:
+func build(tile: Vector2, building: Building, area: Vector2) -> void:
 	buildings.build(tile,building,area)
 	elements.add_child(building)
+	_add_item(tile, area, building)
 	
+func _add_item(tile: Vector2, area: Vector2, item: Node2D) -> void:
+	for i in range(tile.x,tile.x+area.x):
+		for j in range(tile.y, tile.y+area.y):
+			tile_to_items[Vector2(i,j)]=item
 
 func build_road(tile: Vector2, road_id: int)-> void:
 	roads.build_road(tile, road_id)
@@ -55,9 +64,13 @@ func find_path(from: Vector2, to: Vector2)->PoolVector2Array:
 func _unhandled_input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:
-			var cell=pos2tile(get_global_mouse_position())
-			print("Map click")
-			emit_signal("tile_selected", cell)
+			var tile=pos2tile(get_global_mouse_position())
+			if tile_to_items.has(tile):
+				print("Building clicked ", tile_to_items[tile])
+			else:
+				print("Map click")
+				emit_signal("tile_selected", tile)
+				
 
 func _set_collider():
 	var terrain_rect=terrain.get_used_rect()

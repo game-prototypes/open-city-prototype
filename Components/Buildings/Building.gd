@@ -1,6 +1,9 @@
-extends Area2D
+extends Node2D
 
 class_name Building
+
+func _on_building_select():
+	print("BuildingSelect")
 
 func _input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:

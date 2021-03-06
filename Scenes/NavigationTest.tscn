@@ -20,7 +20,7 @@ script = ExtResource( 2 )
 [node name="Line2D" type="Line2D" parent="."]
 
 [node name="Icon" type="Sprite" parent="."]
-position = Vector2( 139.473, 220.311 )
+position = Vector2( 45.6128, 156.233 )
 texture = ExtResource( 4 )
 
 [node name="MainCamera" parent="." instance=ExtResource( 5 )]
