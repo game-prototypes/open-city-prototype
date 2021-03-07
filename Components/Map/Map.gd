@@ -101,3 +101,6 @@ func get_shortest_path(tile1: Vector2, tile2: Vector2) -> PoolVector2Array:
 					selected_path=candidate_path
 
 	return selected_path
+
+func get_buildings_of_type(type: String)->Array:
+	return get_tree().get_nodes_in_group(type)
