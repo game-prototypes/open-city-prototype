@@ -40,7 +40,7 @@ func on_tile_selected(tile: Vector2) -> void:
 			CityResources.remove_money(selected_build_item.price)
 	elif selected_build_item.type==BuildingResource.Type.BUILDING:
 		if map.can_build_area(tile, selected_build_item.area):
-			var building = selected_build_item.instantiate_building()
+			var building = selected_build_item.instantiate_building(tile, map)
 			map.build(tile,building, selected_build_item.area)
 			CityResources.remove_money(selected_build_item.price)
 			deselect_build()

@@ -3,7 +3,9 @@
 [ext_resource path="res://Resources/IsometricMedieval/house.png" type="Texture" id=1]
 [ext_resource path="res://Components/Buildings/Building.gd" type="Script" id=2]
 
-[node name="House" type="Node2D"]
+[node name="House" type="Node2D" groups=[
+"house",
+]]
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]

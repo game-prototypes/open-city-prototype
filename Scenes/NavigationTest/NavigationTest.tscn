@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Scenes/NavigationTest.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/NavigationTest/NavigationTest.gd" type="Script" id=1]
 [ext_resource path="res://Components/Map/Roads.gd" type="Script" id=2]
 [ext_resource path="res://Components/Map/Tilesets/terrain_old.tres" type="TileSet" id=3]
 [ext_resource path="res://icon.png" type="Texture" id=4]

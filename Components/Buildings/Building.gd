@@ -2,11 +2,12 @@ extends Node2D
 
 class_name Building
 
-func _on_building_select():
-	print("BuildingSelect")
+var map_position: Vector2
+var map
 
-func _input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton:
-		if event.button_index == BUTTON_LEFT and event.is_pressed():
-			print("Building clicked")
-			get_tree().set_input_as_handled()
+func _on_building_select():
+	print("BuildingSelect ", map_position)
+
+
+func get_road_tiles_next_to_building() -> Array:
+	return map.get_road_tiles_next_to(map_position)

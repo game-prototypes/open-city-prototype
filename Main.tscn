@@ -17,7 +17,7 @@ buildings = [ ExtResource( 3 ), ExtResource( 6 ), ExtResource( 8 ) ]
 [node name="Player" parent="." instance=ExtResource( 2 )]
 
 [node name="MainCamera" parent="." instance=ExtResource( 1 )]
-position = Vector2( 515.761, 302.186 )
+position = Vector2( 3.26434, 744.869 )
 
 [node name="GUI" parent="." instance=ExtResource( 4 )]
 
