@@ -3,7 +3,6 @@ extends Node2D
 
 export var overlay_tile: PackedScene
 
-
 onready var map: Map=$"../Map"
 onready var overlay=$Overlay
 

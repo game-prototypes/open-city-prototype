@@ -2,8 +2,7 @@ extends Node2D
 
 class_name Map
 
-onready var navigation = $MapNavigation
-
+var navigation: MapNavigation
 
 onready var _terrain:TileMap = $Terrain
 onready var _roads:Roads = $Roads
@@ -14,11 +13,24 @@ onready var _elements = $Elements
 signal tile_selected(tile, building)
 
 var tile_to_items: Dictionary = Dictionary()
-#var items_to_tile: Dictionary = Dictionary()
 
 func _ready():
 	assert(_terrain.cell_size[0]==_roads.cell_size[0], "Error, terrain tile size != roads tile size")
 	assert(_buildings.cell_size[0]==_roads.cell_size[0], "Error, buildings tile size != roads tile size")
+	navigation = MapNavigation.new(self, _roads)
+
+func _unhandled_input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == BUTTON_LEFT and event.pressed:
+			var tile=pos2tile(get_global_mouse_position())
+			if tile_to_items.has(tile):
+				var element=tile_to_items[tile]
+				if element is Building:
+					element._on_building_select()
+			else:
+				print("Map click ", tile)
+				emit_signal("tile_selected", tile)
+
 
 func can_build(tile) -> bool:
 	var road_id=_roads.get_cell(tile.x, tile.y)
@@ -55,35 +67,8 @@ func tile_center_pos(tile: Vector2) -> Vector2:
 	var top_tile_pos=_roads.map_to_world(tile)
 	return Vector2(top_tile_pos.x, top_tile_pos.y+half_size)
 
-func get_road_tiles_next_to(tile: Vector2) -> Array:
-	var tiles=[]
-	for i in range(tile.x-1,tile.x+2):
-		for j in range(tile.y-1, tile.y+2):
-			var current_tile=Vector2(i,j)
-			if current_tile!=tile and not _is_diagonal(tile, current_tile):
-				if _roads.get_cell(current_tile.x, current_tile.y)!=-1:
-					tiles.append(current_tile)
-	return tiles
-
 func get_buildings_of_type(type: String)->Array:
 	return get_tree().get_nodes_in_group(type)
-
-func _unhandled_input(event):
-	if event is InputEventMouseButton:
-		if event.button_index == BUTTON_LEFT and event.pressed:
-			var tile=pos2tile(get_global_mouse_position())
-			if tile_to_items.has(tile):
-				var element=tile_to_items[tile]
-				if element is Building:
-					element._on_building_select()
-			else:
-				print("Map click ", tile)
-				emit_signal("tile_selected", tile)
-
-func _is_diagonal(tile1:Vector2, tile2:Vector2)-> bool:
-	return tile1.x!=tile2.x and tile1.y!=tile2.y
-
-
 
 func _add_item(tile: Vector2, area: Vector2, item: Node2D) -> void:
 	for i in range(tile.x,tile.x+area.x):

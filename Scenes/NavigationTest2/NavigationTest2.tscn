@@ -1,11 +1,14 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Components/Map/Buildings.gd" type="Script" id=1]
+[ext_resource path="res://Components/Map/Scripts/Buildings.gd" type="Script" id=1]
 [ext_resource path="res://Components/Map/Tilesets/terrain_old.tres" type="TileSet" id=2]
 [ext_resource path="res://Components/Map/Tilesets/tile_markers.tres" type="TileSet" id=3]
-[ext_resource path="res://Components/Map/Map.gd" type="Script" id=4]
-[ext_resource path="res://Components/Map/Roads.gd" type="Script" id=5]
+[ext_resource path="res://Components/Map/Scripts/Map.gd" type="Script" id=4]
+[ext_resource path="res://Components/Map/Scripts/Roads.gd" type="Script" id=5]
 [ext_resource path="res://Scenes/NavigationTest2/NavigationTest2.gd" type="Script" id=6]
+
+
+
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 6 )

@@ -12,7 +12,6 @@ func _ready():
 
 func build(tile: Vector2, building: Node2D, area: Vector2):
 	building.position=map_to_world(tile)
-	print(tile, building.position)
 	building.add_to_group(BUILDINGS_GROUP)
 	_build_area(tile,area)
 

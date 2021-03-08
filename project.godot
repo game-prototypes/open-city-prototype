@@ -22,17 +22,17 @@ _global_script_classes=[ {
 "base": "TileMap",
 "class": "Buildings",
 "language": "GDScript",
-"path": "res://Components/Map/Buildings.gd"
+"path": "res://Components/Map/Scripts/Buildings.gd"
 }, {
 "base": "Node2D",
 "class": "Map",
 "language": "GDScript",
-"path": "res://Components/Map/Map.gd"
+"path": "res://Components/Map/Scripts/Map.gd"
 }, {
-"base": "Node",
+"base": "Reference",
 "class": "MapNavigation",
 "language": "GDScript",
-"path": "res://Components/Map/MapNavigation.gd"
+"path": "res://Components/Map/Scripts/MapNavigation.gd"
 }, {
 "base": "Resource",
 "class": "RoadResource",
@@ -42,7 +42,7 @@ _global_script_classes=[ {
 "base": "TileMap",
 "class": "Roads",
 "language": "GDScript",
-"path": "res://Components/Map/Roads.gd"
+"path": "res://Components/Map/Scripts/Roads.gd"
 } ]
 _global_script_class_icons={
 "Building": "",
@@ -63,6 +63,10 @@ config/icon="res://icon.png"
 [autoload]
 
 CityResources="*res://Scripts/AutoLoad/CityResources.gd"
+
+[debug]
+
+gdscript/warnings/return_value_discarded=false
 
 [input]
 
