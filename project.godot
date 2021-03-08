@@ -25,6 +25,11 @@ _global_script_classes=[ {
 "path": "res://Components/Map/Scripts/Buildings.gd"
 }, {
 "base": "Node2D",
+"class": "Character",
+"language": "GDScript",
+"path": "res://Components/Characters/Scripts/Character.gd"
+}, {
+"base": "Node2D",
 "class": "Map",
 "language": "GDScript",
 "path": "res://Components/Map/Scripts/Map.gd"
@@ -48,6 +53,7 @@ _global_script_class_icons={
 "Building": "",
 "BuildingResource": "",
 "Buildings": "",
+"Character": "",
 "Map": "",
 "MapNavigation": "",
 "RoadResource": "",

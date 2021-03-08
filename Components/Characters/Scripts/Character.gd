@@ -1,5 +1,6 @@
 extends Node2D
 
+class_name Character
 
 export(float) var movement_speed=25
 onready var animation: AnimatedSprite = $Animation

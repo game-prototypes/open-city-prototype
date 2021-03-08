@@ -1,15 +1,15 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Components/Characters/Animations/Character2Animation.tres" type="SpriteFrames" id=1]
-[ext_resource path="res://Components/Characters/Character.gd" type="Script" id=2]
+[ext_resource path="res://Components/Characters/Scripts/TargetCharacter.gd" type="Script" id=2]
 
-[node name="Character2" type="Node2D"]
+[node name="Farmer" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="Animation" type="AnimatedSprite" parent="."]
 frames = ExtResource( 1 )
 animation = "down"
-frame = 3
+frame = 6
 playing = true
 
 [node name="Tween" type="Tween" parent="."]
