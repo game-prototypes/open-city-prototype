@@ -5,11 +5,13 @@
 
 [node name="Farmer" type="Node2D"]
 script = ExtResource( 2 )
+type = "farmer"
+target_building_group = "house"
 
 [node name="Animation" type="AnimatedSprite" parent="."]
 frames = ExtResource( 1 )
 animation = "down"
-frame = 6
+frame = 3
 playing = true
 
 [node name="Tween" type="Tween" parent="."]

@@ -6,4 +6,7 @@ var map_position: Vector2
 var map
 
 func _on_building_select():
-	print("BuildingSelect ", map_position)
+	pass
+
+func character_arrived(_character) -> void:
+	pass

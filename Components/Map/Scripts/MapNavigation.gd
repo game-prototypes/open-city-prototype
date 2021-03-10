@@ -10,9 +10,21 @@ func _init(map, roads):
 func find_path(from: Vector2, to: Vector2)->PoolVector2Array:
 	return _roads.find_path(from, to)
 
-func get_road_path(tile1: Vector2, tile2: Vector2) -> PoolVector2Array:
-	var tilesA=_get_road_tiles_next_to(tile1)
-	var tilesB=_get_road_tiles_next_to(tile2)
+func get_road_path_to_building(from_tile: Vector2, to_tile: Vector2)->PoolVector2Array:
+	var tilesB=get_road_tiles_next_to(to_tile)
+	var selected_path=PoolVector2Array()
+	
+	for j in tilesB:
+		var candidate_path=find_path(from_tile, j)
+		if candidate_path.size() > 0:
+			if selected_path.size() == 0 or candidate_path.size() < selected_path.size():
+				selected_path=candidate_path
+	return selected_path
+	
+
+func get_road_path_between_buildings(tile1: Vector2, tile2: Vector2) -> PoolVector2Array:
+	var tilesA=get_road_tiles_next_to(tile1)
+	var tilesB=get_road_tiles_next_to(tile2)
 	var selected_path=PoolVector2Array()
 	
 	for i in tilesA:
@@ -21,7 +33,6 @@ func get_road_path(tile1: Vector2, tile2: Vector2) -> PoolVector2Array:
 			if candidate_path.size() > 0:
 				if selected_path.size() == 0 or candidate_path.size() < selected_path.size():
 					selected_path=candidate_path
-
 	return selected_path
 
 func get_closest_building_of_type(from: Vector2, building_type: String) -> Building:
@@ -31,7 +42,7 @@ func get_closest_building_of_type(from: Vector2, building_type: String) -> Build
 	var shortest_path=[]
 
 	for building in buildings:
-		var candidate_path=get_road_path(from, building.map_position)
+		var candidate_path=get_road_path_between_buildings(from, building.map_position)
 		if candidate_path.size() > 0:
 			if shortest_path.size() == 0 or candidate_path.size() < shortest_path.size():
 				shortest_path=candidate_path
@@ -39,7 +50,7 @@ func get_closest_building_of_type(from: Vector2, building_type: String) -> Build
 	return closest_building
 
 
-func _get_road_tiles_next_to(tile: Vector2) -> Array:
+func get_road_tiles_next_to(tile: Vector2) -> Array:
 	var tiles=[]
 	for i in range(tile.x-1,tile.x+2):
 		for j in range(tile.y-1, tile.y+2):
