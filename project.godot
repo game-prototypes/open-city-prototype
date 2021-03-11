@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "Building",
 "language": "GDScript",
-"path": "res://Components/Buildings/Building.gd"
+"path": "res://Components/Buildings/Scripts/Building.gd"
 }, {
 "base": "Resource",
 "class": "BuildingResource",
@@ -39,6 +39,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Components/Map/Scripts/MapNavigation.gd"
 }, {
+"base": "Building",
+"class": "ProductionBuilding",
+"language": "GDScript",
+"path": "res://Components/Buildings/Scripts/ProductionBuilding.gd"
+}, {
 "base": "Resource",
 "class": "RoadResource",
 "language": "GDScript",
@@ -48,6 +53,11 @@ _global_script_classes=[ {
 "class": "Roads",
 "language": "GDScript",
 "path": "res://Components/Map/Scripts/Roads.gd"
+}, {
+"base": "Character",
+"class": "Transporter",
+"language": "GDScript",
+"path": "res://Components/Characters/Scripts/Transporter.gd"
 } ]
 _global_script_class_icons={
 "Building": "",
@@ -56,8 +66,10 @@ _global_script_class_icons={
 "Character": "",
 "Map": "",
 "MapNavigation": "",
+"ProductionBuilding": "",
 "RoadResource": "",
-"Roads": ""
+"Roads": "",
+"Transporter": ""
 }
 
 [application]
@@ -69,6 +81,7 @@ config/icon="res://icon.png"
 [autoload]
 
 CityResources="*res://Scripts/AutoLoad/CityResources.gd"
+Global="*res://Scripts/AutoLoad/Global.gd"
 
 [debug]
 

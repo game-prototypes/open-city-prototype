@@ -1,9 +1,14 @@
 extends Character
 
-export var target_building_group: String
+class_name Transporter
+
+var target_building_group: String
 
 var target_building: Building
 var origin_building: Building
+
+var resource_ammount: int
+var resource_type: int
 
 func _ready():
 	assert(target_building_group, "Target building group is not set")
