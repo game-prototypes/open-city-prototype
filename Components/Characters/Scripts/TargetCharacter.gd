@@ -3,9 +3,10 @@ extends Character
 export var target_building_group: String
 
 var target_building: Building
+var origin_building: Building
 
 func _ready():
-	assert(target_building_group, "Target building group is not set")	
+	assert(target_building_group, "Target building group is not set")
 	_set_target()
 
 

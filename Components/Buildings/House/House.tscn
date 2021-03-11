@@ -4,6 +4,7 @@
 [ext_resource path="res://Components/Buildings/House/House.gd" type="Script" id=2]
 
 [node name="House" type="Node2D" groups=[
+"building",
 "house",
 ]]
 script = ExtResource( 2 )

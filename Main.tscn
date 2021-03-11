@@ -25,3 +25,7 @@ position = Vector2( 3.26434, 744.869 )
 
 [node name="CityResources" type="Node" parent="."]
 script = ExtResource( 5 )
+
+[node name="BuildingUpdateTimer" type="Timer" parent="."]
+process_mode = 0
+autostart = true

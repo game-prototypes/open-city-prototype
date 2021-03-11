@@ -26,7 +26,7 @@ func _unhandled_input(event):
 			if tile_to_items.has(tile):
 				var element=tile_to_items[tile]
 				if element is Building:
-					element._on_building_select()
+					element.on_building_select()
 			else:
 				print("Map click ", tile)
 				emit_signal("tile_selected", tile)
