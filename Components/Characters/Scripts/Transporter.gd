@@ -16,7 +16,6 @@ func _ready():
 
 
 func _set_target():
-	print("Set target ",target_building_group, map_position)
 	target_building=map.navigation.get_closest_building_of_type(map_position, target_building_group)
 	
 	if target_building:

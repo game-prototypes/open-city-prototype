@@ -10,6 +10,7 @@ type = "transporter"
 [node name="Animation" type="AnimatedSprite" parent="."]
 frames = ExtResource( 1 )
 animation = "down"
+frame = 5
 playing = true
 
 [node name="Tween" type="Tween" parent="."]

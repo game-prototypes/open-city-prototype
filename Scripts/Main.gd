@@ -9,6 +9,7 @@ onready var map: = $Map
 onready var buildingUpdateTimer:=$BuildingUpdateTimer
 
 func _ready():
+	Log.info("Begin Main Scene")
 	gui.set_buildings(buildings)
 	gui.connect("building_selected", player,"on_building_selected")
 	map.connect("tile_selected", player, "on_tile_selected")

@@ -82,6 +82,7 @@ config/icon="res://icon.png"
 
 CityResources="*res://Scripts/AutoLoad/CityResources.gd"
 Global="*res://Scripts/AutoLoad/Global.gd"
+Log="*res://Scripts/AutoLoad/Log.gd"
 
 [debug]
 
@@ -123,6 +124,12 @@ camera_padding_down={
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777234,"unicode":0,"echo":false,"script":null)
  ]
 }
+
+[log]
+
+info=true
+warn=true
+error=true
 
 [rendering]
 
