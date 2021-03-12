@@ -25,6 +25,7 @@ func set_path(path: Array):
 
 func _move(path: Array):
 	if tween.is_active():
+		print("Tween is active?")
 		return
 	var point=path.pop_front()
 	position=map.tile2pos(point)
@@ -39,4 +40,5 @@ func _move(path: Array):
 		tween.start()
 		yield(tween, "tween_completed")
 		map_position=point
+	tween.stop_all()
 	arrived_to_destination()
