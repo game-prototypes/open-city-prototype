@@ -9,16 +9,24 @@ export(Global.RESOURCES) var resource
 export var target_building: String
 
 var current_ammount:float=0
+var transporter: Character
 
 func on_building_update(delta: float):
 	.on_building_update(delta)
 	_produce_food(delta)
-	if current_ammount>=max_storage:
+	if current_ammount>=max_storage and not _is_transporter_on_route():
 		_spawn_transporter()
 
+func _is_transporter_on_route() -> bool:
+	return transporter!=null
 
 func on_building_select():
 	.on_building_select()
+
+func character_arrived(character):
+	.character_arrived(character)
+	if character==transporter:
+		transporter=null
 
 func _produce_food(delta: float):
 	if current_ammount<max_storage:
@@ -32,14 +40,14 @@ func _spawn_transporter():
 		current_ammount=0
 
 func _spawn_transporter_instance(position: Vector2):
-	var instance=transporter_character.instance() as Transporter
-	instance.map=map
-	instance.map_position=position
-	instance.target_building_group=target_building
-	instance.origin_building=self
-	instance.resource_type = resource
-	instance.resource_ammount=current_ammount
-	map.add_person(instance)
+	transporter=transporter_character.instance() as Transporter
+	transporter.map=map
+	transporter.map_position=position
+	transporter.target_building_group=target_building
+	transporter.origin_building=self
+	transporter.resource_type = resource
+	transporter.resource_ammount=current_ammount
+	map.add_person(transporter)
 
 func _get_closer_spawn_tile(target_building_group:String):
 	var building = map.navigation.get_closest_building_of_type(map_position, target_building_group)
