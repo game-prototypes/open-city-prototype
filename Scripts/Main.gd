@@ -12,6 +12,7 @@ func _ready():
 	Log.info("Begin Main Scene")
 	gui.set_buildings(buildings)
 	gui.connect("building_selected", player,"on_building_selected")
+	gui.connect("demolish_building_selected", player,"on_demolish_building_selected")
 	map.connect("tile_selected", player, "on_tile_selected")
 	buildingUpdateTimer.connect("timeout", self, "on_building_timer")
 	

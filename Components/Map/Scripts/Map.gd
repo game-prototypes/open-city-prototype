@@ -28,7 +28,6 @@ func _unhandled_input(event):
 				if element is Building:
 					element.on_building_select()
 			else:
-				print("Map click ", tile)
 				emit_signal("tile_selected", tile)
 
 
@@ -45,9 +44,22 @@ func can_build_area(tile:Vector2, area: Vector2) -> bool:
 	return true
 
 func build(tile: Vector2, building: Building, area: Vector2) -> void:
+	Log.info("Build", tile, building)
 	_buildings.build(tile,building,area)
 	_elements.add_child(building)
 	_add_item(tile, area, building)
+
+func demolish_tile(tile: Vector2) -> bool:
+	Log.info("Demolish", tile)
+	if _roads.has_road(tile):
+		print("Remove road")
+		_roads.remove_road(tile)
+		# TODO: recalculate paths signal
+		return true
+	elif tile_to_items.has(tile):
+		# TODO: remove buiding
+		return true
+	return false
 
 func add_person(person: Node2D) -> void:
 	_elements.add_child(person)

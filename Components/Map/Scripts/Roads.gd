@@ -18,6 +18,9 @@ func remove_road(tile: Vector2):
 	set_cell(int(tile.x), int(tile.y), -1)
 	_remove_walkable_tile(tile)
 
+func has_road(tile: Vector2)->bool:
+	return get_cell(tile.x, tile.y)!=-1
+
 func find_path(from: Vector2, to: Vector2) -> PoolVector2Array:
 	var from_id=_calculate_point_index(from)
 	var to_id=_calculate_point_index(to)
