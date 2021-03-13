@@ -13,7 +13,6 @@ signal tile_selected(tile, building)
 
 func _ready():
 	assert(_terrain.cell_size[0]==_roads.cell_size[0], "Error, terrain tile size != roads tile size")
-	assert(_buildings.cell_size[0]==_roads.cell_size[0], "Error, buildings tile size != roads tile size")
 	navigation = MapNavigation.new(self, _roads)
 
 func _unhandled_input(event):

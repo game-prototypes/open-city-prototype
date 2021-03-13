@@ -19,7 +19,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Components/Buildings/BuildingResource.gd"
 }, {
-"base": "TileMap",
+"base": "Node",
 "class": "Buildings",
 "language": "GDScript",
 "path": "res://Components/Map/Scripts/Buildings.gd"
