@@ -10,7 +10,5 @@
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( -2.45242, 12.9281 )
+position = Vector2( -4.45242, 7.9281 )
 texture = ExtResource( 1 )
-centered = false
-offset = Vector2( -64, -64 )

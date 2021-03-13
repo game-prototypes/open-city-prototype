@@ -1,6 +1,5 @@
 extends Node2D
 
-
 export(Array, Resource) var buildings
 
 onready var gui: = $GUI

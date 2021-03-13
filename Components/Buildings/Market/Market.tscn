@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Resources/IsometricMedieval/fruit.png" type="Texture" id=1]
+[ext_resource path="res://Components/Buildings/Scripts/Building.gd" type="Script" id=2]
+[ext_resource path="res://Resources/IsometricMedieval/dirt.png" type="Texture" id=3]
+
+[node name="Market" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="FloorSprite" type="Sprite" parent="."]
+position = Vector2( -0.107697, 31.7216 )
+texture = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -4.70193, 12.2182 )
+texture = ExtResource( 1 )

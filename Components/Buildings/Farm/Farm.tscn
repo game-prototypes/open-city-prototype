@@ -13,5 +13,5 @@ transporter_character = ExtResource( 3 )
 target_building = "house"
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, 20 )
+position = Vector2( 0, 18 )
 texture = ExtResource( 1 )

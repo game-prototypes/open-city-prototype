@@ -47,7 +47,7 @@ _global_script_classes=[ {
 "base": "Resource",
 "class": "RoadResource",
 "language": "GDScript",
-"path": "res://Components/Buildings/RoadResource.gd"
+"path": "res://Components/Roads/RoadResource.gd"
 }, {
 "base": "TileMap",
 "class": "Roads",
