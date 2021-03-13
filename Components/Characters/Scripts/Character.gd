@@ -21,7 +21,8 @@ func arrived_to_destination():
 
 func set_path(path: Array):
 	_path=path
-	_move(path)
+	if path.size()>0:
+		_move(path)
 
 func _move(path: Array):
 	if tween.is_active():
