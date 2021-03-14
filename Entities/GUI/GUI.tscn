@@ -1,7 +1,8 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Components/GUI/GUI.gd" type="Script" id=1]
-[ext_resource path="res://Components/GUI/BuildingButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Entities/GUI/GUI.gd" type="Script" id=1]
+[ext_resource path="res://Entities/GUI/BuildingButton.tscn" type="PackedScene" id=2]
+
 
 [node name="GUI" type="CanvasLayer"]
 script = ExtResource( 1 )

@@ -4,8 +4,9 @@
 [ext_resource path="res://Resources/MegaIsometricBlock/Container Open 4.png" type="Texture" id=2]
 [ext_resource path="res://Resources/MegaIsometricBlock/Box 4.png" type="Texture" id=3]
 [ext_resource path="res://Resources/IsometricMedieval/marblepath.png" type="Texture" id=4]
-[ext_resource path="res://Components/Buildings/Scripts/Building.gd" type="Script" id=5]
+[ext_resource path="res://Entities/Buildings/Scripts/Building.gd" type="Script" id=5]
 [ext_resource path="res://Resources/MegaIsometricBlock/Container 4.png" type="Texture" id=6]
+
 
 [node name="Storage" type="Node2D"]
 script = ExtResource( 5 )
