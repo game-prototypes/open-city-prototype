@@ -50,7 +50,7 @@ func _spawn_transporter_instance(position: Vector2):
 	map.add_person(transporter)
 
 func _get_closer_spawn_tile(target_building_group:String):
-	var building = map.navigation.get_closest_building_of_type(map_position, target_building_group)
+	var building = map.navigation.get_closest_building_of_group(map_position, target_building_group)
 	
 	if building:
 		var path=map.navigation.get_road_path_between_buildings(map_position, building.map_position)

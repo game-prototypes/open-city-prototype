@@ -42,7 +42,7 @@ _global_script_classes=[ {
 "base": "Building",
 "class": "ProductionBuilding",
 "language": "GDScript",
-"path": "res://Components/Buildings/Scripts/ProductionBuilding.gd"
+"path": "res://Components/Buildings/Scripts/Producer.gd"
 }, {
 "base": "Resource",
 "class": "RoadResource",
