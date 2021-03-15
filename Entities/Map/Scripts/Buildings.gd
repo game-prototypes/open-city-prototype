@@ -8,7 +8,7 @@ onready var map=get_parent()
 
 var blocked_tile_id: int
 
-var tile_to_building: Dictionary = Dictionary()
+var tile_to_building := Dictionary()
 
 func _ready():
 	pass

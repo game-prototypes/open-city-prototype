@@ -2,5 +2,9 @@ extends Node
 
 
 enum RESOURCES {
-	Food,
+	Bread,
+}
+
+var resource_names:= {
+	RESOURCES.Bread: "Bread"
 }

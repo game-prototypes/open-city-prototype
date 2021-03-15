@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Entities/Buildings/Scripts/Resources/BuildingResource.gd" type="Script" id=1]
+[ext_resource path="res://Entities/Buildings/Scenes/Market/Market.tscn" type="PackedScene" id=2]
+
+[resource]
+script = ExtResource( 1 )
+name = "Market"
+area = Vector2( 1, 1 )
+scene = ExtResource( 2 )
+price = 180

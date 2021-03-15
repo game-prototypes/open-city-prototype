@@ -17,7 +17,7 @@ _global_script_classes=[ {
 "base": "Resource",
 "class": "BuildingResource",
 "language": "GDScript",
-"path": "res://Entities/Buildings/BuildingResource.gd"
+"path": "res://Entities/Buildings/Scripts/Resources/BuildingResource.gd"
 }, {
 "base": "Node",
 "class": "Buildings",
