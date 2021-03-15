@@ -34,7 +34,8 @@ func _produce_food(delta: float):
 		current_ammount=clamp(current_ammount+food_produced, 0, max_storage)
 
 func _spawn_transporter():
-	var tile=_get_closer_spawn_tile(target_building_group)
+	#var tile=_get_random_spawn_tile()
+	var tile=_get_closer_spawn_tile()
 	if tile:
 		_spawn_transporter_instance(tile)
 		current_ammount=0
@@ -43,14 +44,14 @@ func _spawn_transporter_instance(position: Vector2):
 	transporter=transporter_character.instance() as Transporter
 	transporter.map=map
 	transporter.map_position=position
-	transporter.target_building_group=target_building_group
 	transporter.origin_building=self
 	transporter.resource_type = resource
 	transporter.resource_ammount=current_ammount
 	map.add_person(transporter)
 
-func _get_closer_spawn_tile(target_group:String):
-	var building = map.navigation.get_closest_building_of_group(map_position, target_group)
+# For more intelligent spawn
+func _get_closer_spawn_tile():
+	var building = map.resource_manager.get_target_building_for_resource(resource, map_position)
 	
 	if building:
 		var path=map.navigation.get_road_path_between_buildings(map_position, building.map_position)

@@ -3,6 +3,7 @@ extends Node2D
 class_name Map
 
 var navigation: MapNavigation
+var resource_manager: ResourceManager
 
 onready var _terrain:TileMap = $Terrain
 onready var _roads:Roads = $Roads
@@ -14,6 +15,7 @@ signal tile_selected(tile, building)
 func _ready():
 	assert(_terrain.cell_size[0]==_roads.cell_size[0], "Error, terrain tile size != roads tile size")
 	navigation = MapNavigation.new(self, _roads)
+	resource_manager = ResourceManager.new(navigation)
 
 func _unhandled_input(event):
 	if event is InputEventMouseButton:

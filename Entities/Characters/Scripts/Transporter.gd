@@ -2,8 +2,6 @@ extends Character
 
 class_name Transporter
 
-var target_building_group: String
-
 var target_building: Building
 var origin_building: Building
 
@@ -11,9 +9,8 @@ var resource_ammount: int
 var resource_type: int
 
 func _ready():
-	assert(target_building_group, "Target building group is not set")
-	target_building=map.navigation.get_closest_building_of_group(map_position, target_building_group)
-	_set_target(target_building)
+	var target=map.resource_manager.get_target_building_for_resource(resource_type, map_position)
+	_set_target(target)
 
 func arrived_to_destination():
 	.arrived_to_destination()

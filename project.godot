@@ -44,6 +44,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Entities/Buildings/Scripts/Producer.gd"
 }, {
+"base": "Reference",
+"class": "ResourceManager",
+"language": "GDScript",
+"path": "res://Entities/Map/Scripts/ResourceManager.gd"
+}, {
 "base": "Resource",
 "class": "RoadResource",
 "language": "GDScript",
@@ -72,6 +77,7 @@ _global_script_class_icons={
 "Map": "",
 "MapNavigation": "",
 "Producer": "",
+"ResourceManager": "",
 "RoadResource": "",
 "Roads": "",
 "Storage": "",

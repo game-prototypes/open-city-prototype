@@ -1,4 +1,4 @@
-extends Node
+extends Building
 
 
 # Declare member variables here. Examples:

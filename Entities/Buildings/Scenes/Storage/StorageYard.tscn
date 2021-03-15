@@ -1,17 +1,17 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Resources/MegaIsometricBlock/Crate 1.png" type="Texture" id=1]
+[ext_resource path="res://Resources/MegaIsometricBlock/Box 4.png" type="Texture" id=1]
 [ext_resource path="res://Resources/MegaIsometricBlock/Container Open 4.png" type="Texture" id=2]
-[ext_resource path="res://Resources/MegaIsometricBlock/Box 4.png" type="Texture" id=3]
+[ext_resource path="res://Resources/MegaIsometricBlock/Crate 1.png" type="Texture" id=3]
 [ext_resource path="res://Resources/IsometricMedieval/marblepath.png" type="Texture" id=4]
-[ext_resource path="res://Entities/Buildings/Scenes/Storage/StorageYard.gd" type="Script" id=5]
-[ext_resource path="res://Resources/MegaIsometricBlock/Container 4.png" type="Texture" id=6]
+[ext_resource path="res://Resources/MegaIsometricBlock/Container 4.png" type="Texture" id=5]
+[ext_resource path="res://Entities/Buildings/Scenes/Storage/StorageYard.gd" type="Script" id=6]
 
 [node name="StorageYard" type="Node2D" groups=[
 "building",
 "storage",
 ]]
-script = ExtResource( 5 )
+script = ExtResource( 6 )
 
 [node name="FloorSprite" type="Sprite" parent="."]
 position = Vector2( -2.51825, 28.5759 )
@@ -24,27 +24,27 @@ position = Vector2( 2, 11 )
 [node name="Crate1" type="Sprite" parent="FullContentsSprite"]
 position = Vector2( -5.58908, -2.07908 )
 scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 1 )
+texture = ExtResource( 3 )
 
 [node name="Box1" type="Sprite" parent="FullContentsSprite"]
 position = Vector2( -5.61933, -18.5452 )
 scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 3 )
+texture = ExtResource( 1 )
 
 [node name="Box2" type="Sprite" parent="FullContentsSprite"]
 position = Vector2( -24.0337, 6.81709 )
 scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 3 )
+texture = ExtResource( 1 )
 
 [node name="Crate2" type="Sprite" parent="FullContentsSprite"]
 position = Vector2( 21.2397, 9.18442 )
 scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 1 )
+texture = ExtResource( 3 )
 
 [node name="Container2" type="Sprite" parent="FullContentsSprite"]
 position = Vector2( -7.53941, 23.7068 )
 scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 6 )
+texture = ExtResource( 5 )
 
 [node name="EmptyContentsSprite" type="Node2D" parent="."]
 
