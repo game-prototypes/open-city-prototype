@@ -71,5 +71,8 @@ func tile_center_pos(tile: Vector2) -> Vector2:
 	var top_tile_pos=_roads.map_to_world(tile)
 	return Vector2(top_tile_pos.x, top_tile_pos.y+half_size)
 
-func get_buildings_of_type(type: String)->Array:
-	return get_tree().get_nodes_in_group(type)
+func get_buildings_of_groups(groups: Array) -> Array:
+	var res=[]
+	for group in groups:
+		res+=get_tree().get_nodes_in_group(group)
+	return res
