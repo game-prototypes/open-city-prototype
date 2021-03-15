@@ -1,9 +1,12 @@
-extends Node
+class_name Storage
 
-export var max_storage:int=0
+var max_storage:int=0
 
 var stored_resources := Dictionary()
 var stored_quantity:int=0
+
+func _init(_max_storage:int):
+	max_storage=_max_storage
 
 func store(resource: int, quantity:int) -> bool:
 	assert(quantity>=0, "Invalid negative quantity to store")

@@ -4,11 +4,13 @@
 [ext_resource path="res://Resources/MegaIsometricBlock/Container Open 4.png" type="Texture" id=2]
 [ext_resource path="res://Resources/MegaIsometricBlock/Box 4.png" type="Texture" id=3]
 [ext_resource path="res://Resources/IsometricMedieval/marblepath.png" type="Texture" id=4]
-[ext_resource path="res://Entities/Buildings/Scripts/Building.gd" type="Script" id=5]
+[ext_resource path="res://Entities/Buildings/Scenes/Storage/StorageYard.gd" type="Script" id=5]
 [ext_resource path="res://Resources/MegaIsometricBlock/Container 4.png" type="Texture" id=6]
 
-
-[node name="Storage" type="Node2D"]
+[node name="StorageYard" type="Node2D" groups=[
+"building",
+"storage",
+]]
 script = ExtResource( 5 )
 
 [node name="FloorSprite" type="Sprite" parent="."]
@@ -16,6 +18,7 @@ position = Vector2( -2.51825, 28.5759 )
 texture = ExtResource( 4 )
 
 [node name="FullContentsSprite" type="Node2D" parent="."]
+visible = false
 position = Vector2( 2, 11 )
 
 [node name="Crate1" type="Sprite" parent="FullContentsSprite"]
@@ -43,10 +46,9 @@ position = Vector2( -7.53941, 23.7068 )
 scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 6 )
 
-[node name="Node2D" type="Node2D" parent="."]
-visible = false
+[node name="EmptyContentsSprite" type="Node2D" parent="."]
 
-[node name="Container" type="Sprite" parent="Node2D"]
+[node name="Container" type="Sprite" parent="EmptyContentsSprite"]
 position = Vector2( -5.08755, 27.0249 )
 scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 2 )

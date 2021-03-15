@@ -40,7 +40,7 @@ _global_script_classes=[ {
 "path": "res://Entities/Map/Scripts/MapNavigation.gd"
 }, {
 "base": "Building",
-"class": "ProductionBuilding",
+"class": "Producer",
 "language": "GDScript",
 "path": "res://Entities/Buildings/Scripts/Producer.gd"
 }, {
@@ -54,6 +54,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Entities/Map/Scripts/Roads.gd"
 }, {
+"base": "Reference",
+"class": "Storage",
+"language": "GDScript",
+"path": "res://Entities/Buildings/Scenes/Storage/Storage.gd"
+}, {
 "base": "Character",
 "class": "Transporter",
 "language": "GDScript",
@@ -66,9 +71,10 @@ _global_script_class_icons={
 "Character": "",
 "Map": "",
 "MapNavigation": "",
-"ProductionBuilding": "",
+"Producer": "",
 "RoadResource": "",
 "Roads": "",
+"Storage": "",
 "Transporter": ""
 }
 

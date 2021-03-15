@@ -4,14 +4,14 @@
 [ext_resource path="res://Entities/Buildings/Scripts/Producer.gd" type="Script" id=2]
 [ext_resource path="res://Entities/Characters/Transporter.tscn" type="PackedScene" id=3]
 
-
 [node name="Farm" type="Node2D" groups=[
 "building",
 "farm",
 ]]
 script = ExtResource( 2 )
 transporter_character = ExtResource( 3 )
-target_building = "house"
+resource = 1
+target_building_group = "storage"
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, 18 )

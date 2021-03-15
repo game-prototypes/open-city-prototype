@@ -12,7 +12,7 @@ var resource_type: int
 
 func _ready():
 	assert(target_building_group, "Target building group is not set")
-	target_building=map.navigation.get_closest_building_of_type(map_position, target_building_group)
+	target_building=map.navigation.get_closest_building_of_group(map_position, target_building_group)
 	_set_target(target_building)
 
 func arrived_to_destination():

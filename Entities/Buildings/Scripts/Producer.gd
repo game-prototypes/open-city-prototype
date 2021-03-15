@@ -1,12 +1,12 @@
 extends Building
 
-class_name ProductionBuilding
+class_name Producer
 
 export var transporter_character:PackedScene
 export var production_rate:float=1
 export var max_storage:int=10
 export(Global.RESOURCES) var resource
-export var target_building: String
+export var target_building_group: String
 
 var current_ammount:float=0
 var transporter: Character
@@ -34,7 +34,7 @@ func _produce_food(delta: float):
 		current_ammount=clamp(current_ammount+food_produced, 0, max_storage)
 
 func _spawn_transporter():
-	var tile=_get_closer_spawn_tile(target_building)
+	var tile=_get_closer_spawn_tile(target_building_group)
 	if tile:
 		_spawn_transporter_instance(tile)
 		current_ammount=0
@@ -43,14 +43,14 @@ func _spawn_transporter_instance(position: Vector2):
 	transporter=transporter_character.instance() as Transporter
 	transporter.map=map
 	transporter.map_position=position
-	transporter.target_building_group=target_building
+	transporter.target_building_group=target_building_group
 	transporter.origin_building=self
 	transporter.resource_type = resource
 	transporter.resource_ammount=current_ammount
 	map.add_person(transporter)
 
-func _get_closer_spawn_tile(target_building_group:String):
-	var building = map.navigation.get_closest_building_of_group(map_position, target_building_group)
+func _get_closer_spawn_tile(target_group:String):
+	var building = map.navigation.get_closest_building_of_group(map_position, target_group)
 	
 	if building:
 		var path=map.navigation.get_road_path_between_buildings(map_position, building.map_position)
