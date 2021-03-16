@@ -13,7 +13,7 @@ func character_arrived(character: Character) -> void:
 	.character_arrived(character)
 	if character is Transporter:
 		# TODO: validate space
-		storage.store(character.resource_type,character.resource_type)
+		storage.store(character.resource_type,character.resource_ammount)
 		character.resource_ammount=0
 		empty_sprite.visible=false
 		full_sprite.visible=true

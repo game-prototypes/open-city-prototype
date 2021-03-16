@@ -6,14 +6,13 @@ export var transporter_character:PackedScene
 export var production_rate:float=1
 export var max_storage:int=10
 export(Global.RESOURCES) var resource
-export var target_building_group: String
 
 var current_ammount:float=0
 var transporter: Character
 
 func on_building_update(delta: float):
 	.on_building_update(delta)
-	_produce_food(delta)
+	_produce_resource(delta)
 	if current_ammount>=max_storage and not _is_transporter_on_route():
 		_spawn_transporter()
 
@@ -28,7 +27,7 @@ func character_arrived(character):
 	if character==transporter:
 		transporter=null
 
-func _produce_food(delta: float):
+func _produce_resource(delta: float):
 	if current_ammount<max_storage:
 		var food_produced=production_rate*delta
 		current_ammount=clamp(current_ammount+food_produced, 0, max_storage)
@@ -38,16 +37,19 @@ func _spawn_transporter():
 	var tile=_get_closer_spawn_tile()
 	if tile:
 		_spawn_transporter_instance(tile)
-		current_ammount=0
 
 func _spawn_transporter_instance(position: Vector2):
 	transporter=transporter_character.instance() as Transporter
 	transporter.map=map
 	transporter.map_position=position
 	transporter.origin_building=self
-	transporter.resource_type = resource
-	transporter.resource_ammount=current_ammount
+	_on_transporter_spawn()
 	map.add_person(transporter)
+
+func _on_transporter_spawn():
+	transporter.resource_type = resource
+	transporter.resource_ammount=round(current_ammount)
+	current_ammount=0
 
 # For more intelligent spawn
 func _get_closer_spawn_tile():
@@ -61,5 +63,5 @@ func _get_closer_spawn_tile():
 func _get_random_spawn_tile():
 	var road_tiles=map.navigation.get_road_tiles_next_to(map_position)
 	if road_tiles.size()>0:
-		# TODO: random
+		# TODO: random?
 		return road_tiles[0]

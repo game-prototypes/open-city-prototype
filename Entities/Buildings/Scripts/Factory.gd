@@ -1,16 +1,23 @@
-extends Building
+extends Producer
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+export(Global.RESOURCES) var required_resource
+export var required_quantity:int
+
+var current_required_quantity: int
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func on_building_update(delta: float): # TODO: improve
+	.on_building_update(delta)
+
+func _produce_resource(delta: float):
+	if _has_required_quantity():
+		._produce_resource(delta)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _has_required_quantity():
+	return current_required_quantity >= required_quantity
+
+func _on_transporter_spawn():
+	._on_transporter_spawn()
+	current_required_quantity=0
