@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Resources/IsometricMedieval/inn.png" type="Texture" id=1]
 [ext_resource path="res://Entities/Buildings/Scripts/Factory.gd" type="Script" id=2]
 [ext_resource path="res://Entities/Characters/Transporter.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Entities/Characters/Collector.tscn" type="PackedScene" id=4]
 
 [node name="Bakery" type="Node2D" groups=[
 "bakery",
@@ -11,6 +12,8 @@
 script = ExtResource( 2 )
 transporter_character = ExtResource( 3 )
 required_resource = 1
+consumption_rate = 0.7
+collector_character = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -14 )

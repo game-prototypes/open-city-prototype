@@ -3,7 +3,6 @@
 [ext_resource path="res://Entities/Characters/Animations/Character2Animation.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://Entities/Characters/Scripts/Transporter.gd" type="Script" id=2]
 
-
 [node name="Transporter" type="Node2D"]
 script = ExtResource( 2 )
 type = "transporter"
@@ -11,7 +10,7 @@ type = "transporter"
 [node name="Animation" type="AnimatedSprite" parent="."]
 frames = ExtResource( 1 )
 animation = "down"
-frame = 6
+frame = 3
 playing = true
 
 [node name="Tween" type="Tween" parent="."]

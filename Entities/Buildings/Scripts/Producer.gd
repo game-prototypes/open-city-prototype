@@ -14,6 +14,7 @@ func on_building_update(delta: float):
 	.on_building_update(delta)
 	_produce_resource(delta)
 	if current_ammount>=max_storage and not _is_transporter_on_route():
+		print("Spawn transporter", current_ammount)
 		_spawn_transporter()
 
 func _is_transporter_on_route() -> bool:
@@ -29,8 +30,8 @@ func character_arrived(character):
 
 func _produce_resource(delta: float):
 	if current_ammount<max_storage:
-		var food_produced=production_rate*delta
-		current_ammount=clamp(current_ammount+food_produced, 0, max_storage)
+		var produced_ammount=production_rate*delta
+		current_ammount=clamp(current_ammount+produced_ammount, 0, max_storage)
 
 func _spawn_transporter():
 	#var tile=_get_random_spawn_tile()

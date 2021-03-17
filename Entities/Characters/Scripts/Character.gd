@@ -2,7 +2,7 @@ extends Node2D
 
 class_name Character
 
-export var type: String
+export var type: String # Deprected
 export(float) var movement_speed=25
 onready var animation: AnimatedSprite = $Animation
 onready var tween: Tween = $Tween
@@ -13,7 +13,7 @@ var _path: Array
 var map_position:Vector2
 
 func _ready():
-	assert(type, "Character type not set")
+	#assert(type, "Character type not set")
 	position=map.tile2pos(map_position)
 
 func arrived_to_destination():
