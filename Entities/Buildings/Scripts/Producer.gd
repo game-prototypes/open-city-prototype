@@ -54,7 +54,7 @@ func _on_transporter_spawn():
 
 # For more intelligent spawn
 func _get_closer_spawn_tile():
-	var building = map.resource_manager.get_target_building_for_resource(resource, map_position)
+	var building = map.resource_manager.get_target_building_for_resource(resource,current_ammount, map_position)
 	
 	if building:
 		var path=map.navigation.get_road_path_between_buildings(map_position, building.map_position)

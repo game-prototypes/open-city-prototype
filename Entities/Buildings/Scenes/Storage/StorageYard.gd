@@ -29,6 +29,9 @@ func try_to_get(resource: int, quantity:int)->int:
 func has_resource_quantity(resource: int, quantity:int) -> bool:
 	return storage.get_resource_quantity(resource)>=quantity
 
+func can_store(_resource: int, quantity:int)->bool:
+	return storage.can_store_quantity(quantity)
+
 func _update_sprites():
 	var is_empty=storage.is_empty()
 	empty_sprite.visible=is_empty

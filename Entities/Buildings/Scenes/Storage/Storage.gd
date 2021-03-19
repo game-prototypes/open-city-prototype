@@ -31,5 +31,8 @@ func can_store_quantity(quantity: int) -> bool:
 func get_resource_quantity(resource: int) -> int:
 	return stored_resources.get(resource, 0)
 
+func get_occupied_space() -> int:
+	return stored_quantity
+
 func is_empty()->bool:
 	return stored_quantity==0
