@@ -15,7 +15,7 @@ signal tile_selected(tile, building)
 func _ready():
 	assert(_terrain.cell_size[0]==_roads.cell_size[0], "Error, terrain tile size != roads tile size")
 	navigation = MapNavigation.new(self, _roads)
-	resource_manager = ResourceManager.new(navigation)
+	resource_manager = ResourceManager.new(self, navigation)
 
 func _unhandled_input(event):
 	if event is InputEventMouseButton:

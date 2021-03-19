@@ -10,7 +10,7 @@ var resource_ammount: int
 var resource_type: int
 
 func _ready():
-	var target=map.resource_manager.get_target_building_with_resource(resource_type, map_position)
+	var target=map.resource_manager.get_target_building_with_resource(resource_type, ammount_to_get, map_position)
 	_set_target(target)
 
 func arrived_to_destination():

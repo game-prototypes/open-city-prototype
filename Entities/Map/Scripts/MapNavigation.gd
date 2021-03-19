@@ -38,6 +38,10 @@ func get_road_path_between_buildings(tile1: Vector2, tile2: Vector2) -> PoolVect
 func get_closest_building_of_groups(from: Vector2, building_groups: Array) -> Building:
 	var buildings=_map.get_buildings_of_groups(building_groups)
 	
+	return get_closest_building_from_list(from, buildings)
+
+
+func get_closest_building_from_list(from: Vector2, buildings: Array) -> Building:
 	var closest_building=null
 	var shortest_path=[]
 

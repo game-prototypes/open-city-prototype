@@ -18,9 +18,7 @@ func _produce_resource(delta: float):
 	if _has_required_quantity(delta):
 		._produce_resource(delta)
 		var consumed_ammount=consumption_rate*delta
-		print("Consumed_ammount", consumed_ammount, consumption_rate)
 		current_required_quantity=clamp(current_required_quantity-consumed_ammount, 0, max_required_storage)
-		prints("Factory", current_ammount, current_required_quantity)
 func character_arrived(character):
 	.character_arrived(character)
 	if character==collector:
@@ -31,17 +29,15 @@ func _has_required_quantity(delta: float):
 	return current_required_quantity >= consumption_rate*delta
 
 func _spawn_collector():
-	
-	var tile=_get_closer_spawn_tile()
+	var tile=_get_closer_spawn_tile_for_collector()
 	if tile:
-		print("Spawn Collector ", current_required_quantity)
 		_spawn_collector_instance(tile)
 
 func _is_collector_on_route() -> bool:
 	return collector!=null
 
 func _get_closer_spawn_tile_for_collector():
-	var building = map.resource_manager.get_target_building_with_resource(resource, map_position)
+	var building = map.resource_manager.get_target_building_with_resource(required_resource,max_required_storage, map_position)
 	
 	if building:
 		var path=map.navigation.get_road_path_between_buildings(map_position, building.map_position)
