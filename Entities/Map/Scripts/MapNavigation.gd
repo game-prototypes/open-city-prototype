@@ -1,3 +1,4 @@
+extends Reference
 class_name MapNavigation
 
 var _map

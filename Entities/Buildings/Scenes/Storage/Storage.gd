@@ -1,3 +1,4 @@
+extends Reference
 class_name Storage
 
 var max_storage:int=0
