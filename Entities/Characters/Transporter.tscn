@@ -5,12 +5,11 @@
 
 [node name="Transporter" type="Node2D"]
 script = ExtResource( 2 )
-type = "transporter"
 
 [node name="Animation" type="AnimatedSprite" parent="."]
 frames = ExtResource( 1 )
 animation = "down"
-frame = 3
+frame = 4
 playing = true
 
 [node name="Tween" type="Tween" parent="."]
