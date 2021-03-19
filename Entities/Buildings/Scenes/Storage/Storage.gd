@@ -24,6 +24,7 @@ func remove(resource: int, quantity:int) -> void:
 	assert(quantity<=current_resource_quantity, "Not enough resources to remove")
 	stored_resources[resource]=current_resource_quantity-quantity
 	stored_quantity=stored_quantity-quantity
+	assert(stored_quantity>=0, "Stored quantity less than 0")
 
 func can_store_quantity(quantity: int) -> bool:
 	 return stored_quantity+quantity <= max_storage
