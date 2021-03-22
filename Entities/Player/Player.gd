@@ -1,5 +1,6 @@
 extends Node2D
 
+signal building_selected(building)
 
 export var overlay_tile: PackedScene
 
@@ -11,6 +12,7 @@ var selected_demolish=false
 
 var green_color=Color("#9516820f")
 var red_color=Color("#9582170f")
+
 
 func _process(_delta):
 	if selected_build_item:
@@ -38,10 +40,12 @@ func deselect_action():
 	selected_demolish=false
 	_remove_overlay()
 
-func on_tile_selected(tile: Vector2) -> void:
+func on_tile_selected(tile: Vector2, selected_element:Node2D) -> void:
 	# TODO: use a generic action abstraction
 	if not selected_build_item:
-		pass
+		if selected_element:
+			if selected_element.is_in_group(Global.BUILDING_GROUP):
+				emit_signal("building_selected", selected_element)
 	elif selected_build_item.type==BuildingResource.Type.ROAD:
 		if map.can_build(tile):
 			map.build_road(tile, selected_build_item.road_id)
@@ -57,7 +61,7 @@ func on_tile_selected(tile: Vector2) -> void:
 		if map.demolish_tile(tile):
 			CityResources.remove_money(5)
 
-func on_building_selected(building: Resource):
+func on_building_resource_selected(building: Resource):
 	deselect_action()
 	selected_build_item=building
 	_set_overlay(selected_build_item.area)

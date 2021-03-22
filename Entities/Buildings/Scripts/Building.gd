@@ -6,6 +6,9 @@ var map_position: Vector2
 var map
 var stats
 
+func _ready():
+	add_to_group(Global.BUILDING_GROUP)
+
 func on_building_select():
 	pass
 

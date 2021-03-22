@@ -7,19 +7,23 @@
 [ext_resource path="res://Resources/MegaIsometricBlock/Container 4.png" type="Texture" id=5]
 [ext_resource path="res://Entities/Buildings/Scenes/Storage/StorageYard.gd" type="Script" id=6]
 
-[node name="StorageYard" type="Node2D" groups=[
-"building",
-"storage",
-]]
+[node name="StorageYard" type="Node2D"]
 script = ExtResource( 6 )
+max_storage = 100
 
 [node name="FloorSprite" type="Sprite" parent="."]
 position = Vector2( -2.51825, 28.5759 )
 texture = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="FullContentsSprite" type="Node2D" parent="."]
 visible = false
 position = Vector2( 2, 11 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Crate1" type="Sprite" parent="FullContentsSprite"]
 position = Vector2( -5.58908, -2.07908 )
@@ -47,6 +51,9 @@ scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 5 )
 
 [node name="EmptyContentsSprite" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Container" type="Sprite" parent="EmptyContentsSprite"]
 position = Vector2( -5.08755, 27.0249 )

@@ -5,10 +5,7 @@
 [ext_resource path="res://Entities/Characters/Transporter.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Entities/Characters/Collector.tscn" type="PackedScene" id=4]
 
-[node name="Bakery" type="Node2D" groups=[
-"bakery",
-"building",
-]]
+[node name="Bakery" type="Node2D"]
 script = ExtResource( 2 )
 transporter_character = ExtResource( 3 )
 required_resource = 1

@@ -3,10 +3,7 @@
 [ext_resource path="res://Resources/IsometricMedieval/house.png" type="Texture" id=1]
 [ext_resource path="res://Entities/Buildings/Scenes/House/House.gd" type="Script" id=2]
 
-[node name="House" type="Node2D" groups=[
-"building",
-"house",
-]]
+[node name="House" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]

@@ -21,8 +21,9 @@ func _unhandled_input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:
 			var tile=pos2tile(get_global_mouse_position())
-			_buildings.handle_building_click(tile)
-			emit_signal("tile_selected", tile)
+			var element=_buildings.handle_building_click(tile)
+			
+			emit_signal("tile_selected", tile, element)
 
 
 func can_build(tile) -> bool:
