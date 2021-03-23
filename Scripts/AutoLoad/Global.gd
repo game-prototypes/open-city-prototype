@@ -13,3 +13,4 @@ var resource_names:= {
 
 const BUILDING_GROUP="building"
 const STORAGE_GROUP="storage"
+const PRODUCER_GROUP="producer"

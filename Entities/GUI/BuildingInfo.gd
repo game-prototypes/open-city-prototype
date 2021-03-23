@@ -17,7 +17,9 @@ func update_building_info():
 	if target_building.is_in_group(Global.STORAGE_GROUP):
 		var label_text=String(target_building.storage.get_occupied_space())+"/"+String(target_building.storage.max_storage)
 		add_label(label_text)
-
+	if target_building.is_in_group(Global.PRODUCER_GROUP):
+		var label_text=Global.resource_names[target_building.resource]+": "+String(target_building.current_ammount)
+		add_label(label_text)
 
 func add_label(text: String):
 	var label=Label.new()

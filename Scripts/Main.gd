@@ -16,6 +16,7 @@ func _ready():
 
 func on_building_timer():
 	get_tree().call_group("building", "on_building_update", building_update_timer.wait_time)
+	gui.on_building_update()
 
 func _setup_signals():
 	gui.connect("building_resource_selected", player,"on_building_resource_selected")
@@ -23,7 +24,7 @@ func _setup_signals():
 	map.connect("tile_selected", player, "on_tile_selected")
 	player.connect("building_selected", gui, "show_building_info")
 	building_update_timer.connect("timeout", self, "on_building_timer")
-	building_update_timer.connect("timeout", gui, "on_building_update")
+	#building_update_timer.connect("timeout", gui, "on_building_update")
 	
 	CityResources.connect("money_updated", gui, "on_money_updated")
 	CityResources.add_money(0) # To kickstart the signals
