@@ -28,8 +28,10 @@ func add_button(label: String, param, callback: String):
 	button_instance.connect("pressed", self, callback, [param])
 
 func show_building_info(building: Building):
-	building_info.remove_labels()
-	building_info.add_building_info(building)
+	building_info.set_target_building(building)
+
+func on_building_update():
+	building_info.update_building_info()
 
 func on_money_updated(money: int):
 	money_label.text="Money: "+String(money)

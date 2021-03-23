@@ -3,10 +3,19 @@ extends MarginContainer
 
 onready var container=$VBoxContainer
 
-func add_building_info(building: Building):
-	add_label(building.stats.name)
-	if building.is_in_group(Global.STORAGE_GROUP):
-		var label_text=String(building.storage.get_occupied_space())+"/"+String(building.storage.max_storage)
+var target_building
+
+func set_target_building(building: Building):
+	target_building=building
+	update_building_info()
+
+func update_building_info():
+	if not target_building:
+		return
+	remove_labels() # TODO: update labels instead of removing and re-creating
+	add_label(target_building.stats.name)
+	if target_building.is_in_group(Global.STORAGE_GROUP):
+		var label_text=String(target_building.storage.get_occupied_space())+"/"+String(target_building.storage.max_storage)
 		add_label(label_text)
 
 
