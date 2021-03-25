@@ -33,6 +33,11 @@ func _process(_delta):
 		overlay.position=overlay_pos
 		overlay.modulate=red_color
 
+func _unhandled_input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == BUTTON_RIGHT and event.pressed:
+			deselect_action()
+
 
 func deselect_action():
 	selected_build_item=null
