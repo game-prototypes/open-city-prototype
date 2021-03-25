@@ -10,6 +10,7 @@ var current_required_quantity: float = 0
 
 
 func on_building_update(delta: float): # TODO: improve
+	.on_building_update(delta)
 	if current_required_quantity<consumption_rate and not _is_collector_on_route():
 		_spawn_collector()
 
