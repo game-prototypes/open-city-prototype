@@ -15,9 +15,9 @@ func _ready():
 
 
 func on_building_update(delta: float):
+	.on_building_update(delta)
 	_produce_resource(delta)
 	if current_ammount>=max_storage and not _is_transporter_on_route():
-		print("Spawn transporter", current_ammount)
 		_spawn_transporter()
 
 func _is_transporter_on_route() -> bool:

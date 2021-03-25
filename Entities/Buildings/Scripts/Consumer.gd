@@ -1,4 +1,4 @@
-extends Producer
+extends Building
 
 export(Global.RESOURCES) var required_resource
 export var consumption_rate:float=1
@@ -11,19 +11,19 @@ var current_required_quantity: float = 0
 func _ready():
 	add_to_group(Global.CONSUMER_GROUP)
 
+
 func on_building_update(delta: float): # TODO: improve
 	.on_building_update(delta)
+	_consume_resource(delta)
 	if current_required_quantity<consumption_rate and not _is_collector_on_route():
 		_spawn_collector()
 
-func _produce_resource(delta: float):
+func _consume_resource(delta: float):
 	if _has_required_quantity(delta):
-		._produce_resource(delta)
 		var consumed_ammount=consumption_rate*delta
 		current_required_quantity=clamp(current_required_quantity-consumed_ammount, 0, max_required_storage)
 
 func character_arrived(character):
-	.character_arrived(character)
 	if character==collector:
 		current_required_quantity=current_required_quantity+collector.resource_ammount
 		collector=null
