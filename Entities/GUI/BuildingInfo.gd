@@ -22,8 +22,9 @@ func update_building_info():
 			var resource_text=Global.resource_names[resource]+": "+String(resources[resource])
 			add_label(resource_text)
 	if target_building.is_in_group(Global.PRODUCER_GROUP):
-		var label_text=Global.resource_names[target_building.resource]+": "+String(target_building.current_ammount)
-		add_label(label_text)
+		print(target_building.get_component("production"))
+		#var label_text=Global.resource_names[target_building.resource]+": "+String(target_building.current_ammount)
+		#add_label(label_text)
 	if target_building.is_in_group(Global.CONSUMER_GROUP):
 		var label_text="Require: "+Global.resource_names[target_building.required_resource]+": "+String(target_building.current_required_quantity)
 		add_label(label_text)

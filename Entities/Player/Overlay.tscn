@@ -1,6 +1,7 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Resources/MarkersIso/markers_iso.png" type="Texture" id=1]
+[ext_resource path="res://resources/MarkersIso/markers_iso.png" type="Texture" id=1]
+
 
 [node name="Overlay" type="Sprite"]
 z_index = 10

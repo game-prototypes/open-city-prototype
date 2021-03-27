@@ -1,6 +1,7 @@
 [gd_resource type="TileSet" load_steps=2 format=2]
 
-[ext_resource path="res://Resources/SeasonsTiles/seasons_tiles.png" type="Texture" id=1]
+[ext_resource path="res://resources/SeasonsTiles/seasons_tiles.png" type="Texture" id=1]
+
 
 [resource]
 0/name = "Grass"

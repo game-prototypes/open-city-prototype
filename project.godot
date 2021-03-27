@@ -98,9 +98,9 @@ config/icon="res://icon.png"
 
 [autoload]
 
-CityResources="*res://Scripts/AutoLoad/CityResources.gd"
-Global="*res://Scripts/AutoLoad/Global.gd"
-Log="*res://Scripts/AutoLoad/Log.gd"
+CityResources="*res://Scripts/autoload/city_resources.gd"
+Global="*res://Scripts/autoload/global.gd"
+Log="*res://Scripts/autoload/log.gd"
 
 [debug]
 
