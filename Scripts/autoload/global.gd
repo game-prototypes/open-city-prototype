@@ -18,7 +18,8 @@ const CONSUMER_GROUP="consumer"
 
 
 var BUILDING_ROLES:={
-	"PRODUCER": "brole_producer",
-	"CONSUMER": "brole_consumer",
-	"STORAGE": "brole_storage"
+	"PRODUCER": "b_role_producer",
+	"CONSUMER": "b_role_consumer",
+	"STORAGE": "b_role_storage",
+	"FACTORY": "b_role_factory"
 }

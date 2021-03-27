@@ -9,7 +9,7 @@ var collector: Character
 var current_required_quantity: float = 0
 
 func _ready():
-	add_to_group(Global.CONSUMER_GROUP)
+	add_to_group(Global.BUILDING_ROLES.FACTORY)
 
 func on_building_update(delta: float): # TODO: improve
 	.on_building_update(delta)

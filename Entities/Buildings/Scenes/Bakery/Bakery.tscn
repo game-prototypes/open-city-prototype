@@ -1,9 +1,10 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://resources/IsometricMedieval/inn.png" type="Texture" id=1]
-[ext_resource path="res://Entities/Buildings/Scripts/Factory.gd" type="Script" id=2]
+[ext_resource path="res://Entities/Buildings/Scripts/factory.gd" type="Script" id=2]
 [ext_resource path="res://Entities/Characters/Transporter.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Entities/Characters/Collector.tscn" type="PackedScene" id=4]
+
 
 
 [node name="Bakery" type="Node2D"]

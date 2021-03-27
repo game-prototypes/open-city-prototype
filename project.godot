@@ -47,7 +47,7 @@ _global_script_classes=[ {
 "base": "Building",
 "class": "Producer",
 "language": "GDScript",
-"path": "res://Entities/Buildings/Scripts/Producer.gd"
+"path": "res://Entities/Buildings/Scripts/producer.gd"
 }, {
 "base": "Reference",
 "class": "ResourceManager",
@@ -67,7 +67,7 @@ _global_script_classes=[ {
 "base": "Reference",
 "class": "Storage",
 "language": "GDScript",
-"path": "res://Entities/Buildings/Scenes/Storage/Storage.gd"
+"path": "res://Entities/Buildings/Scripts/storage.gd"
 }, {
 "base": "Character",
 "class": "Transporter",
