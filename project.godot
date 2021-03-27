@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "Building",
 "language": "GDScript",
-"path": "res://Entities/Buildings/Scripts/Building.gd"
+"path": "res://Entities/Buildings/Scripts/building_types/building.gd"
 }, {
 "base": "Resource",
 "class": "BuildingResource",
@@ -47,7 +47,7 @@ _global_script_classes=[ {
 "base": "Building",
 "class": "Producer",
 "language": "GDScript",
-"path": "res://Entities/Buildings/Scripts/producer.gd"
+"path": "res://Entities/Buildings/Scripts/building_types/producer.gd"
 }, {
 "base": "Reference",
 "class": "ResourceManager",
@@ -67,7 +67,7 @@ _global_script_classes=[ {
 "base": "Reference",
 "class": "Storage",
 "language": "GDScript",
-"path": "res://Entities/Buildings/Scripts/storage.gd"
+"path": "res://Entities/Buildings/Scenes/storage_yard/storage.gd"
 }, {
 "base": "Character",
 "class": "Transporter",
@@ -93,14 +93,14 @@ _global_script_class_icons={
 [application]
 
 config/name="Open City Test"
-run/main_scene="res://Scenes/Main.tscn"
+run/main_scene="res://scenes/Main.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
-CityResources="*res://Scripts/autoload/city_resources.gd"
-Global="*res://Scripts/autoload/global.gd"
-Log="*res://Scripts/autoload/log.gd"
+CityResources="*res://scripts/autoload/city_resources.gd"
+Global="*res://scripts/autoload/global.gd"
+Log="*res://scripts/autoload/log.gd"
 
 [debug]
 

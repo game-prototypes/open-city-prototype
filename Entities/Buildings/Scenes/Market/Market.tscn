@@ -1,9 +1,11 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://resources/IsometricMedieval/fruit.png" type="Texture" id=1]
-[ext_resource path="res://Entities/Buildings/Scripts/Consumer.gd" type="Script" id=2]
+[ext_resource path="res://Entities/Buildings/Scripts/building_types/consumer.gd" type="Script" id=2]
 [ext_resource path="res://resources/IsometricMedieval/dirt.png" type="Texture" id=3]
 [ext_resource path="res://Entities/Characters/Collector.tscn" type="PackedScene" id=4]
+
+
 
 
 [node name="Market" type="Node2D"]
