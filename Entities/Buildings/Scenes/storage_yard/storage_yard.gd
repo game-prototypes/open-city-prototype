@@ -7,8 +7,7 @@ onready var full_sprite=$FullContentsSprite
 onready var empty_sprite=$EmptyContentsSprite
 
 func _ready():
-	print("Storage ready")
-	add_to_group(Global.STORAGE_GROUP)
+	add_to_group(Global.BUILDING_ROLES.STORAGE)
 	storage=Storage.new(max_storage)
 
 func character_arrived(character: Character) -> void:

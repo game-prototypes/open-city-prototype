@@ -11,7 +11,7 @@ var current_ammount:float=0
 var transporter: Character
 
 func _ready():
-	add_to_group(Global.PRODUCER_GROUP)
+	add_to_group(Global.BUILDING_ROLES.PRODUCER)
 
 
 func on_building_update(delta: float):

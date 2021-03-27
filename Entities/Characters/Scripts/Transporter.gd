@@ -16,7 +16,7 @@ func arrived_to_destination():
 		if target_building==origin_building:
 			_despawn()
 		else:
-			if target_building.is_in_group("storage"):
+			if target_building.is_in_group(Global.BUILDING_ROLES.STORAGE):
 				var stored=target_building.try_to_store(resource_type, resource_ammount)
 				if stored:
 					resource_ammount=0

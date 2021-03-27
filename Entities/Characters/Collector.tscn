@@ -9,7 +9,7 @@ script = ExtResource( 1 )
 [node name="Animation" type="AnimatedSprite" parent="."]
 frames = ExtResource( 2 )
 animation = "down"
-frame = 7
+frame = 6
 playing = true
 
 [node name="Tween" type="Tween" parent="."]

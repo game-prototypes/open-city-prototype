@@ -11,10 +11,7 @@ var resource_names:= {
 	RESOURCES.Wheat: "Wheat"
 }
 
-const BUILDING_GROUP="building"
-const STORAGE_GROUP="storage"
-const PRODUCER_GROUP="producer"
-const CONSUMER_GROUP="consumer"
+var BUILDING_GROUP="building"
 
 
 var BUILDING_ROLES:={

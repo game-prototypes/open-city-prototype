@@ -1,5 +1,7 @@
 extends Building
 
+class_name Consumer
+
 export(Global.RESOURCES) var required_resource
 export var consumption_rate:float=1
 export var max_required_storage:int=10
@@ -9,13 +11,13 @@ var collector: Character
 var current_required_quantity: float = 0
 
 func _ready():
-	add_to_group(Global.CONSUMER_GROUP)
+	add_to_group(Global.BUILDING_ROLES.CONSUMER)
 
 
 func on_building_update(delta: float): # TODO: improve
 	.on_building_update(delta)
 	_consume_resource(delta)
-	if current_required_quantity<consumption_rate and not _is_collector_on_route():
+	if (current_required_quantity<consumption_rate or current_required_quantity==0) and not _is_collector_on_route():
 		_spawn_collector()
 
 func _consume_resource(delta: float):

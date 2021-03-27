@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Entities/Buildings/Scenes/storage_yard/storage_yard.tres" type="Resource" id=1]
-[ext_resource path="res://Entities/Buildings/Scenes/Market/Market.tres" type="Resource" id=2]
+[ext_resource path="res://Entities/Buildings/Scenes/market/market.tres" type="Resource" id=2]
 [ext_resource path="res://Entities/Buildings/Scenes/bakery/bakery.tres" type="Resource" id=3]
 [ext_resource path="res://Entities/Buildings/Scenes/farm/farm.tres" type="Resource" id=4]
 [ext_resource path="res://Entities/Buildings/Scenes/House/House.tres" type="Resource" id=5]

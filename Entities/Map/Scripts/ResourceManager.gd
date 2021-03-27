@@ -10,7 +10,7 @@ func _init(_map, mapNavigation: MapNavigation):
 
 func get_target_building_for_resource(resource: int,quantity: int, from: Vector2):
 	# TODO: check for space and stuff
-	var buildings=map.get_buildings_of_groups(["storage"])
+	var buildings=map.get_buildings_of_groups([Global.BUILDING_ROLES.STORAGE])
 	var valid_buildings=[]
 	for storage in buildings:
 		if storage.can_store(resource, quantity):
@@ -21,7 +21,7 @@ func get_target_building_for_resource(resource: int,quantity: int, from: Vector2
 	
 
 func get_target_building_with_resource(resource: int, quantity: int, from: Vector2):
-	var buildings=map.get_buildings_of_groups(["storage"])
+	var buildings=map.get_buildings_of_groups([Global.BUILDING_ROLES.STORAGE])
 	var valid_buildings=[]
 	for storage in buildings:
 		if storage.has_resource_quantity(resource, quantity):

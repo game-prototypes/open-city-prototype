@@ -14,18 +14,18 @@ func update_building_info():
 		return
 	remove_labels() # TODO: update labels instead of removing and re-creating
 	add_label(target_building.stats.name)
-	if target_building.is_in_group(Global.STORAGE_GROUP):
+	if target_building.is_in_group(Global.BUILDING_ROLES.STORAGE):
 		var label_text=String(target_building.storage.get_occupied_space())+"/"+String(target_building.storage.max_storage)
 		add_label(label_text)
 		var resources=target_building.storage.stored_resources
 		for resource in resources:
 			var resource_text=Global.resource_names[resource]+": "+String(resources[resource])
 			add_label(resource_text)
-	if target_building.is_in_group(Global.PRODUCER_GROUP):
-		print(target_building.get_component("production"))
-		#var label_text=Global.resource_names[target_building.resource]+": "+String(target_building.current_ammount)
-		#add_label(label_text)
-	if target_building.is_in_group(Global.CONSUMER_GROUP):
+	if target_building.is_in_group(Global.BUILDING_ROLES.PRODUCER):
+		#print(target_building.get_component("production"))
+		var label_text=Global.resource_names[target_building.resource]+": "+String(target_building.current_ammount)
+		add_label(label_text)
+	if target_building.is_in_group(Global.BUILDING_ROLES.CONSUMER):
 		var label_text="Require: "+Global.resource_names[target_building.required_resource]+": "+String(target_building.current_required_quantity)
 		add_label(label_text)
 
