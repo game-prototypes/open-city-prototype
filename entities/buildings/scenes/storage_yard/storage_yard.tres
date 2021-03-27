@@ -1,0 +1,35 @@
+[gd_resource type="Resource" load_steps=9 format=2]
+
+[ext_resource path="res://entities/buildings/scripts/resources/building_resource.gd" type="Script" id=1]
+[ext_resource path="res://resources/MegaIsometricBlock/Crate 1.png" type="Texture" id=2]
+[ext_resource path="res://resources/MegaIsometricBlock/Container Open 4.png" type="Texture" id=3]
+[ext_resource path="res://resources/IsometricMedieval/marblepath.png" type="Texture" id=4]
+[ext_resource path="res://resources/MegaIsometricBlock/Box 4.png" type="Texture" id=5]
+[ext_resource path="res://resources/MegaIsometricBlock/Container 4.png" type="Texture" id=6]
+[ext_resource path="res://entities/buildings/scenes/storage_yard/storage_yard.gd" type="Script" id=7]
+
+[sub_resource type="PackedScene" id=1]
+_bundled = {
+"conn_count": 0,
+"conns": PoolIntArray(  ),
+"editable_instances": [  ],
+"names": PoolStringArray( "StorageYard", "Node2D", "script", "max_storage", "FloorSprite", "Sprite", "position", "texture", "__meta__", "FullContentsSprite", "Node2D", "visible", "position", "__meta__", "Crate1", "Sprite", "position", "scale", "texture", "Box1", "Sprite", "position", "scale", "texture", "Box2", "Sprite", "position", "scale", "texture", "Crate2", "Sprite", "position", "scale", "texture", "Container2", "Sprite", "position", "scale", "texture", "EmptyContentsSprite", "Node2D", "__meta__", "Container", "Sprite", "position", "scale", "texture" ),
+"node_count": 10,
+"node_paths": [ NodePath("."), NodePath("."), NodePath("./FullContentsSprite"), NodePath("./FullContentsSprite"), NodePath("./FullContentsSprite"), NodePath("./FullContentsSprite"), NodePath("./FullContentsSprite"), NodePath("."), NodePath("./EmptyContentsSprite") ],
+"nodes": PoolIntArray( -1, -1, 1, 0, -1, 2, 2, 0, 3, 1, 0, 1073741824, 0, 5, 4, -1, 3, 6, 2, 7, 3, 8, 4, 0, 1073741825, 0, 10, 9, -1, 3, 11, 5, 12, 6, 13, 7, 0, 1073741826, 0, 15, 14, -1, 3, 16, 8, 17, 9, 18, 10, 0, 1073741827, 0, 20, 19, -1, 3, 21, 11, 22, 12, 23, 13, 0, 1073741828, 0, 25, 24, -1, 3, 26, 14, 27, 15, 28, 16, 0, 1073741829, 0, 30, 29, -1, 3, 31, 17, 32, 18, 33, 19, 0, 1073741830, 0, 35, 34, -1, 3, 36, 20, 37, 21, 38, 22, 0, 1073741831, 0, 40, 39, -1, 1, 41, 23, 0, 1073741832, 0, 43, 42, -1, 3, 44, 24, 45, 25, 46, 26, 0 ),
+"variants": [ ExtResource( 7 ), 100, Vector2( -2.51825, 28.5759 ), ExtResource( 4 ), {
+"_edit_lock_": true
+}, false, Vector2( 2, 11 ), {
+"_edit_lock_": true
+}, Vector2( -5.58908, -2.07908 ), Vector2( 0.2, 0.2 ), ExtResource( 2 ), Vector2( -5.61933, -18.5452 ), Vector2( 0.2, 0.2 ), ExtResource( 5 ), Vector2( -24.0337, 6.81709 ), Vector2( 0.2, 0.2 ), ExtResource( 5 ), Vector2( 21.2397, 9.18442 ), Vector2( 0.2, 0.2 ), ExtResource( 2 ), Vector2( -7.53941, 23.7068 ), Vector2( 0.2, 0.2 ), ExtResource( 6 ), {
+"_edit_lock_": true
+}, Vector2( -5.08755, 27.0249 ), Vector2( 0.2, 0.2 ), ExtResource( 3 ) ],
+"version": 2
+}
+
+[resource]
+script = ExtResource( 1 )
+name = "Storage Yard"
+area = Vector2( 1, 1 )
+scene = SubResource( 1 )
+price = 45

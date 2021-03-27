@@ -12,72 +12,72 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "Building",
 "language": "GDScript",
-"path": "res://Entities/Buildings/Scripts/building_types/building.gd"
+"path": "res://entities/buildings/scripts/building_types/building.gd"
 }, {
 "base": "Resource",
 "class": "BuildingResource",
 "language": "GDScript",
-"path": "res://Entities/Buildings/Scripts/Resources/BuildingResource.gd"
+"path": "res://entities/buildings/scripts/resources/building_resource.gd"
 }, {
 "base": "Node",
 "class": "Buildings",
 "language": "GDScript",
-"path": "res://Entities/Map/Scripts/Buildings.gd"
+"path": "res://entities/Map/Scripts/Buildings.gd"
 }, {
 "base": "Node2D",
 "class": "Character",
 "language": "GDScript",
-"path": "res://Entities/Characters/Scripts/Character.gd"
+"path": "res://entities/Characters/Scripts/Character.gd"
 }, {
 "base": "Character",
 "class": "Collector",
 "language": "GDScript",
-"path": "res://Entities/Characters/Scripts/Collector.gd"
+"path": "res://entities/Characters/Scripts/Collector.gd"
 }, {
 "base": "Building",
 "class": "Consumer",
 "language": "GDScript",
-"path": "res://Entities/Buildings/Scripts/building_types/consumer.gd"
+"path": "res://entities/buildings/scripts/building_types/consumer.gd"
 }, {
 "base": "Node2D",
 "class": "Map",
 "language": "GDScript",
-"path": "res://Entities/Map/Scripts/Map.gd"
+"path": "res://entities/Map/Scripts/Map.gd"
 }, {
 "base": "Reference",
 "class": "MapNavigation",
 "language": "GDScript",
-"path": "res://Entities/Map/Scripts/MapNavigation.gd"
+"path": "res://entities/Map/Scripts/MapNavigation.gd"
 }, {
 "base": "Building",
 "class": "Producer",
 "language": "GDScript",
-"path": "res://Entities/Buildings/Scripts/building_types/producer.gd"
+"path": "res://entities/buildings/scripts/building_types/producer.gd"
 }, {
 "base": "Reference",
 "class": "ResourceManager",
 "language": "GDScript",
-"path": "res://Entities/Map/Scripts/ResourceManager.gd"
+"path": "res://entities/Map/Scripts/ResourceManager.gd"
 }, {
 "base": "Resource",
 "class": "RoadResource",
 "language": "GDScript",
-"path": "res://Entities/Roads/RoadResource.gd"
+"path": "res://entities/Roads/RoadResource.gd"
 }, {
 "base": "TileMap",
 "class": "Roads",
 "language": "GDScript",
-"path": "res://Entities/Map/Scripts/Roads.gd"
+"path": "res://entities/Map/Scripts/Roads.gd"
 }, {
 "base": "Reference",
 "class": "Storage",
 "language": "GDScript",
-"path": "res://Entities/Buildings/Scenes/storage_yard/storage.gd"
+"path": "res://entities/buildings/scenes/storage_yard/storage.gd"
 }, {
 "base": "Character",
 "class": "Transporter",
 "language": "GDScript",
-"path": "res://Entities/Characters/Scripts/Transporter.gd"
+"path": "res://entities/Characters/Scripts/Transporter.gd"
 } ]
 _global_script_class_icons={
 "Building": "",
@@ -99,7 +99,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Open City Test"
-run/main_scene="res://scenes/Main.tscn"
+run/main_scene="res://scenes/main.tscn"
 config/icon="res://icon.png"
 
 [autoload]

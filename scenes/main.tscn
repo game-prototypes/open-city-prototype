@@ -1,0 +1,35 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://entities/buildings/scenes/storage_yard/storage_yard.tres" type="Resource" id=1]
+[ext_resource path="res://entities/buildings/scenes/market/market.tres" type="Resource" id=2]
+[ext_resource path="res://entities/buildings/scenes/bakery/bakery.tres" type="Resource" id=3]
+[ext_resource path="res://entities/buildings/scenes/farm/farm.tres" type="Resource" id=4]
+[ext_resource path="res://entities/buildings/scenes/house/house.tres" type="Resource" id=5]
+[ext_resource path="res://entities/Roads/GrassRoad.tres" type="Resource" id=6]
+[ext_resource path="res://scripts/main.gd" type="Script" id=7]
+[ext_resource path="res://scripts/autoload/city_resources.gd" type="Script" id=8]
+[ext_resource path="res://entities/GUI/gui.tscn" type="PackedScene" id=9]
+[ext_resource path="res://entities/Camera/MainCamera.tscn" type="PackedScene" id=10]
+[ext_resource path="res://entities/Player/Player.tscn" type="PackedScene" id=11]
+[ext_resource path="res://entities/Map/Map.tscn" type="PackedScene" id=12]
+
+[node name="Main" type="Node2D"]
+script = ExtResource( 7 )
+buildings = [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 1 ) ]
+
+[node name="Player" parent="." instance=ExtResource( 11 )]
+
+[node name="MainCamera" parent="." instance=ExtResource( 10 )]
+position = Vector2( 3.26434, 744.869 )
+zoom_constraint = Vector2( 0.5, 3 )
+
+[node name="GUI" parent="." instance=ExtResource( 9 )]
+
+[node name="Map" parent="." instance=ExtResource( 12 )]
+
+[node name="CityResources" type="Node" parent="."]
+script = ExtResource( 8 )
+
+[node name="BuildingUpdateTimer" type="Timer" parent="."]
+process_mode = 0
+autostart = true

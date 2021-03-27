@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://resources/IsometricMedieval/fruit.png" type="Texture" id=1]
+[ext_resource path="res://entities/Characters/Collector.tscn" type="PackedScene" id=2]
+[ext_resource path="res://resources/IsometricMedieval/dirt.png" type="Texture" id=3]
+[ext_resource path="res://entities/buildings/scenes/market/market.gd" type="Script" id=4]
+
+
+
+
+[node name="Market" type="Node2D"]
+script = ExtResource( 4 )
+consumption_rate = 0.0
+collector_character = ExtResource( 2 )
+
+[node name="FloorSprite" type="Sprite" parent="."]
+position = Vector2( -0.107697, 31.7216 )
+texture = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -4.70193, 12.2182 )
+texture = ExtResource( 1 )

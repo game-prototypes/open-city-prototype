@@ -1,0 +1,85 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://entities/GUI/gui.gd" type="Script" id=1]
+[ext_resource path="res://entities/GUI/BuildingButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://entities/GUI/building_info.gd" type="Script" id=3]
+
+[node name="GUI" type="CanvasLayer"]
+script = ExtResource( 1 )
+building_button = ExtResource( 2 )
+
+[node name="ConstructionPanel" type="MarginContainer" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -78.0
+margin_right = 409.0
+grow_vertical = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="ConstructionPanel"]
+modulate = Color( 1, 1, 1, 0.482353 )
+margin_right = 409.0
+margin_bottom = 78.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="BuildingButtons" type="GridContainer" parent="ConstructionPanel"]
+margin_right = 409.0
+margin_bottom = 78.0
+columns = 2
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="BuildingInfo" type="MarginContainer" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -178.0
+margin_top = -160.0
+grow_vertical = 0
+custom_constants/margin_right = 0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="BuildingInfo"]
+modulate = Color( 1, 1, 1, 0.482353 )
+margin_right = 178.0
+margin_bottom = 160.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BuildingInfo"]
+margin_right = 178.0
+margin_bottom = 160.0
+
+[node name="TopContainer" type="MarginContainer" parent="."]
+margin_left = 5.66031
+margin_top = 4.1509
+margin_right = 154.66
+margin_bottom = 44.1509
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="TopContainer"]
+margin_right = 148.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="MoneyLabel" type="RichTextLabel" parent="TopContainer"]
+margin_right = 148.0
+margin_bottom = 40.0
+text = "Money: 0"
+__meta__ = {
+"_edit_lock_": true
+}
