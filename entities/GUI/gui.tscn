@@ -60,14 +60,11 @@ __meta__ = {
 margin_right = 178.0
 margin_bottom = 160.0
 
-[node name="TopContainer" type="MarginContainer" parent="."]
+[node name="TopContainer" type="Control" parent="."]
 margin_left = 5.66031
 margin_top = 4.1509
 margin_right = 154.66
 margin_bottom = 44.1509
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Panel" type="Panel" parent="TopContainer"]
 margin_right = 148.0
@@ -78,8 +75,18 @@ __meta__ = {
 
 [node name="MoneyLabel" type="RichTextLabel" parent="TopContainer"]
 margin_right = 148.0
-margin_bottom = 40.0
+margin_bottom = 15.0
 text = "Money: 0"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PopulationLabel" type="RichTextLabel" parent="TopContainer"]
+margin_left = 1.0
+margin_top = 15.0
+margin_right = 149.0
+margin_bottom = 31.0
+text = "Population: 0"
 __meta__ = {
 "_edit_lock_": true
 }

@@ -41,6 +41,14 @@ func get_closest_building_of_groups(from: Vector2, building_groups: Array) -> Bu
 	
 	return get_closest_building_from_list(from, buildings)
 
+func get_buildings_at_distance(from: Vector2, building_groups: Array, max_distance:int) -> Array:
+	var buildings=_map.get_buildings_of_groups(building_groups)
+	var result=[]
+	for building in buildings:
+		var candidate_path=get_road_path_between_buildings(from, building.map_position)
+		if candidate_path.size() > 0 and candidate_path.size() <= max_distance:
+			result.append(building)
+	return result
 
 func get_closest_building_from_list(from: Vector2, buildings: Array) -> Building:
 	var closest_building=null

@@ -7,6 +7,7 @@ export var building_button: PackedScene
 
 onready var building_buttons=$ConstructionPanel/BuildingButtons
 onready var money_label=$TopContainer/MoneyLabel
+onready var population_label=$TopContainer/PopulationLabel
 onready var building_info=$BuildingInfo
 
 func _ready():
@@ -38,6 +39,10 @@ func on_building_update():
 
 func on_money_updated(money: int):
 	money_label.text="Money: "+String(money)
+
+func on_population_updated(population: int):
+	population_label.text="Population: "+String(population)
+
 
 func _on_button_pressed(building_resource: Resource):
 	emit_signal("building_resource_selected", building_resource)

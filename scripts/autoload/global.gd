@@ -18,5 +18,6 @@ var BUILDING_ROLES:={
 	"PRODUCER": "b_role_producer",
 	"CONSUMER": "b_role_consumer",
 	"STORAGE": "b_role_storage",
-	"FACTORY": "b_role_factory"
+	"FACTORY": "b_role_factory",
+	"MARKET": "b_role_market"
 }
