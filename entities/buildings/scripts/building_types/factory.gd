@@ -10,6 +10,7 @@ var current_required_quantity: float = 0
 
 func _ready():
 	add_to_group(Global.BUILDING_ROLES.FACTORY)
+	add_to_group(Global.BUILDING_ROLES.CONSUMER)
 
 func on_building_update(delta: float): # TODO: improve
 	.on_building_update(delta)
