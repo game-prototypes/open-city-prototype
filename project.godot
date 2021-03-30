@@ -22,7 +22,7 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "Buildings",
 "language": "GDScript",
-"path": "res://entities/Map/Scripts/Buildings.gd"
+"path": "res://entities/map/Scripts/Buildings.gd"
 }, {
 "base": "Node2D",
 "class": "Character",
@@ -42,12 +42,12 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "Map",
 "language": "GDScript",
-"path": "res://entities/Map/Scripts/Map.gd"
+"path": "res://entities/map/Scripts/Map.gd"
 }, {
 "base": "Reference",
 "class": "MapNavigation",
 "language": "GDScript",
-"path": "res://entities/Map/Scripts/services/navigation.gd"
+"path": "res://entities/map/Scripts/services/navigation.gd"
 }, {
 "base": "Building",
 "class": "Producer",
@@ -57,7 +57,7 @@ _global_script_classes=[ {
 "base": "Reference",
 "class": "ResourceManager",
 "language": "GDScript",
-"path": "res://entities/Map/Scripts/services/resource_manager.gd"
+"path": "res://entities/map/Scripts/services/resource_manager.gd"
 }, {
 "base": "Resource",
 "class": "RoadResource",
@@ -67,7 +67,7 @@ _global_script_classes=[ {
 "base": "TileMap",
 "class": "Roads",
 "language": "GDScript",
-"path": "res://entities/Map/Scripts/Roads.gd"
+"path": "res://entities/map/Scripts/Roads.gd"
 }, {
 "base": "Reference",
 "class": "Storage",
