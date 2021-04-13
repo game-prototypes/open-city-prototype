@@ -33,3 +33,6 @@ script = ExtResource( 8 )
 [node name="BuildingUpdateTimer" type="Timer" parent="."]
 process_mode = 0
 autostart = true
+__meta__ = {
+"_editor_description_": ""
+}
