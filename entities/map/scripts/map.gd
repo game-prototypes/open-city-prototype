@@ -7,7 +7,7 @@ var resource_manager: ResourceManager
 
 onready var _terrain:TileMap = $Terrain
 onready var _roads:Roads = $Roads
-onready var _buildings:Buildings = $Buildings
+onready var _buildings:MapBuildings = $Buildings
 onready var _elements = $Elements
 
 signal tile_selected(tile, building)

@@ -1,6 +1,6 @@
 extends Node
 
-class_name Buildings
+class_name MapBuildings
 
 onready var map=get_parent()
 
@@ -23,9 +23,7 @@ func has_building(tile: Vector2)->bool:
 
 func handle_building_click(tile: Vector2):
 	if tile_to_building.has(tile):
-		var element=tile_to_building[tile]
-		element.on_building_select()
-		return element
+		return tile_to_building[tile]
 
 func _build_area(building:Node2D) -> void:
 	var tiles=building.get_occupied_tiles()

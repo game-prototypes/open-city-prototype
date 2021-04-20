@@ -13,6 +13,9 @@ onready var building_info=$BuildingInfo
 func _ready():
 	assert(building_button, "Building button not set in GUI")
 
+func _process(_delta: float):
+	building_info.update_building_info()
+
 func set_buildings(building_list):
 	for building in building_list:
 		add_build_button(building)
@@ -33,9 +36,6 @@ func show_building_info(building: Building):
 
 func deselect_building():
 	building_info.deselect_building()
-
-func on_building_update():
-	building_info.update_building_info()
 
 func on_money_updated(money: int):
 	money_label.text="Money: "+String(money)

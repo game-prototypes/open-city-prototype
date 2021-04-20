@@ -10,13 +10,11 @@ onready var building_update_timer:=$BuildingUpdateTimer
 func _ready():
 	Log.info("Begin Main Scene")
 	gui.set_buildings(buildings)
-	
 	_setup_signals()
 
 
 func on_building_timer():
 	get_tree().call_group("building", "on_building_update", building_update_timer.wait_time)
-	gui.on_building_update()
 
 func _setup_signals():
 	gui.connect("building_resource_selected", player,"on_building_resource_selected")

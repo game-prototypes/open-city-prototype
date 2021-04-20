@@ -8,12 +8,6 @@
 [ext_resource path="res://resources/mega_isometric_block/container_4.png" type="Texture" id=6]
 [ext_resource path="res://entities/buildings/scenes/storage_yard/storage_yard.gd" type="Script" id=7]
 
-
-
-
-
-
-
 [sub_resource type="PackedScene" id=1]
 _bundled = {
 "conn_count": 0,
