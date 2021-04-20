@@ -1,7 +1,8 @@
 [gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://entities/character/scripts/collector.gd" type="Script" id=1]
-[ext_resource path="res://resources/LPCMedievalCharacters/char_1.png" type="Texture" id=2]
+[ext_resource path="res://resources/lpc_medieval_characters/char_1.png" type="Texture" id=2]
+
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
