@@ -1,6 +1,8 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://entities/Camera/MainCamera.gd" type="Script" id=1]
+[ext_resource path="res://entities/camera/main_camera.gd" type="Script" id=1]
+
+
 
 
 

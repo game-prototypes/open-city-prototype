@@ -2,8 +2,11 @@
 
 [ext_resource path="res://resources/IsometricMedieval/inn.png" type="Texture" id=1]
 [ext_resource path="res://entities/buildings/scripts/building_types/factory.gd" type="Script" id=2]
-[ext_resource path="res://entities/Characters/Transporter.tscn" type="PackedScene" id=3]
-[ext_resource path="res://entities/Characters/Collector.tscn" type="PackedScene" id=4]
+[ext_resource path="res://entities/character/transporter.tscn" type="PackedScene" id=3]
+[ext_resource path="res://entities/character/collector.tscn" type="PackedScene" id=4]
+
+
+
 
 [node name="Bakery" type="Node2D"]
 script = ExtResource( 2 )
