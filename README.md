@@ -1,5 +1,6 @@
 # open-city-prototype
-
+_by @angrykoala_
+A prototype of a pharaoh-like city builder made with [Godot](https://godotengine.org/)
 
 ## Tests
 
