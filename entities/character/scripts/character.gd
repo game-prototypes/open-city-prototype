@@ -2,10 +2,12 @@ extends Node2D
 
 class_name Character
 
+const RESOURCE_CAPACITY=5
+
 export(float) var movement_speed=25
 onready var animation: AnimatedSprite = $Animation
 onready var tween: Tween = $Tween
-
+# TODO: use a state machine instead of changing target_building
 var origin_building: Building
 var target_building: Building
 
