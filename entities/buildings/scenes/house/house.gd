@@ -4,16 +4,20 @@ export(Global.RESOURCES) var required_resource
 export var consumption_rate:float=1
 export var max_required_storage:int=5
 export var max_market_distance:int= 10
+export var max_population:int=10
 
 
 var current_required_quantity: float=0
 
+var population:HousePopulation
+
 func _ready():
 	add_to_group(Global.BUILDING_ROLES.HOUSE)
-	CityResources.increase_population(10)
+	population=HousePopulation.new(max_population)
+	population.increase_population(5)
 	
 func _exit_tree():
-	CityResources.decrease_population(10)
+	population.remove_all_population()
 
 func on_building_update(delta: float): # TODO: improve
 	.on_building_update(delta)

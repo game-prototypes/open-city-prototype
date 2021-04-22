@@ -11,7 +11,7 @@ func _ready():
 	_set_target(target)
 
 func set_ammount_to_get(ammount: int)->void:
-	ammount_to_get=clamp(ammount, 0 , Character.RESOURCE_CAPACITY)
+	ammount_to_get=int(clamp(ammount, 0 , Character.RESOURCE_CAPACITY))
 
 func arrived_to_destination():
 	.arrived_to_destination()

@@ -38,8 +38,8 @@ func return_to_origin():
 
 func _move(path: Array):
 	assert(tween.is_active()==false, "Move with already active tween")
-	var point=path.pop_front()
-	position=map.tile2pos(point)
+	var first_point=path.pop_front()
+	position=map.tile2pos(first_point)
 	for point in path:
 		var new_pos=map.tile2pos(point)
 		var distance=position.distance_to(new_pos)
