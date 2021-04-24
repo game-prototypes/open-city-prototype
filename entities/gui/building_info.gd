@@ -35,8 +35,11 @@ func update_building_info():
 		var label_text="Require "+Global.resource_names[target_building.required_resource]+": "+String(target_building.current_required_quantity)
 		add_label(label_text)
 	if target_building.is_in_group(Global.BUILDING_ROLES.HOUSE):
-		var label_text="Require "+Global.resource_names[Global.RESOURCES.Bread]+": "+String(target_building.current_required_quantity)
-		add_label(label_text)
+		var food_label_text="Food: "+String(target_building.get_food())
+		var population_label_text="Population: "+String(target_building.get_population())+"/"+String(target_building.get_max_population())
+		add_label(food_label_text)
+		add_label(population_label_text)
+
 
 func add_label(text: String):
 	var label=Label.new()

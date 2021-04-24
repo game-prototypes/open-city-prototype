@@ -29,7 +29,7 @@ func increase_max_population(value: int)->void:
 
 func decrease_max_population(value:int)->void:
 	max_population-=value
-	var overpopulation=population-max_population
+	var overpopulation=max(population-max_population,0)
 	decrease_population(overpopulation)
 
 func remove_all_population()->void:
