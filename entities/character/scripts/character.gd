@@ -11,7 +11,7 @@ onready var tween: Tween = $Tween
 var origin_building: Building
 var target_building: Building
 
-var map: Map
+var map
 var _path: Array
 
 var map_position:Vector2

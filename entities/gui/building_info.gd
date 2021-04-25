@@ -30,7 +30,7 @@ func update_building_info():
 			add_label(resource_text)
 	if target_building.is_in_group(Global.BUILDING_ROLES.PRODUCER):
 		var label_text=Global.resource_names[target_building.resource]+": "+String(target_building.get_current_ammount())
-		var workers_text="Workers: "+String(target_building.get_workers())+"/"+String(target_building.get_required_workers())
+		var workers_text="Workers: "+String(target_building.get_workers())+"/"+String(target_building.get_max_workers())
 		add_label(label_text)
 		add_label(workers_text)
 	if target_building.is_in_group(Global.BUILDING_ROLES.CONSUMER):

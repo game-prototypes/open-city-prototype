@@ -4,7 +4,7 @@ signal building_selected(building)
 
 export var overlay_tile: PackedScene
 
-onready var map: Map=$"../Map"
+onready var map=$"../Map"
 onready var overlay=$Overlay
 
 var selected_build_item: Resource
@@ -57,7 +57,7 @@ func on_tile_selected(tile: Vector2, selected_element:Node2D) -> void:
 			City.remove_money(selected_build_item.price)
 	elif selected_build_item.type==BuildingResource.Type.BUILDING:
 		if map.can_build_area(tile, selected_build_item.area):
-			var building = selected_build_item.instantiate_building(tile, map)
+			var building = selected_build_item.instantiate_building(tile)
 			map.build(tile,building)
 			City.remove_money(selected_build_item.price)
 			deselect_action()

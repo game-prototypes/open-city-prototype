@@ -1,16 +1,14 @@
-extends Building
+extends Workplace
 
 class_name Producer
 
 export var transporter_character:PackedScene
 export var production_rate:float=1
 export var capacity:int=10
-export var required_workers:int=10
 export(Global.RESOURCES) var resource
 
 var current_ammount:float=0
-var transporter: Transporter
-var workers:int=5
+var transporter
 
 func _ready():
 	add_to_group(Global.BUILDING_ROLES.PRODUCER)
@@ -33,12 +31,6 @@ func get_current_ammount()->int:
 func is_storage_full():
 	return current_ammount>=capacity
 
-func get_workers()->int:
-	return workers
-
-func get_required_workers()->int:
-	return required_workers
-
 func take_resources(max_resources:int)->int:
 	var resources_to_take=int(clamp(get_current_ammount(), 0, max_resources))
 	current_ammount=current_ammount - resources_to_take
@@ -50,14 +42,14 @@ func _should_spawn_transporter():
 
 func _produce_resource(delta: float):
 	if current_ammount<capacity:
-		var worker_rate=float(workers)/required_workers
+		var worker_rate=float(workers)/max_workers
 		var produced_ammount=production_rate*delta*worker_rate
 		current_ammount=clamp(current_ammount+produced_ammount, 0, capacity)
 
 func _spawn_transporter():
 	var target_building = map.resource_manager.get_target_building_for_resource(resource,current_ammount, map_position)
 	if target_building:
-		transporter=transporter_character.instance() as Transporter
+		transporter=transporter_character.instance()
 		transporter.resource_type = resource
 
 		var spawned=_spawn_character(transporter, target_building)

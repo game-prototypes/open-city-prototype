@@ -47,7 +47,7 @@ func _find_market_food():
 	var markets=map.navigation.get_buildings_at_distance(map_position, [Global.BUILDING_ROLES.MARKET], max_market_distance)
 	# TODO: look in all markets
 	if markets.size()>0:
-		var market=markets[0] as Market
+		var market=markets[0]
 		var amount_to_get=int(max_food_storage-food)
 		var available_amount=market.consume_resource(amount_to_get)
 		food+=available_amount
