@@ -24,38 +24,68 @@ func remove_money(diff: int) -> int:
 
 func increase_population(diff: int) -> int:
 	population=population+diff
-	# TODO: update workforce
+	_distribute_remaining_workers()
 	emit_signal("population_updated", population)
 	return population
 
 func decrease_population(diff: int) -> int:
-	# TODO: update workforce
-	return increase_population(-diff)
+	population=population-diff
+	_remove_extra_workers()
+	emit_signal("population_updated", population)
+	return population
 
 func register_workplace(workplace: Workplace):
 	workplace_list.append(workplace)
-	var workers_to_find=workplace.get_remaining_workers()
-	var available_workers=get_available_workers()
-	var workers_to_assign=min(workers_to_find,available_workers)
-	_assign_workers(workers_to_assign, workplace)
+	_assign_possible_workers(workplace)
 
 func remove_workplace(workplace: Workplace):
 	var element_positon=workplace_list.find(workplace)
 	workplace_list.remove(element_positon)
-	_decrement_workforce(workplace.get_workers())
+	_decrease_workforce(workplace.get_workers())
+	_distribute_remaining_workers()
 
 func get_available_workers()->int:
 	return population-workforce
 
+func _distribute_remaining_workers()->void:
+	for workplace in workplace_list:
+		_assign_possible_workers(workplace)
+
+func _remove_extra_workers()->void:
+	var extra_workers=workforce-population
+	for workplace in workplace_list:
+		if extra_workers>0:
+			var workers=workplace.get_workers()
+			var workers_to_remove=min(extra_workers, workers)
+			_remove_workers(workers_to_remove, workplace)
+			extra_workers=extra_workers-workers_to_remove
+	assert(workforce<=population, "More workers than population")
+
+
+func _assign_possible_workers(workplace:Workplace)->int:
+	var available_workers=get_available_workers()
+	if available_workers<=0:
+		return 0
+	var workers_to_find=workplace.get_remaining_workers()
+	var workers_to_assign=min(workers_to_find,available_workers)
+	_assign_workers(workers_to_assign, workplace)
+	return workers_to_assign
+
+
 func _assign_workers(workers:int, workplace:Workplace)->void:
 	var current_workers=workplace.get_workers()
-	increase_workforce(workers)
+	_increase_workforce(workers)
 	workplace.set_workers(current_workers+workers)
 
-func increase_workforce(value:int)->void:
+func _remove_workers(workers:int, workplace:Workplace)->void:
+	var current_workers=workplace.get_workers()
+	_decrease_workforce(workers)
+	workplace.set_workers(current_workers-workers)
+
+func _increase_workforce(value:int)->void:
 	workforce+=value
 	assert(workforce<=population, "More workers than population")
 
-func _decrement_workforce(value:int)->void:
+func _decrease_workforce(value:int)->void:
 	workforce-=value
 	assert(workforce>=0, "Less than 0 workforce")
