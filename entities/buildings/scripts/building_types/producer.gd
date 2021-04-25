@@ -5,10 +5,12 @@ class_name Producer
 export var transporter_character:PackedScene
 export var production_rate:float=1
 export var capacity:int=10
+export var required_workers:int=10
 export(Global.RESOURCES) var resource
 
 var current_ammount:float=0
 var transporter: Transporter
+var workers:int=5
 
 func _ready():
 	add_to_group(Global.BUILDING_ROLES.PRODUCER)
@@ -31,6 +33,12 @@ func get_current_ammount()->int:
 func is_storage_full():
 	return current_ammount>=capacity
 
+func get_workers()->int:
+	return workers
+
+func get_required_workers()->int:
+	return required_workers
+
 func take_resources(max_resources:int)->int:
 	var resources_to_take=int(clamp(get_current_ammount(), 0, max_resources))
 	current_ammount=current_ammount - resources_to_take
@@ -42,7 +50,8 @@ func _should_spawn_transporter():
 
 func _produce_resource(delta: float):
 	if current_ammount<capacity:
-		var produced_ammount=production_rate*delta
+		var worker_rate=float(workers)/required_workers
+		var produced_ammount=production_rate*delta*worker_rate
 		current_ammount=clamp(current_ammount+produced_ammount, 0, capacity)
 
 func _spawn_transporter():

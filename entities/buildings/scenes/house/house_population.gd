@@ -15,12 +15,12 @@ func has_max_population()->bool:
 func increase_population(value: int)->void:
 	if not has_max_population():
 		var new_population=int(clamp(population+value, 0, max_population))
-		CityResources.increase_population(new_population-population)
+		City.increase_population(new_population-population)
 		population=new_population
 
 func decrease_population(value: int)->void:
 	var new_population=int(clamp(population-value, 0, max_population))
-	CityResources.decrease_population(population-new_population)
+	City.decrease_population(population-new_population)
 	population=new_population
 
 

@@ -116,9 +116,9 @@ config/icon="res://icon.png"
 
 [autoload]
 
-CityResources="*res://autoload/city_resources.gd"
 Global="*res://autoload/global.gd"
 Log="*res://autoload/log.gd"
+City="*res://autoload/city/city.tscn"
 
 [debug]
 

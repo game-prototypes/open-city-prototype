@@ -54,17 +54,17 @@ func on_tile_selected(tile: Vector2, selected_element:Node2D) -> void:
 	elif selected_build_item.type==BuildingResource.Type.ROAD:
 		if map.can_build(tile):
 			map.build_road(tile, selected_build_item.road_id)
-			CityResources.remove_money(selected_build_item.price)
+			City.remove_money(selected_build_item.price)
 	elif selected_build_item.type==BuildingResource.Type.BUILDING:
 		if map.can_build_area(tile, selected_build_item.area):
 			var building = selected_build_item.instantiate_building(tile, map)
 			map.build(tile,building)
-			CityResources.remove_money(selected_build_item.price)
+			City.remove_money(selected_build_item.price)
 			deselect_action()
 
 	if selected_demolish:
 		if map.demolish_tile(tile):
-			CityResources.remove_money(5)
+			City.remove_money(5)
 
 func on_building_resource_selected(building: Resource):
 	deselect_action()

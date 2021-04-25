@@ -11,6 +11,7 @@ signal _on_character_arrived(character)
 
 func _ready():
 	add_to_group(Global.BUILDING_GROUP)
+	map=City.map
 
 func on_building_update(delta: float):
 	emit_signal("_on_building_update", delta)
@@ -33,7 +34,7 @@ func _spawn_character(character, target=null)->bool:
 	else:
 		character_tile=_get_closer_spawn_tile(target)
 	if character_tile:
-		character.setup(map, character_tile, self)
+		character.setup(character_tile, self)
 		map.add_person(character)
 		return true
 	else:

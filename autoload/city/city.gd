@@ -3,8 +3,13 @@ extends Node
 var money:int = 1000
 var population:int=0
 
+var map:Map
+
 signal money_updated(money)
 signal population_updated(population)
+
+func set_map(_map:Map)->void:
+	map=_map
 
 func add_money(diff: int) -> int:
 	money=money+diff

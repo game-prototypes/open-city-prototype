@@ -17,11 +17,11 @@ var _path: Array
 var map_position:Vector2
 
 func _ready():
-	assert(map and map_position and origin_building, "Character not set")
+	map=City.map
+	assert(map_position and origin_building, "Character not set")
 	position=map.tile2pos(map_position)
 
-func setup(_map:Map, _map_position:Vector2, _origin_building: Building):
-	map=_map
+func setup(_map_position:Vector2, _origin_building: Building):
 	map_position=_map_position
 	origin_building=_origin_building
 

@@ -4,8 +4,6 @@
 [ext_resource path="res://entities/gui/building_button.tscn" type="PackedScene" id=2]
 [ext_resource path="res://entities/gui/building_info.gd" type="Script" id=3]
 
-
-
 [node name="GUI" type="CanvasLayer"]
 script = ExtResource( 1 )
 building_button = ExtResource( 2 )

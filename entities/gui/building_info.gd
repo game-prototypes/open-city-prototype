@@ -29,8 +29,10 @@ func update_building_info():
 			var resource_text=Global.resource_names[resource]+": "+String(resources[resource])
 			add_label(resource_text)
 	if target_building.is_in_group(Global.BUILDING_ROLES.PRODUCER):
-		var label_text=Global.resource_names[target_building.resource]+": "+String(target_building.current_ammount)
+		var label_text=Global.resource_names[target_building.resource]+": "+String(target_building.get_current_ammount())
+		var workers_text="Workers: "+String(target_building.get_workers())+"/"+String(target_building.get_required_workers())
 		add_label(label_text)
+		add_label(workers_text)
 	if target_building.is_in_group(Global.BUILDING_ROLES.CONSUMER):
 		var label_text="Require "+Global.resource_names[target_building.required_resource]+": "+String(target_building.current_required_quantity)
 		add_label(label_text)
