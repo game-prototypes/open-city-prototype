@@ -1,8 +1,11 @@
 extends Node
 
-var money:int = 1000
+export var taxes_rate:float=0.2
+var money:float = 1000.0
 var population:int=0
 var workforce:int=0
+
+onready var building_update_timer:=$CityUpdateTimer
 
 var map
 
@@ -11,16 +14,22 @@ signal population_updated(population)
 
 var workplace_list:=[]
 
+func _ready():
+	building_update_timer.connect("timeout", self, "_on_city_update", [building_update_timer.wait_time])
+
 func set_map(_map)->void:
 	map=_map
 
 func add_money(diff: int) -> int:
 	money=money+diff
-	emit_signal("money_updated", money)
-	return money
+	emit_signal("money_updated", get_money())
+	return get_money()
 
 func remove_money(diff: int) -> int:
 	return add_money(-diff)
+
+func get_money()->int:
+	return int(money)
 
 func increase_population(diff: int) -> int:
 	population=population+diff
@@ -89,3 +98,8 @@ func _increase_workforce(value:int)->void:
 func _decrease_workforce(value:int)->void:
 	workforce-=value
 	assert(workforce>=0, "Less than 0 workforce")
+
+
+func _on_city_update(delta: float) -> void:
+	var taxes=delta*taxes_rate*population
+	add_money(taxes)

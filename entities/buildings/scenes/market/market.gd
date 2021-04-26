@@ -10,5 +10,5 @@ func get_resource_quantity()->int:
 
 func consume_resource(amount:int)->int:
 	var amount_to_get=min(current_required_quantity, amount)
-	current_required_quantity-=amount
+	current_required_quantity-=amount_to_get
 	return amount_to_get

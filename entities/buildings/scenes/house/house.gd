@@ -5,6 +5,7 @@ export var consumption_rate:float=1
 export var max_food_storage:int=5
 export var max_market_distance:int= 10
 export var max_population:int=10
+export var min_population:int=2
 
 var food: float=0
 
@@ -13,7 +14,7 @@ var population:HousePopulation
 func _ready():
 	add_to_group(Global.BUILDING_ROLES.HOUSE)
 	population=HousePopulation.new(max_population)
-	population.increase_population(5)
+	population.increase_population(min_population)
 	
 func _exit_tree():
 	population.remove_all_population()
@@ -56,5 +57,6 @@ func _find_market_food():
 func _on_population_update() -> void:
 	if has_food():
 		population.increase_population(1)
-	elif population.max_population>1:
-		population.decrease_max_population(1)
+	elif population.population>min_population:
+		#TODO: decrease nad increase max population
+		population.decrease_population(1)
