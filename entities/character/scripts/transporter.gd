@@ -2,6 +2,7 @@ extends Character
 
 class_name Transporter
 
+
 var resource_ammount: int
 var resource_type: int
 

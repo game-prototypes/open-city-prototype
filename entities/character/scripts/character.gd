@@ -23,6 +23,7 @@ func _ready():
 	map=City.map
 	assert(map_position and origin_building, "Character not set")
 	position=map.tile2pos(map_position)
+	animation.play()
 
 func setup(_map_position:Vector2, _origin_building: Building):
 	map_position=_map_position
@@ -56,7 +57,6 @@ func _move(path: Array):
 		map_position=point
 	tween.stop_all()
 	arrived_to_destination()
-
 
 func _set_target(target:Building):
 	target_building=target
