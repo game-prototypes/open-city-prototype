@@ -3,8 +3,11 @@ extends Node2D
 class_name Character
 
 const RESOURCE_CAPACITY=5
+const DESPAWN_TIME=0.5
 
 export(float) var movement_speed=25
+
+
 onready var animation: AnimatedSprite = $Animation
 onready var tween: Tween = $Tween
 # TODO: use a state machine instead of changing target_building
@@ -62,4 +65,7 @@ func _set_target(target:Building):
 		set_path(new_path)
 
 func _despawn():
+	print("despawn before")
+	yield(get_tree().create_timer(DESPAWN_TIME), "timeout")
+	print("despawn after")
 	queue_free()
