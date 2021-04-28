@@ -1,7 +1,7 @@
 extends Building
 
 export(Global.RESOURCES) var required_resource
-export var consumption_rate:float=1
+export var consumption_rate:float=0.5
 export var max_food_storage:int=5
 export var max_market_distance:int= 10
 export var max_population:int=10
@@ -44,14 +44,15 @@ func _consume_food(delta: float):
 func _should_find_food()->bool:
 	return food<=max_food_storage-1
 
-func _find_market_food():
+func _find_market_food() -> void:
 	var markets=map.navigation.get_buildings_at_distance(map_position, [Global.BUILDING_ROLES.MARKET], max_market_distance)
-	# TODO: look in all markets
-	if markets.size()>0:
-		var market=markets[0]
+	
+	for market in markets:
 		var amount_to_get=int(max_food_storage-food)
 		var available_amount=market.consume_resource(amount_to_get)
 		food+=available_amount
+		if food==max_food_storage:
+			return
 
 
 func _on_population_update() -> void:

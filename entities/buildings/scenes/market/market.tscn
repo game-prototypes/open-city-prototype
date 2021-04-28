@@ -5,15 +5,10 @@
 [ext_resource path="res://resources/isometric_medieval/dirt.png" type="Texture" id=3]
 [ext_resource path="res://entities/buildings/scenes/market/market.gd" type="Script" id=4]
 
-
-
-
-
-
-
 [node name="Market" type="Node2D"]
 script = ExtResource( 4 )
 consumption_rate = 0.0
+max_required_storage = 20
 collector_character = ExtResource( 2 )
 
 [node name="FloorSprite" type="Sprite" parent="."]
