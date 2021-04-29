@@ -1,7 +1,7 @@
 extends Building
 
 export(Global.RESOURCES) var required_resource
-export var consumption_rate:float=0.5
+export var consumption_rate:float=0.005
 export var max_food_storage:int=5
 export var max_market_distance:int= 10
 export var max_population:int=10
@@ -38,7 +38,7 @@ func has_food() -> bool:
 	return get_food()>0
 
 func _consume_food(delta: float):
-	var consumed_ammount=consumption_rate*delta
+	var consumed_ammount=consumption_rate*delta*population.population
 	food=clamp(food-consumed_ammount, 0, max_food_storage)
 
 func _should_find_food()->bool:
