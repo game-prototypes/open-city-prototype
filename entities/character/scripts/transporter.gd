@@ -8,7 +8,7 @@ var resource_type: int
 
 func _ready():
 	resource_ammount=origin_building.take_resources(Character.RESOURCE_CAPACITY)
-	var target=map.resource_manager.get_target_building_for_resource(resource_type,resource_ammount, map_position)
+	var target=map.resource_manager.get_target_building_for_resource(resource_type,resource_ammount, origin_building.map_position)
 	_set_target(target)
 
 func arrived_to_destination():
