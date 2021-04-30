@@ -23,3 +23,6 @@ func get_remaining_workers()->int:
 func set_workers(new_workers:int)->void:
 	assert(new_workers<=max_workers, "More workers than possible set in workplace")
 	workers=new_workers
+
+func get_workers_rate()->float:
+	return float(workers)/max_workers

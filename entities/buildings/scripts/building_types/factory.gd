@@ -20,7 +20,7 @@ func on_building_update(delta: float): # TODO: improve
 func _produce_resource(delta: float):
 	if _has_required_quantity(delta):
 		._produce_resource(delta)
-		var consumed_ammount=consumption_rate*delta
+		var consumed_ammount=consumption_rate*delta*get_workers_rate()
 		current_required_quantity=clamp(current_required_quantity-consumed_ammount, 0, max_required_storage)
 
 func character_arrived(character):

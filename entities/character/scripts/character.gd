@@ -65,7 +65,5 @@ func _set_target(target:Building):
 		set_path(new_path)
 
 func _despawn():
-	print("despawn before")
 	yield(get_tree().create_timer(DESPAWN_TIME), "timeout")
-	print("despawn after")
 	queue_free()

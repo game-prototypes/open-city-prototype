@@ -42,8 +42,7 @@ func _should_spawn_transporter():
 
 func _produce_resource(delta: float):
 	if current_ammount<capacity:
-		var worker_rate=float(workers)/max_workers
-		var produced_ammount=production_rate*delta*worker_rate
+		var produced_ammount=production_rate*delta*get_workers_rate()
 		current_ammount=clamp(current_ammount+produced_ammount, 0, capacity)
 
 func _spawn_transporter():
