@@ -25,6 +25,12 @@ func _unhandled_input(event):
 			
 			emit_signal("tile_selected", tile, element)
 
+func next_to_road(tile:Vector2)->bool:
+	var tiles=Utils.get_tiles_around(tile,false)
+	for tile in tiles:
+		if _roads.has_road(tile):
+			return true
+	return false
 
 func can_build(tile) -> bool:
 	var has_road=_roads.has_road(tile)

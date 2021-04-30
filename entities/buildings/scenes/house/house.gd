@@ -14,8 +14,7 @@ var population:HousePopulation
 func _ready():
 	add_to_group(Global.BUILDING_ROLES.HOUSE)
 	population=HousePopulation.new(max_population)
-	population.increase_population(min_population)
-	
+
 func _exit_tree():
 	population.remove_all_population()
 
@@ -56,8 +55,13 @@ func _find_market_food() -> void:
 
 
 func _on_population_update() -> void:
-	if has_food():
-		population.increase_population(1)
-	elif population.population>min_population:
-		#TODO: decrease nad increase max population
-		population.decrease_population(1)
+	if !map.next_to_road(map_position):
+		population.remove_all_population()
+	else:
+		if get_population()<min_population:
+			population.increase_population(min_population)
+		elif has_food():
+			population.increase_population(1)
+		elif population.population>min_population:
+			#TODO: decrease nad increase max population
+			population.decrease_population(1)
