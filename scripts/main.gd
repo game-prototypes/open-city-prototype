@@ -13,6 +13,7 @@ func _ready():
 	City.set_map(map)
 	_setup_signals()
 
+
 func on_building_timer():
 	get_tree().call_group("building", "on_building_update", building_update_timer.wait_time)
 

@@ -47,7 +47,7 @@ func can_build_area(tile:Vector2, area: Vector2) -> bool:
 func build(tile: Vector2, building: Building) -> void:
 	Log.info("Build", tile, building)
 	_buildings.build(tile,building)
-	_elements.add_child(building)
+	add_element(building)
 
 func demolish_tile(tile: Vector2) -> bool:
 	Log.info("Demolish", tile)
@@ -61,7 +61,11 @@ func demolish_tile(tile: Vector2) -> bool:
 	return false
 
 func add_person(person: Node2D) -> void:
-	_elements.add_child(person)
+	add_element(person)
+
+func add_element(element:Node2D)->void:
+	_elements.add_child(element)
+	element.set_owner(_elements)
 
 func build_road(tile: Vector2, road_id: int)-> void:
 	_roads.build_road(tile, road_id)
