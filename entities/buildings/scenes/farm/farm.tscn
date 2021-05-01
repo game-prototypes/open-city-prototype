@@ -6,7 +6,9 @@
 
 [node name="Farm" type="Node2D"]
 script = ExtResource( 2 )
+max_workers = 5
 transporter_character = ExtResource( 1 )
+production_rate = 0.5
 resource = 1
 
 [node name="Sprite" type="Sprite" parent="."]

@@ -7,9 +7,10 @@
 
 [node name="Bakery" type="Node2D"]
 script = ExtResource( 2 )
+max_workers = 5
 transporter_character = ExtResource( 3 )
+production_rate = 0.5
 required_resource = 1
-consumption_rate = 0.7
 collector_character = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="."]

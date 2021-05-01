@@ -5,7 +5,7 @@
 
 [node name="House" type="Node2D"]
 script = ExtResource( 2 )
-consumption_rate = 0.2
+consumption_rate = 0.02
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( -4.45242, 7.9281 )
