@@ -120,10 +120,6 @@ _global_script_class_icons={
 "Workplace": ""
 }
 
-[WAT]
-
-Test_Directory="res://tests"
-
 [application]
 
 config/name="Open City Test"

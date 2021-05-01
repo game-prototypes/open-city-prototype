@@ -6,3 +6,4 @@ func test_building():
 	add_child_autofree(map)
 	var can_build=map.can_build(Vector2(10,10))
 	assert_true(can_build)
+

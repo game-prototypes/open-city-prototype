@@ -45,7 +45,7 @@ func deselect_action():
 	selected_demolish=false
 	_remove_overlay()
 
-func on_tile_selected(tile: Vector2, selected_element:Node2D) -> void:
+func on_tile_selected(tile: Vector2, selected_element) -> void:
 	# TODO: use a generic action abstraction
 	if not selected_build_item:
 		if selected_element:
