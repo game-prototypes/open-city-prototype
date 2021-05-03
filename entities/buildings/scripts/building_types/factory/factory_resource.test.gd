@@ -2,7 +2,7 @@ extends TestSuite
 
 class TestFactoryInput:
 	extends TestSuite
-	const FactoryInputResource=preload("./factory_input_resource.gd")
+	const FactoryInputResource=preload("./factory_input.gd")
 	
 	var resource:FactoryInputResource
 	var required_quantity=10
@@ -26,3 +26,8 @@ class TestFactoryInput:
 		assert_eq(resource.get_required_quantity(), required_quantity)
 		resource.add_resource_quantity(1)
 		assert_eq(resource.get_required_quantity(), required_quantity-1)
+
+	func test_consume_resource():
+		resource.add_resource_quantity(required_quantity+1)
+		resource.consume_resource()
+		assert_eq(resource.current_quantity, 1)

@@ -2,8 +2,8 @@ extends Workplace
 
 class_name Factory
 
-const FactoryInputResource=preload("./factory_input_resource.gd")
-const FactoryOutputResource=preload("./factory_output_resource.gd")
+const FactoryInputResource=preload("./factory_input.gd")
+const FactoryOutputResource=preload("./factory_output.gd")
 
 export var production_time:int=5 # seconds to produce
 export var collector_character:PackedScene
