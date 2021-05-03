@@ -33,6 +33,17 @@ func has_resource_quantity(resource: int, quantity:int) -> bool:
 func can_store(_resource: int, quantity:int)->bool:
 	return storage.can_store_quantity(quantity)
 
+func get_info()->Array:
+	var info=.get_info()
+	
+	var space_text=String(storage.get_occupied_space())+"/"+String(storage.max_storage)
+	info.append(space_text)
+	var resources=storage.stored_resources
+	for resource in resources:
+		var resource_text=Global.resource_names[resource]+": "+String(resources[resource])
+		info.append(resource_text)
+	return info
+
 func _update_sprites():
 	var is_empty=storage.is_empty()
 	empty_sprite.visible=is_empty

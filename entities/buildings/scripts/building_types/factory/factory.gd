@@ -8,6 +8,7 @@ const FactoryOutputResource=preload("./factory_output_resource.gd")
 export var production_time:int=5 # seconds to produce
 export var collector_character:PackedScene
 export var transporter_character:PackedScene
+# TODO: export var max_storage=10
 
 var input_resources=[]
 var output_resources=[]
@@ -31,6 +32,7 @@ func on_building_update(delta: float):
 			time_left=production_time
 	else:
 		_try_to_spawn_transporter()
+		_try_to_spawn_collector()
 
 func character_arrived(character):
 	.character_arrived(character)
@@ -43,26 +45,32 @@ func get_production_percentage()->int:
 	return int((production_time-time_left)/production_time*100)
 
 func take_resources(resource:int, max_resources:int)->int:
-	print("resource in take", resource)
 	var factory_resource=_get_output_resource(resource)
 	var resources_to_take=factory_resource.take_resource(max_resources)
-	print("resources to take", max_resources)
 	return resources_to_take
+
+func save_resources(resource:int, quantity:int)->void:
+	var factory_resource=_get_input_resource(resource)
+	factory_resource.add_resource_quantity(quantity)
 
 func get_info()->Array:
 	var info=.get_info()
 	var production_text="Production:"+String(get_production_percentage())+"%"
 	info.append(production_text)
-	info.append("Can produce?"+String(_can_produce()))
+	for res in input_resources:
+		var resource_text=Global.resource_names[res.resource]+": "+String(res.current_quantity)
+		info.append("->"+resource_text)
+	
+	for res in output_resources:
+		var resource_text=Global.resource_names[res.resource]+": "+String(res.current_quantity)
+		info.append("<-"+resource_text)
 	return info
 
 func _try_to_spawn_transporter():
-	print("try to spawn")
 	if _is_transporter_on_route():
 		return
 	for resource in output_resources:
 		if not resource.is_empty():
-			print("Reousrce not empty")
 			var target_building = map.resource_manager.get_target_building_for_resource(resource.resource,resource.current_quantity, map_position)
 			if target_building:
 				_transporter=transporter_character.instance()
@@ -73,24 +81,35 @@ func _try_to_spawn_transporter():
 				return
 
 
-func _should_spawn_collector():
-	pass
+func _try_to_spawn_collector():
+	if _is_collector_on_route():
+		return
+	for resource in input_resources:
+		if not resource.has_enough_quantity():
+			var required_quantity=resource.get_required_quantity()
+			# TODO: accept buildings even if not enough quantity is available
+			var target_building = map.resource_manager.get_target_building_with_resource(resource.resource,required_quantity, map_position)
+			if target_building:
+				_collector=collector_character.instance() as Collector
+				_collector.resource_type = resource.resource
+				_collector.set_ammount_to_get(required_quantity)
+				var spawned=_spawn_character(_collector, target_building)
+				assert(spawned, "Collector not spawned in factory")
 
-func _spawn_transporter():
-	print("spawn_transporter")
-
-func _spawn_collector():
-	pass
-
-func _can_produce() -> bool:
+func _has_required_resources() -> bool:
 	for input_resource in input_resources:
 		if not input_resource.has_enough_quantity():
 			return false
-	
+	return true
+
+func _can_store_production() -> bool:
 	for output_resource in output_resources:
 		if not output_resource.is_empty():
 			return false
 	return true
+
+func _can_produce() -> bool:
+	return _has_required_resources() and _can_store_production()
 
 func _produce_resources():
 	for input_resource in input_resources:
@@ -109,7 +128,6 @@ func _get_input_resource(resource:int):
 
 func _get_output_resource(resource:int):
 	for res in output_resources:
-		print("reosurce found", res.resource)
 		if res.resource==resource:
 			return res
 	assert(false, "Resource not found in factory, _get_output_resource")
@@ -124,3 +142,6 @@ func _add_output_resource(resource:int, quantity:int):
 
 func _is_transporter_on_route() -> bool:
 	return _transporter!=null
+
+func _is_collector_on_route() -> bool:
+	return _collector!=null

@@ -18,6 +18,7 @@ func arrived_to_destination():
 	if target_building:
 		target_building.character_arrived(self)
 		if target_building==origin_building:
+			origin_building.save_resources(resource_type, resource_ammount)
 			_despawn()
 		else:
 			if target_building.is_in_group(Global.BUILDING_ROLES.STORAGE):

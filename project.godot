@@ -37,7 +37,7 @@ _global_script_classes=[ {
 "base": "Workplace",
 "class": "Factory",
 "language": "GDScript",
-"path": "res://entities/buildings/factory_new/factory.gd"
+"path": "res://entities/buildings/scripts/building_types/factory/factory.gd"
 }, {
 "base": "Reference",
 "class": "HousePopulation",

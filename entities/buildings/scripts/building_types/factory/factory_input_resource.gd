@@ -18,3 +18,5 @@ func consume_resource()->void:
 	assert(has_enough_quantity(), "Factory consume resource, not enough quantity")
 	current_quantity-=required_quantity
 
+func get_required_quantity()->int:
+	return required_quantity-current_quantity

@@ -2,7 +2,7 @@ extends Node2D
 
 class_name Character
 
-const RESOURCE_CAPACITY=5
+const RESOURCE_CAPACITY=10
 const ARRIVAL_WAIT=0.5
 
 export(float) var movement_speed=25
