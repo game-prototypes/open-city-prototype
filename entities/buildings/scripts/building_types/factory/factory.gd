@@ -75,7 +75,7 @@ func _try_to_spawn_transporter():
 			if target_building:
 				_transporter=transporter_character.instance()
 				_transporter.resource_type = resource.resource
-
+				Log.info(name+" spawn transporter")
 				var spawned=_spawn_character(_transporter, target_building)
 				assert(spawned, "Error spawning transporter in factory")
 				return
@@ -93,6 +93,7 @@ func _try_to_spawn_collector():
 				_collector=collector_character.instance() as Collector
 				_collector.resource_type = resource.resource
 				_collector.set_ammount_to_get(required_quantity)
+				Log.info(name+" spawn collector")
 				var spawned=_spawn_character(_collector, target_building)
 				assert(spawned, "Collector not spawned in factory")
 
@@ -112,6 +113,7 @@ func _can_produce() -> bool:
 	return _has_required_resources() and _can_store_production()
 
 func _produce_resources():
+	Log.info(name+" production finished")
 	for input_resource in input_resources:
 		input_resource.consume_resource()
 	

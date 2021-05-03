@@ -64,11 +64,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://entities/buildings/scenes/market/market.gd"
 }, {
-"base": "Workplace",
-"class": "Producer",
-"language": "GDScript",
-"path": "res://entities/buildings/scripts/building_types/producer.gd"
-}, {
 "base": "Reference",
 "class": "ResourceManager",
 "language": "GDScript",
@@ -116,7 +111,6 @@ _global_script_class_icons={
 "MapBuildings": "",
 "MapNavigation": "",
 "Market": "",
-"Producer": "",
 "ResourceManager": "",
 "RoadResource": "",
 "Roads": "",
