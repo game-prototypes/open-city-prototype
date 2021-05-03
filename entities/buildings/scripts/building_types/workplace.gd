@@ -26,3 +26,8 @@ func set_workers(new_workers:int)->void:
 
 func get_workers_rate()->float:
 	return float(workers)/max_workers
+
+func get_info() -> Array:
+	var info=.get_info()
+	info.append("Workers:"+String(workers)+"/"+String(max_workers))
+	return info

@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://entities/buildings/factory_new/factory.gd" type="Script" id=1]
+[ext_resource path="res://entities/character/collector.tscn" type="PackedScene" id=2]
+[ext_resource path="res://entities/character/transporter.tscn" type="PackedScene" id=3]
+
+[node name="Factory" type="Node2D"]
+script = ExtResource( 1 )
+collector_character = ExtResource( 2 )
+transporter_character = ExtResource( 3 )

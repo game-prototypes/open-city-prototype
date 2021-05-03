@@ -1,6 +1,5 @@
 extends Node
 
-
 enum RESOURCES {
 	Bread,
 	Wheat
@@ -12,7 +11,6 @@ var resource_names:= {
 }
 
 var BUILDING_GROUP="building"
-
 
 var BUILDING_ROLES:={
 	"PRODUCER": "b_role_producer",

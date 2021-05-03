@@ -3,7 +3,7 @@ extends Node2D
 class_name Character
 
 const RESOURCE_CAPACITY=5
-const DESPAWN_TIME=0.5
+const ARRIVAL_WAIT=0.5
 
 export(float) var movement_speed=25
 
@@ -56,6 +56,8 @@ func _move(path: Array):
 		yield(tween, "tween_completed")
 		map_position=point
 	tween.stop_all()
+	
+	yield(get_tree().create_timer(ARRIVAL_WAIT), "timeout")
 	arrived_to_destination()
 
 func _set_target(target:Building):
@@ -65,5 +67,4 @@ func _set_target(target:Building):
 		set_path(new_path)
 
 func _despawn():
-	yield(get_tree().create_timer(DESPAWN_TIME), "timeout")
 	queue_free()
