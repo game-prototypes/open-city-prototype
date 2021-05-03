@@ -1,4 +1,4 @@
-extends "res://addons/gut/test.gd"
+extends TestSuite
 
 func test_empty_storage():
 	var storage=Storage.new(10)
@@ -9,7 +9,7 @@ func test_empty_storage():
 
 
 class TestStore:
-	extends "res://addons/gut/test.gd"
+	extends TestSuite
 	
 	var test_resource_1=1
 	var test_resource_2=2
@@ -41,7 +41,7 @@ class TestStore:
 
 
 class TestRemove:
-	extends "res://addons/gut/test.gd"
+	extends TestSuite
 	
 	var test_resource_1=1
 

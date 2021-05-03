@@ -19,6 +19,17 @@ func update_building_info():
 	remove_labels() # TODO: update labels instead of removing and re-creating
 	if not is_instance_valid(target_building):
 		return
+	var building_info=target_building.get_info()
+	for text_row in building_info:
+		add_label(text_row)
+	
+	
+func update_building_info2():
+	if not target_building:
+		return
+	remove_labels() # TODO: update labels instead of removing and re-creating
+	if not is_instance_valid(target_building):
+		return
 	
 	add_label(target_building.stats.name)
 	if target_building.is_in_group(Global.BUILDING_ROLES.STORAGE):

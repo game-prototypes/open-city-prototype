@@ -6,18 +6,18 @@ var map_position: Vector2
 var map
 var stats
 
-signal _on_building_update(delta)
-signal _on_character_arrived(character)
+signal on_building_update(delta)
+signal on_character_arrived(character)
 
 func _ready():
 	add_to_group(Global.BUILDING_GROUP)
 	map=City.map
 
 func on_building_update(delta: float):
-	emit_signal("_on_building_update", delta)
+	emit_signal("on_building_update", delta)
 
 func character_arrived(character) -> void:
-	emit_signal("_on_character_arrived", character)
+	emit_signal("on_character_arrived", character)
 
 func get_occupied_tiles() -> Array:
 	var area:Vector2=stats.area
@@ -26,6 +26,9 @@ func get_occupied_tiles() -> Array:
 		for j in range(map_position.y, map_position.y+area.y):
 			result.append(Vector2(i,j))
 	return result
+
+func get_info() -> Array:
+	return [stats.name]
 
 func _spawn_character(character, target=null)->bool:
 	var character_tile

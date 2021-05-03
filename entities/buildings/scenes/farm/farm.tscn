@@ -1,15 +1,16 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://entities/character/transporter.tscn" type="PackedScene" id=1]
-[ext_resource path="res://entities/buildings/scripts/building_types/producer.gd" type="Script" id=2]
+[ext_resource path="res://entities/buildings/scenes/farm/farm.gd" type="Script" id=2]
 [ext_resource path="res://resources/isometric_medieval/crops.png" type="Texture" id=3]
+[ext_resource path="res://entities/character/collector.tscn" type="PackedScene" id=4]
 
 [node name="Farm" type="Node2D"]
 script = ExtResource( 2 )
-max_workers = 5
+collector_character = ExtResource( 4 )
 transporter_character = ExtResource( 1 )
-production_rate = 0.5
-resource = 1
+production_resource = 1
+production_quantity = 10
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, 18 )
