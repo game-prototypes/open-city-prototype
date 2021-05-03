@@ -1,4 +1,4 @@
-extends "res://addons/gut/test.gd"
+extends TestSuite
 
 func test_building():
 	var Map=load("res://entities/map/map.tscn")

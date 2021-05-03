@@ -1,4 +1,4 @@
-extends "res://addons/gut/test.gd"
+extends TestSuite
 
 func before_each():
 	watch_signals(City) 

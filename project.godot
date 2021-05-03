@@ -84,6 +84,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://entities/buildings/scenes/storage_yard/storage.gd"
 }, {
+"base": "Node",
+"class": "TestSuite",
+"language": "GDScript",
+"path": "res://tests/test_suite.gd"
+}, {
 "base": "Character",
 "class": "Transporter",
 "language": "GDScript",
@@ -115,6 +120,7 @@ _global_script_class_icons={
 "RoadResource": "",
 "Roads": "",
 "Storage": "",
+"TestSuite": "",
 "Transporter": "",
 "Utils": "",
 "Workplace": ""

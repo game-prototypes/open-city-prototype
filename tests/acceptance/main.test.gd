@@ -1,4 +1,4 @@
-extends "res://addons/gut/test.gd"
+extends TestSuite
 
 func test_player_building():
 	var Main=load("res://scenes/main.tscn")
