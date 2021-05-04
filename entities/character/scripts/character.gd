@@ -2,6 +2,8 @@ extends Node2D
 
 class_name Character
 
+const BuildingInteraction=preload("./building_interaction.gd")
+
 const RESOURCE_CAPACITY=10
 const ARRIVAL_WAIT=0.5
 
@@ -24,12 +26,19 @@ func _ready():
 	assert(map_position and origin_building, "Character not set")
 	position=map.tile2pos(map_position)
 	animation.play()
+	var building_interaction=BuildingInteraction.new(target_building)
+	on_departure(building_interaction)
 
 func setup(_map_position:Vector2, _origin_building: Building):
 	map_position=_map_position
 	origin_building=_origin_building
 
-func arrived_to_destination():
+func arrived_to_destination(building_interaction:BuildingInteraction, is_origin:bool):
+	building_interaction.arrived_to_destination(self)
+	if is_origin:
+		_despawn()
+
+func on_departure(_origin_building:BuildingInteraction)->void:
 	pass
 
 func set_path(path: Array):
@@ -58,7 +67,10 @@ func _move(path: Array):
 	tween.stop_all()
 	
 	yield(get_tree().create_timer(ARRIVAL_WAIT), "timeout")
-	arrived_to_destination()
+	
+	if target_building:
+		var building_interaction=BuildingInteraction.new(target_building)
+		arrived_to_destination(building_interaction, target_building==origin_building)
 
 func _set_target(target:Building):
 	target_building=target

@@ -16,9 +16,6 @@ func _ready():
 func on_building_update(delta: float):
 	emit_signal("on_building_update", delta)
 
-func character_arrived(character) -> void:
-	emit_signal("on_character_arrived", character)
-
 func get_occupied_tiles() -> Array:
 	var area:Vector2=stats.area
 	var result=[]
@@ -29,6 +26,17 @@ func get_occupied_tiles() -> Array:
 
 func get_info() -> Array:
 	return [stats.name]
+
+# Character Interactions
+func try_to_store(_resource: int, _quantity:int)->bool:
+	return false
+
+func try_to_get(_resource:int, _quantity:int)->int:
+	return 0
+
+func on_character_arrived(character) -> void:
+	emit_signal("on_character_arrived", character)
+
 
 func _spawn_character(character, target=null)->bool:
 	var character_tile

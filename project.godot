@@ -29,11 +29,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://entities/character/scripts/collector.gd"
 }, {
-"base": "Building",
-"class": "Consumer",
-"language": "GDScript",
-"path": "res://entities/buildings/scripts/building_types/consumer.gd"
-}, {
 "base": "Workplace",
 "class": "Factory",
 "language": "GDScript",
@@ -59,7 +54,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://entities/map/scripts/services/navigation.gd"
 }, {
-"base": "Consumer",
+"base": "Building",
 "class": "Market",
 "language": "GDScript",
 "path": "res://entities/buildings/scenes/market/market.gd"
@@ -109,7 +104,6 @@ _global_script_class_icons={
 "BuildingResource": "",
 "Character": "",
 "Collector": "",
-"Consumer": "",
 "Factory": "",
 "HousePopulation": "",
 "Map": "",
@@ -144,7 +138,7 @@ gdscript/warnings/return_value_discarded=false
 
 [editor_plugins]
 
-enabled=PoolStringArray(  )
+enabled=PoolStringArray( "res://addons/Todo_Manager/plugin.cfg" )
 
 [input]
 

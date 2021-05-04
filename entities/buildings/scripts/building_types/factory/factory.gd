@@ -34,8 +34,8 @@ func on_building_update(delta: float):
 		_try_to_spawn_transporter()
 		_try_to_spawn_collector()
 
-func character_arrived(character):
-	.character_arrived(character)
+func on_character_arrived(character):
+	.on_character_arrived(character)
 	if character==_transporter:
 		_transporter=null
 	if character==_collector:
@@ -44,14 +44,16 @@ func character_arrived(character):
 func get_production_percentage()->int:
 	return int((production_time-time_left)/production_time*100)
 
-func take_resources(resource:int, max_resources:int)->int:
+func try_to_get(resource:int, max_resources:int)->int:
 	var factory_resource=_get_output_resource(resource)
 	var resources_to_take=factory_resource.take_resource(max_resources)
 	return resources_to_take
 
-func save_resources(resource:int, quantity:int)->void:
+func try_to_store(resource:int, quantity:int)->bool:
 	var factory_resource=_get_input_resource(resource)
 	factory_resource.add_resource_quantity(quantity)
+	# TODO: check space
+	return true
 
 func get_info()->Array:
 	var info=.get_info()
