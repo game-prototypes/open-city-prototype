@@ -1,8 +1,10 @@
 extends Reference
 
 var building:Building
-func _init(_building:Building):
-	building=building
+var is_origin:bool
+func _init(_building:Building, _is_origin=false):
+	building=_building
+	is_origin=_is_origin
 
 func arrived_to_destination(character) -> void:
 	building.on_character_arrived(character)

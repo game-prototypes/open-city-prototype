@@ -13,11 +13,12 @@ export(float) var movement_speed=25
 onready var animation: AnimatedSprite = $Animation
 onready var tween: Tween = $Tween
 # TODO: use a state machine instead of changing target_building
-var origin_building: Building
-var target_building: Building
+var origin_building: BuildingInteraction
+var target_building: BuildingInteraction
 
 var map
 var _path: Array
+
 
 var map_position:Vector2
 
@@ -26,20 +27,15 @@ func _ready():
 	assert(map_position and origin_building, "Character not set")
 	position=map.tile2pos(map_position)
 	animation.play()
-	var building_interaction=BuildingInteraction.new(target_building)
-	on_departure(building_interaction)
 
 func setup(_map_position:Vector2, _origin_building: Building):
 	map_position=_map_position
-	origin_building=_origin_building
+	_set_origin(_origin_building)
 
-func arrived_to_destination(building_interaction:BuildingInteraction, is_origin:bool):
-	building_interaction.arrived_to_destination(self)
-	if is_origin:
+func arrived_to_destination(building:BuildingInteraction) -> void:
+	building.arrived_to_destination(self)
+	if building.is_origin:
 		_despawn()
-
-func on_departure(_origin_building:BuildingInteraction)->void:
-	pass
 
 func set_path(path: Array):
 	_path=path
@@ -69,14 +65,15 @@ func _move(path: Array):
 	yield(get_tree().create_timer(ARRIVAL_WAIT), "timeout")
 	
 	if target_building:
-		var building_interaction=BuildingInteraction.new(target_building)
-		arrived_to_destination(building_interaction, target_building==origin_building)
+		arrived_to_destination(target_building)
 
-func _set_target(target:Building):
+func _set_target(target:BuildingInteraction):
 	target_building=target
-	if target_building:
-		var new_path=map.navigation.get_road_path_to_building(map_position, target_building.map_position)
-		set_path(new_path)
+	var new_path=map.navigation.get_road_path_to_building(map_position, target_building.get_position())
+	set_path(new_path)
+
+func _set_origin(_origin: Building):
+	origin_building=BuildingInteraction.new(_origin,true)
 
 func _despawn():
 	queue_free()
