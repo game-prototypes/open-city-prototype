@@ -60,7 +60,6 @@ func on_tile_selected(tile: Vector2, selected_element) -> void:
 			var building = selected_build_item.instantiate_building(tile)
 			map.build(tile,building)
 			City.remove_money(selected_build_item.price)
-			deselect_action()
 
 	if selected_demolish:
 		if map.demolish_tile(tile):
