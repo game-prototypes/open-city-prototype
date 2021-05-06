@@ -58,7 +58,7 @@ func on_tile_selected(tile: Vector2, selected_element) -> void:
 	elif selected_build_item.type==BuildingResource.Type.BUILDING:
 		if map.can_build_area(tile, selected_build_item.area):
 			var building = selected_build_item.instantiate_building(tile)
-			map.build(tile,building)
+			map.build(building)
 			City.remove_money(selected_build_item.price)
 
 	if selected_demolish:

@@ -44,7 +44,8 @@ func can_build_area(tile:Vector2, area: Vector2) -> bool:
 				return false
 	return true
 
-func build(tile: Vector2, building: Building) -> void:
+func build(building: Building) -> void:
+	var tile=building.map_position
 	Log.info("Build", tile, building)
 	_buildings.build(tile,building)
 	add_element(building)

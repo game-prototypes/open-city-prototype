@@ -18,6 +18,12 @@ func _ready():
 func on_building_timer():
 	get_tree().call_group("building", "on_building_update", building_update_timer.wait_time)
 
+func get_building_resource(name: String):
+	for building in buildings:
+		if building.name==name:
+			return building
+	assert(false, "Building "+name+" not found")
+
 func _setup_signals():
 	hud.connect("building_resource_selected", player,"on_building_resource_selected")
 	hud.connect("demolish_building_selected", player,"on_demolish_building_selected")
