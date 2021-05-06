@@ -11,7 +11,7 @@ collector_character = ExtResource( 4 )
 transporter_character = ExtResource( 3 )
 consumed_resource = 1
 consumption_quantity = 5
-production_quantity = 10
+production_quantity = 5
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -14 )

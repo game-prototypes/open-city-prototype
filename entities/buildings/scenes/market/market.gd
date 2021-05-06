@@ -7,7 +7,7 @@ export var max_resource_quantity:int=10
 export var collector_character:PackedScene
 
 var collector: Collector
-var current_quantity: float = 0
+var current_quantity: int = 0
 
 func _ready():
 	add_to_group(Global.BUILDING_ROLES.MARKET)
@@ -23,6 +23,7 @@ func get_resource_quantity()->int:
 # Houses Interactions
 func consume_resource(amount:int)->int:
 	var amount_to_get=min(current_quantity, amount)
+	
 	current_quantity-=amount_to_get
 	return amount_to_get
 
@@ -41,10 +42,8 @@ func on_character_arrived(character):
 		current_quantity=current_quantity+collector.resource_ammount
 		collector=null
 
-
-
 func get_available_capacity() -> int:
-	return int(ceil(max_resource_quantity-current_quantity))
+	return int(max_resource_quantity-current_quantity)
 
 func has_required_resource() -> bool:
 	return current_quantity > 0
