@@ -7,6 +7,10 @@ A prototype of a pharaoh-like city builder made with [Godot](https://godotengine
 
 Run tests with:
 ```
+make test
+```
+or
+```
 godot3 --no-window -s addons/gut/gut_cmdln.gd -d
 ```
 
