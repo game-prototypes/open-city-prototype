@@ -10,8 +10,13 @@ onready var money_label=$TopContainer/MoneyLabel
 onready var population_label=$TopContainer/PopulationLabel
 onready var building_info=$BuildingInfo
 
+export(NodePath) var version_label_path
+onready var version_label:Label = get_node(version_label_path)
+
 func _ready():
 	assert(building_button, "Building button not set in GUI")
+	var version=ProjectSettings.get_setting("application/config/version")
+	version_label.text="v"+version
 
 func _process(_delta: float):
 	building_info.update_building_info()

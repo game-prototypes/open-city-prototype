@@ -7,7 +7,7 @@
 [ext_resource path="res://entities/buildings/scenes/house/house.tres" type="Resource" id=5]
 [ext_resource path="res://entities/roads/grass_road.tres" type="Resource" id=6]
 [ext_resource path="res://scripts/main.gd" type="Script" id=7]
-[ext_resource path="res://entities/gui/gui.tscn" type="PackedScene" id=9]
+[ext_resource path="res://entities/hud/gui.tscn" type="PackedScene" id=9]
 [ext_resource path="res://entities/camera/main_camera.tscn" type="PackedScene" id=10]
 [ext_resource path="res://entities/player/player.tscn" type="PackedScene" id=11]
 [ext_resource path="res://entities/map/map.tscn" type="PackedScene" id=12]
@@ -22,7 +22,7 @@ buildings = [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource(
 position = Vector2( 3.26434, 744.869 )
 zoom_constraint = Vector2( 0.5, 3 )
 
-[node name="GUI" parent="." instance=ExtResource( 9 )]
+[node name="HUD" parent="." instance=ExtResource( 9 )]
 
 [node name="Map" parent="." instance=ExtResource( 12 )]
 

@@ -36,6 +36,11 @@ func get_food()->int:
 func has_food() -> bool:
 	return get_food()>0
 
+func get_info()->Array:
+	var base_info=.get_info()
+	base_info.append("Population: "+String(get_population())+"/"+String(get_max_population()))
+	return base_info
+
 func _consume_food(delta: float):
 	var consumed_ammount=consumption_rate*delta*population.population
 	food=clamp(food-consumed_ammount, 0, max_food_storage)
@@ -63,5 +68,5 @@ func _on_population_update() -> void:
 		elif has_food():
 			population.increase_population(1)
 		elif population.population>min_population:
-			#TODO: decrease nad increase max population
+			#TODO: decrease and increase max population
 			population.decrease_population(1)

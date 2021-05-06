@@ -125,6 +125,7 @@ _global_script_class_icons={
 config/name="Open City Test"
 run/main_scene="res://scenes/main.tscn"
 config/icon="res://icon.png"
+config/version="0.0.1"
 
 [autoload]
 

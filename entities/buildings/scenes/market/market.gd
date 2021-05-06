@@ -12,14 +12,21 @@ var current_quantity: float = 0
 func _ready():
 	add_to_group(Global.BUILDING_ROLES.MARKET)
 
+func on_building_update(delta: float):
+	.on_building_update(delta)
+	if _should_spawn_collector():
+		_spawn_collector()
+
 func get_resource_quantity()->int:
 	return int(current_quantity)
 
+# Houses Interactions
 func consume_resource(amount:int)->int:
 	var amount_to_get=min(current_quantity, amount)
 	current_quantity-=amount_to_get
 	return amount_to_get
 
+# Character Interactions
 func try_to_store(resource_type:int, resource_ammount:int)->bool:
 	if resource_type!=required_resource:
 		return false
@@ -27,17 +34,14 @@ func try_to_store(resource_type:int, resource_ammount:int)->bool:
 		current_quantity+=resource_ammount
 		return true
 	return false
-
-func on_building_update(delta: float): # TODO: improve
-	.on_building_update(delta)
-	if _should_spawn_collector():
-		_spawn_collector()
-
+	
 func on_character_arrived(character):
 	.on_character_arrived(character)
 	if character==collector:
 		current_quantity=current_quantity+collector.resource_ammount
 		collector=null
+
+
 
 func get_available_capacity() -> int:
 	return int(ceil(max_resource_quantity-current_quantity))

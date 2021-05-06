@@ -2,10 +2,6 @@
 
 [ext_resource path="res://entities/camera/main_camera.gd" type="Script" id=1]
 
-
-
-
-
 [node name="MainCamera" type="Camera2D"]
 current = true
 script = ExtResource( 1 )

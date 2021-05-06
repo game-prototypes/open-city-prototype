@@ -1,12 +1,13 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://entities/gui/gui.gd" type="Script" id=1]
-[ext_resource path="res://entities/gui/building_button.tscn" type="PackedScene" id=2]
-[ext_resource path="res://entities/gui/building_info.gd" type="Script" id=3]
+[ext_resource path="res://entities/hud/building_button.tscn" type="PackedScene" id=1]
+[ext_resource path="res://entities/hud/building_info.gd" type="Script" id=2]
+[ext_resource path="res://entities/hud/HUD.gd" type="Script" id=3]
 
-[node name="GUI" type="CanvasLayer"]
-script = ExtResource( 1 )
-building_button = ExtResource( 2 )
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource( 3 )
+building_button = ExtResource( 1 )
+version_label_path = NodePath("VersionLabel")
 
 [node name="ConstructionPanel" type="MarginContainer" parent="."]
 anchor_top = 1.0
@@ -43,7 +44,7 @@ margin_left = -178.0
 margin_top = -160.0
 grow_vertical = 0
 custom_constants/margin_right = 0
-script = ExtResource( 3 )
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -65,6 +66,9 @@ margin_left = 5.66031
 margin_top = 4.1509
 margin_right = 154.66
 margin_bottom = 44.1509
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Panel" type="Panel" parent="TopContainer"]
 margin_right = 148.0
@@ -89,4 +93,15 @@ margin_bottom = 31.0
 text = "Population: 0"
 __meta__ = {
 "_edit_lock_": true
+}
+
+[node name="VersionLabel" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -139.0
+margin_bottom = 14.0
+text = "v0.0.000"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
 }
