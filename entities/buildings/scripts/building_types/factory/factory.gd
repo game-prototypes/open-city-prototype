@@ -76,7 +76,7 @@ func _try_to_spawn_transporter():
 			var target_building = map.resource_manager.get_target_building_for_resource(resource.resource,resource.current_quantity, map_position)
 			if target_building:
 				_transporter=transporter_character.instance()
-				_transporter.resource_type = resource.resource
+				_transporter.deliver_resource(resource.resource)
 				Log.info(name+" spawn transporter")
 				var spawned=_spawn_character(_transporter, target_building)
 				assert(spawned, "Error spawning transporter in factory")
