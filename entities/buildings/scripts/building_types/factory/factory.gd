@@ -92,9 +92,8 @@ func _try_to_spawn_collector():
 			# TODO: accept buildings even if not enough quantity is available
 			var target_building = map.resource_manager.get_target_building_with_resource(resource.resource,required_quantity, map_position)
 			if target_building:
-				_collector=collector_character.instance() as Collector
-				_collector.resource_type = resource.resource
-				_collector.set_ammount_to_get(required_quantity)
+				_collector=collector_character.instance() as Transporter
+				_collector.collect_resource(resource.resource, required_quantity)
 				Log.info(name+" spawn collector")
 				var spawned=_spawn_character(_collector, target_building)
 				assert(spawned, "Collector not spawned in factory")
