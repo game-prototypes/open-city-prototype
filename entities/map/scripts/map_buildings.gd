@@ -25,6 +25,9 @@ func handle_building_click(tile: Vector2):
 	if tile_to_building.has(tile):
 		return tile_to_building[tile]
 
+func get_buildings()->Array:
+	return tile_to_building.values()
+
 func _build_area(building:Node2D) -> void:
 	var tiles=building.get_occupied_tiles()
 	for tile in tiles:

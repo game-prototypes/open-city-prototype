@@ -14,3 +14,10 @@ static func get_tiles_around(tile:Vector2, corners:bool=true)->Array:
 				if pos!=tile and (pos.x==tile.x or pos.y==tile.y):
 					result.append(pos)
 	return result
+
+
+static func merge_dict(d1: Dictionary, d2:Dictionary)->Dictionary:
+	var keys=d2.keys()
+	for key in keys:
+		d1[key]=d2[key]
+	return d1

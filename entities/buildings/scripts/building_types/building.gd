@@ -37,6 +37,11 @@ func try_to_get(_resource:int, _quantity:int)->int:
 func on_character_arrived(character) -> void:
 	emit_signal("on_character_arrived", character)
 
+func serialize() -> Dictionary:
+	return {
+		"stats": stats,
+		"position": map_position
+	}
 
 func _spawn_character(character, target=null)->bool:
 	var character_tile

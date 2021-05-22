@@ -31,3 +31,8 @@ func get_info() -> Array:
 	var info=.get_info()
 	info.append("Workers:"+String(workers)+"/"+String(max_workers))
 	return info
+
+func serialize()->Dictionary:
+	return Utils.merge_dict(.serialize(), {
+		"workers": workers
+	})

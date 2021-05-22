@@ -95,6 +95,18 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="SaveButton" type="Button" parent="TopContainer"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 1.68179
+margin_top = 3.5451
+margin_right = 42.6818
+margin_bottom = 23.5451
+text = "Save"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="VersionLabel" type="Label" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
@@ -105,3 +117,5 @@ align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[connection signal="pressed" from="TopContainer/SaveButton" to="." method="_on_save"]

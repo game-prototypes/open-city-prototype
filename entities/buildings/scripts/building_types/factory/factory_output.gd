@@ -19,3 +19,11 @@ func take_resource(max_quantity:int)->int:
 func produce_resource()->void:
 	assert(is_empty(), "Factory produce resource, not empty")
 	current_quantity=production_quantity
+
+
+func serialize()->Dictionary:
+	return {
+		"production_quantity":production_quantity,
+		"current_quantity":current_quantity,
+		"resource":resource
+	}

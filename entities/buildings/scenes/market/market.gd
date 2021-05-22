@@ -6,7 +6,7 @@ export(Global.RESOURCES) var required_resource:int
 export var max_resource_quantity:int=10
 export var collector_character:PackedScene
 
-var collector: Collector
+var collector: Transporter
 var current_quantity: int = 0
 
 func _ready():
@@ -67,7 +67,7 @@ func _spawn_collector():
 	var resources_to_get=_ammount_to_collect()
 	var target_building = map.resource_manager.get_target_building_with_resource(required_resource,resources_to_get, map_position)
 	if target_building:
-		collector=collector_character.instance() as Collector
+		collector=collector_character.instance() as Transporter
 		collector.resource_type =required_resource
 		collector.set_ammount_to_get(resources_to_get)
 		var spawned=_spawn_character(collector, target_building)

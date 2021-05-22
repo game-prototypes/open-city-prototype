@@ -14,6 +14,8 @@ signal tile_selected(tile, building)
 
 func _ready():
 	assert(_terrain.cell_size[0]==_roads.cell_size[0], "Error, terrain tile size != roads tile size")
+	_terrain.fix_invalid_tiles()
+	_roads.fix_invalid_tiles()
 	navigation = MapNavigation.new(self, _roads)
 	resource_manager = ResourceManager.new(self, navigation)
 
@@ -88,3 +90,15 @@ func get_buildings_of_groups(groups: Array) -> Array:
 	for group in groups:
 		res+=get_tree().get_nodes_in_group(group)
 	return res
+
+func serialize():
+	var size:=_terrain.get_used_rect().size
+	var serialized_terrain=Serializer.serialize_tilemap(_terrain, size)
+	var serialized_roads=Serializer.serialize_tilemap(_roads, size)
+	var buildings=_buildings.get_buildings()
+	
+	return {
+		"terrain": serialized_terrain,
+		"roads": serialized_roads,
+		"buildings": Serializer.serialize_array(buildings)
+	}

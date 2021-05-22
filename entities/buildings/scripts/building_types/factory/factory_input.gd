@@ -20,3 +20,10 @@ func consume_resource()->void:
 
 func get_required_quantity()->int:
 	return required_quantity-current_quantity
+
+func serialize()->Dictionary:
+	return {
+		"required_quantity":required_quantity,
+		"current_quantity":current_quantity,
+		"resource":resource
+	}

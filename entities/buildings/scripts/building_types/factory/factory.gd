@@ -68,6 +68,13 @@ func get_info()->Array:
 		info.append("<-"+resource_text)
 	return info
 
+func serialize()->Dictionary:
+	return Utils.merge_dict(.serialize(), {
+		"input_resources":Serializer.serialize_array(input_resources),
+		"output_resources":Serializer.serialize_array(output_resources),
+		"time_left":time_left
+	})
+
 func _try_to_spawn_transporter():
 	if _is_transporter_on_route():
 		return
@@ -136,11 +143,11 @@ func _get_output_resource(resource:int):
 	assert(false, "Resource not found in factory, _get_output_resource")
 	
 func _add_input_resource(resource:int, quantity:int):
-	var input_resource=FactoryInputResource.new(resource, quantity)	
+	var input_resource=FactoryInputResource.new(resource, quantity)
 	input_resources.append(input_resource)
 	
 func _add_output_resource(resource:int, quantity:int):
-	var output_resource=FactoryOutputResource.new(resource, quantity)	
+	var output_resource=FactoryOutputResource.new(resource, quantity)
 	output_resources.append(output_resource)
 
 func _is_transporter_on_route() -> bool:
