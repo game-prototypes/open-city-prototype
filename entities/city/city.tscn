@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://autoload/city/city.gd" type="Script" id=1]
-[ext_resource path="res://autoload/city/city_workplaces.gd" type="Script" id=2]
+[ext_resource path="res://entities/city/city.gd" type="Script" id=1]
+[ext_resource path="res://entities/city/city_workplaces.gd" type="Script" id=2]
 
 [node name="City" type="Node"]
 script = ExtResource( 1 )

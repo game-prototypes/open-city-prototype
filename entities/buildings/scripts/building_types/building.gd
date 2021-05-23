@@ -11,7 +11,8 @@ signal on_character_arrived(character)
 
 func _ready():
 	add_to_group(Global.BUILDING_GROUP)
-	map=City.map
+	var city=ServiceLocator.get_city()
+	map=city.map
 
 func on_building_update(delta: float):
 	emit_signal("on_building_update", delta)

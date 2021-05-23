@@ -3,8 +3,6 @@ extends Reference
 class_name Serializer
 
 static func serialize_tilemap(tilemap:TileMap, size:Vector2) -> Array:
-	var cells=tilemap.get_used_cells()
-	
 	var saved_matrix=[]
 	for i in range(size[0]):
 		saved_matrix.append([])

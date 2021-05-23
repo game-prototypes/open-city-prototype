@@ -13,7 +13,6 @@ var selected_demolish=false
 var green_color=Color("#9516820f")
 var red_color=Color("#9582170f")
 
-
 func _process(_delta):
 	if selected_build_item:
 		var mouse_tile=map.pos2tile(get_global_mouse_position())
@@ -46,6 +45,7 @@ func deselect_action():
 	_remove_overlay()
 
 func on_tile_selected(tile: Vector2, selected_element) -> void:
+	var city=ServiceLocator.get_city()
 	# TODO: use a generic action abstraction
 	if not selected_build_item:
 		if selected_element:
@@ -54,16 +54,16 @@ func on_tile_selected(tile: Vector2, selected_element) -> void:
 	elif selected_build_item.type==BuildingResource.Type.ROAD:
 		if map.can_build(tile):
 			map.build_road(tile, selected_build_item.road_id)
-			City.remove_money(selected_build_item.price)
+			city.remove_money(selected_build_item.price)
 	elif selected_build_item.type==BuildingResource.Type.BUILDING:
 		if map.can_build_area(tile, selected_build_item.area):
 			var building = selected_build_item.instantiate_building(tile)
 			map.build(building)
-			City.remove_money(selected_build_item.price)
+			city.remove_money(selected_build_item.price)
 
 	if selected_demolish:
 		if map.demolish_tile(tile):
-			City.remove_money(5)
+			city.remove_money(5)
 
 func on_building_resource_selected(building: Resource):
 	deselect_action()

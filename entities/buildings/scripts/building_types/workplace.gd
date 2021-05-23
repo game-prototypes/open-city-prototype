@@ -5,11 +5,14 @@ class_name Workplace
 export var max_workers:int=10
 var workers:int=0
 
+var city
+
 func _ready():
-	City.register_workplace(self)
+	city=ServiceLocator.get_city()
+	city.register_workplace(self)
 
 func _exit_tree():
-	City.remove_workplace(self)
+	city.remove_workplace(self)
 
 func get_workers()->int:
 	return workers

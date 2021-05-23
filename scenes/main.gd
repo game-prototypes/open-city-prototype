@@ -7,11 +7,13 @@ onready var player: = $Player
 onready var map: = $Map
 onready var building_update_timer:=$BuildingUpdateTimer
 
+onready var city=ServiceLocator.get_city()
+
 func _ready():
 	var version=ProjectSettings.get_setting("application/config/version")
 	Log.info("Open City Prototype", "v"+version)
 	hud.set_buildings(buildings)
-	City.set_map(map)
+	city.set_map(map)
 	_setup_signals()
 
 
@@ -47,6 +49,6 @@ func _setup_signals():
 	player.connect("building_selected", hud, "show_building_info")
 	building_update_timer.connect("timeout", self, "on_building_timer")
 	
-	City.connect("money_updated", hud, "on_money_updated")
-	City.connect("population_updated", hud, "on_population_updated")
-	City.add_money(0) # To kickstart the signals
+	city.connect("money_updated", hud, "on_money_updated")
+	city.connect("population_updated", hud, "on_population_updated")
+	city.add_money(0) # To kickstart the signals

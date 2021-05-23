@@ -1,5 +1,7 @@
 extends Node
 
+class_name City
+
 export var taxes_rate:float=0.2
 var money:float = 1000.0
 var population:int=0
@@ -16,6 +18,7 @@ signal population_updated(population)
 func _ready():
 	building_update_timer.connect("timeout", self, "_on_city_update", [building_update_timer.wait_time])
 	self.connect("population_updated", city_workplaces, "update_workforce")
+	ServiceLocator.set_city(self)
 
 func set_map(_map)->void:
 	map=_map
