@@ -3,6 +3,7 @@ extends CanvasLayer
 signal building_resource_selected(BuildingResource)
 signal demolish_building_selected()
 signal save()
+signal load_game()
 
 export var building_button: PackedScene
 
@@ -11,14 +12,9 @@ onready var money_label=$TopContainer/MoneyLabel
 onready var population_label=$TopContainer/PopulationLabel
 onready var building_info=$BuildingInfo
 
-export(NodePath) var version_label_path
-onready var version_label:Label = get_node(version_label_path)
-
 
 func _ready():
 	assert(building_button, "Building button not set in GUI")
-	var version=ProjectSettings.get_setting("application/config/version")
-	version_label.text="v"+version
 
 func _process(_delta: float):
 	building_info.update_building_info()
@@ -59,3 +55,7 @@ func _on_demolish_button(_param):
 
 func _on_save():
 	emit_signal("save")
+
+
+func _on_load() -> void:
+	emit_signal("load_game")

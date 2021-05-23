@@ -138,6 +138,8 @@ config/version="0.0.2"
 Global="*res://autoload/global.gd"
 Log="*res://autoload/log.gd"
 City="*res://autoload/city/city.tscn"
+ServiceLocator="*res://autoload/service_locator.gd"
+VersonLabel="*res://autoload/version_label/verson_label.tscn"
 
 [debug]
 

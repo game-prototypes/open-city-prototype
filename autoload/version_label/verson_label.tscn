@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://autoload/version_label/verson_label.gd" type="Script" id=1]
+
+[node name="VersionLabel" type="CanvasLayer"]
+script = ExtResource( 1 )
+version_label_path = NodePath("Label")
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -139.0
+margin_bottom = 14.0
+text = "v0.0.000"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
