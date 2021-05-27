@@ -3,6 +3,8 @@ _by @angrykoala_
 
 A prototype of a pharaoh-like city builder made with [Godot](https://godotengine.org/)
 
+![Screenshot](./screenshot.png)
+
 ## Tests
 
 Run tests with:
