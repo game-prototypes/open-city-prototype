@@ -28,7 +28,7 @@ enum CharacterState {
 var current_state: int
 
 func _ready():
-	map=City.map
+	map=ServiceLocator.get_city().map
 	assert(map_position and origin_building, "Character not set")
 	position=map.tile2pos(map_position)
 	animation.play()

@@ -39,7 +39,6 @@ func try_to_store(resource_type:int, resource_ammount:int)->bool:
 func on_character_arrived(character):
 	.on_character_arrived(character)
 	if character==collector:
-		current_quantity=current_quantity+collector.resource_ammount
 		collector=null
 
 func get_available_capacity() -> int:
@@ -68,8 +67,7 @@ func _spawn_collector():
 	var target_building = map.resource_manager.get_target_building_with_resource(required_resource,resources_to_get, map_position)
 	if target_building:
 		collector=collector_character.instance() as Transporter
-		collector.resource_type =required_resource
-		collector.set_ammount_to_get(resources_to_get)
+		collector.collect_resource(required_resource, resources_to_get)
 		var spawned=_spawn_character(collector, target_building)
 		assert(spawned, "Collector not spawned in consumer building")
 
