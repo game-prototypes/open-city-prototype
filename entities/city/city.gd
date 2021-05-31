@@ -50,6 +50,9 @@ func register_workplace(workplace: Workplace):
 func remove_workplace(workplace: Workplace):
 	city_workplaces.remove_workplace(workplace)
 
+func begin_game(data:Dictionary):# TODO
+	print(data)
+
 func _on_city_update(delta: float) -> void:
 	var taxes=delta*taxes_rate*population
 	add_money(taxes)

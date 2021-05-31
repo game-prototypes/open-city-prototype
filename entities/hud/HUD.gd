@@ -3,7 +3,6 @@ extends CanvasLayer
 signal building_resource_selected(BuildingResource)
 signal demolish_building_selected()
 signal save()
-signal load_game()
 
 export var building_button: PackedScene
 
@@ -55,7 +54,3 @@ func _on_demolish_button(_param):
 
 func _on_save():
 	emit_signal("save")
-
-
-func _on_load() -> void:
-	emit_signal("load_game")

@@ -40,9 +40,13 @@ func on_character_arrived(character) -> void:
 
 func serialize() -> Dictionary:
 	return {
-		"stats": stats,
+		"type": stats.name,
 		"position": map_position
 	}
+
+func load_data(data:Dictionary)->void:
+	map_position=data["position"]
+	
 
 func _spawn_character(character, target=null)->bool:
 	var character_tile
