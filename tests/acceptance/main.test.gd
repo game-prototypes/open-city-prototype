@@ -28,9 +28,9 @@ func test_transporter():
 	var storage_name="Storage Yard"
 	var house_name="House"
 	
-	var farm_resource=main.get_building_resource(farm_name)
-	var storage_yard_resource=main.get_building_resource(storage_name)
-	var house_resource=main.get_building_resource(house_name)
+	var farm_resource=Store.get_building_resource(farm_name)
+	var storage_yard_resource=Store.get_building_resource(storage_name)
+	var house_resource=Store.get_building_resource(house_name)
 	var farm = farm_resource.instantiate_building(Vector2(10,10))
 	watch_signals(farm) 
 	var storage_yard = storage_yard_resource.instantiate_building(Vector2(10,12))

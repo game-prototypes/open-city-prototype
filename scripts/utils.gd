@@ -21,3 +21,10 @@ static func merge_dict(d1: Dictionary, d2:Dictionary)->Dictionary:
 	for key in keys:
 		d1[key]=d2[key]
 	return d1
+
+
+static func arr2vector(arr: Array)->Vector2:
+	return Vector2(arr[0], arr[1])
+
+static func vector2arr(v: Vector2)->Array:
+	return [v.x, v.y]

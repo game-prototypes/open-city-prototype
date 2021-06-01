@@ -2,13 +2,11 @@ extends TileMap
 
 class_name Roads
 
-var astar = AStar2D.new()
+var astar:AStar2D
 const MAX_SIZE=10000
 
 func _init():
-	var tiles=get_used_cells()
-	for tile in tiles:
-		_add_walkable_tile(tile)
+	_generate_astar()
 
 func build_road(tile: Vector2, road_id: int) -> void:
 	set_cell(int(tile.x), int(tile.y), road_id)
@@ -27,6 +25,10 @@ func find_path(from: Vector2, to: Vector2) -> PoolVector2Array:
 	if !astar.has_point(from_id) or !astar.has_point(to_id):
 		return PoolVector2Array()
 	return astar.get_point_path(from_id,to_id)
+
+func load_roads(data: Array):
+	Serializer.load_tilemap(data, self)
+	_generate_astar()
 
 func _remove_walkable_tile(tile: Vector2):
 	var id=_calculate_point_index(tile)
@@ -52,10 +54,15 @@ func _connect_tile(tile:Vector2):
 func _calculate_point_index(point: Vector2) -> int:
 	return int(point.x + MAX_SIZE * point.y)
 
-
 func _can_connect_points(cell1: Vector2, cell2: Vector2) -> bool:
 	if cell1==cell2:
 		return false
 	if cell1.x != cell2.x and cell1.y!=cell2.y:
 		return false
 	return true
+
+func _generate_astar():
+	astar = AStar2D.new()
+	var tiles=get_used_cells()
+	for tile in tiles:
+		_add_walkable_tile(tile)

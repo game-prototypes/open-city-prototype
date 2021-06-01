@@ -1,7 +1,5 @@
 extends Node
 
-export(Array, Resource) var buildings
-
 onready var hud: = $HUD
 onready var player: = $Player
 onready var map: = $Map
@@ -10,9 +8,6 @@ onready var building_update_timer:=$BuildingUpdateTimer
 onready var city=ServiceLocator.get_city()
 
 func _ready():
-	var version=ProjectSettings.get_setting("application/config/version")
-	Log.info("Open City Prototype", "v"+version)
-	hud.set_buildings(buildings)
 	city.set_map(map)
 	_setup_signals()
 	city.begin_game(Store.get_game_data())
@@ -22,16 +17,13 @@ func _ready():
 func on_building_timer():
 	get_tree().call_group("building", "on_building_update", building_update_timer.wait_time)
 
-func get_building_resource(name: String):
-	for building in buildings:
-		if building.name==name:
-			return building
-	assert(false, "Building "+name+" not found")
-
 func save():
+	var filename="res://savegame.json"
+	Log.info("Save Game", filename)
 	var result=map.serialize()
+	result["city"]=city.serialize()
 	var save_game = File.new()
-	save_game.open("res://savegame.json", File.WRITE)
+	save_game.open(filename, File.WRITE)
 	save_game.store_line(JSON.print(result))
 	save_game.close()
 

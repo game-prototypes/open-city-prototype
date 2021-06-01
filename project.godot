@@ -145,7 +145,7 @@ Global="*res://autoload/global.gd"
 Log="*res://autoload/log.gd"
 ServiceLocator="*res://autoload/service_locator.gd"
 VersonLabel="*res://autoload/version_label/verson_label.tscn"
-Store="*res://autoload/store.gd"
+Store="*res://autoload/store/store.tscn"
 
 [debug]
 

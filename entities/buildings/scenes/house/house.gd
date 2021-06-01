@@ -59,7 +59,6 @@ func _find_market_food() -> void:
 		if food==max_food_storage:
 			return
 
-
 func _on_population_update() -> void:
 	if !map.next_to_road(map_position):
 		population.remove_all_population()
@@ -71,3 +70,15 @@ func _on_population_update() -> void:
 		elif population.population>min_population:
 			#TODO: decrease and increase max population
 			population.decrease_population(1)
+
+func serialize() -> Dictionary:
+	return Utils.merge_dict(.serialize(), {
+		"population": population.population ,
+		"max_population": population.max_population
+	})
+
+
+func load_data(data:Dictionary)->void:
+	.load_data(data)
+	population.population=data.get("population")
+	population.max_population=data.get("max_population")

@@ -48,7 +48,6 @@ func can_build_area(tile:Vector2, area: Vector2) -> bool:
 
 func build(building: Building) -> void:
 	var tile=building.map_position
-	Log.info("Build", tile, building)
 	_buildings.build(tile,building)
 	add_element(building)
 
@@ -91,7 +90,7 @@ func get_buildings_of_groups(groups: Array) -> Array:
 		res+=get_tree().get_nodes_in_group(group)
 	return res
 
-func serialize():
+func serialize() -> Dictionary:
 	var size:=_terrain.get_used_rect().size
 	var serialized_terrain=Serializer.serialize_tilemap(_terrain, size)
 	var serialized_roads=Serializer.serialize_tilemap(_roads, size)
@@ -102,3 +101,15 @@ func serialize():
 		"roads": serialized_roads,
 		"buildings": Serializer.serialize_array(buildings)
 	}
+
+func load_data(data:Dictionary):
+	if data.has("roads"):
+		_roads.load_roads(data.get("roads"))
+	if data.has("buildings"):
+		var buildings_data=data.get("buildings")
+		for building in buildings_data:
+			var resource=Store.get_building_resource(building.type)
+			var map_position=Utils.arr2vector(building.position)
+			var instance = resource.instantiate_building(map_position)
+			build(instance)
+			instance.load_data(building)

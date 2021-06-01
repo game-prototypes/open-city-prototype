@@ -1,0 +1,13 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://autoload/store/store.gd" type="Script" id=1]
+[ext_resource path="res://entities/buildings/scenes/house/house.tres" type="Resource" id=2]
+[ext_resource path="res://entities/buildings/scenes/bakery/bakery.tres" type="Resource" id=3]
+[ext_resource path="res://entities/buildings/scenes/storage_yard/storage_yard.tres" type="Resource" id=4]
+[ext_resource path="res://entities/roads/grass_road.tres" type="Resource" id=5]
+[ext_resource path="res://entities/buildings/scenes/market/market.tres" type="Resource" id=6]
+[ext_resource path="res://entities/buildings/scenes/farm/farm.tres" type="Resource" id=7]
+
+[node name="Store" type="Node"]
+script = ExtResource( 1 )
+buildings = [ ExtResource( 3 ), ExtResource( 7 ), ExtResource( 2 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 5 ) ]

@@ -5,7 +5,6 @@ class_name City
 export var taxes_rate:float=0.2
 var money:float = 1000.0
 var population:int=0
-var workforce:int=0
 
 onready var building_update_timer:=$CityUpdateTimer
 onready var city_workplaces:=$CityWorkplaces
@@ -51,7 +50,28 @@ func remove_workplace(workplace: Workplace):
 	city_workplaces.remove_workplace(workplace)
 
 func begin_game(data:Dictionary):# TODO
+	map.load_data(data)
+	if data.has("city"):
+		load_data(data.get("city"))
+
+func serialize()->Dictionary:
+	return {
+		"money": money,
+		"population":population,
+		"workforce":city_workplaces.workforce,
+		"jobs": city_workplaces.jobs
+	}
+
+func load_data(data:Dictionary)->void:
 	print(data)
+	money=data.money
+	emit_signal("money_updated", get_money())
+	population=data.population
+	emit_signal("population_updated", population)
+	
+	city_workplaces.workforce=data.workforce
+	city_workplaces.jobs=data.jobs
+	
 
 func _on_city_update(delta: float) -> void:
 	var taxes=delta*taxes_rate*population

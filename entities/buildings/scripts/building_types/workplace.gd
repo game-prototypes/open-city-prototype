@@ -39,3 +39,7 @@ func serialize()->Dictionary:
 	return Utils.merge_dict(.serialize(), {
 		"workers": workers
 	})
+
+func load_data(data:Dictionary)->void:
+	.load_data(data)
+	workers=data.get("workers")

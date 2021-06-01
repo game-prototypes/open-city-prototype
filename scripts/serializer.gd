@@ -12,10 +12,10 @@ static func serialize_tilemap(tilemap:TileMap, size:Vector2) -> Array:
 	return saved_matrix
 
 
-static func load_tilemap(raw: String, tilemap:TileMap):
-	var parsed=JSON.parse(raw)
+static func load_tilemap(tiles: Array, tilemap:TileMap):
+	#var parsed=JSON.parse(raw)
 	# TODO: check tiles.error
-	var tiles=parsed.result
+	#var tiles=parsed.result
 	var rows=tiles.size()
 	for i in range(rows):
 		var columns=tiles[i].size()

@@ -25,3 +25,8 @@ func warn(a1="",a2="",a3="",a4="",a5="") -> void:
 func error(a1="",a2="",a3="",a4="",a5="") -> void:
 	if error_enabled:
 		printerr("Error: ",a1,a2,a3,a4,a5)
+
+
+func version() -> void:
+	var version=ProjectSettings.get_setting("application/config/version")
+	info("Open City Prototype", "v"+version)

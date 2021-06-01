@@ -37,7 +37,6 @@ func _unhandled_input(event):
 		if event.button_index == BUTTON_RIGHT and event.pressed:
 			deselect_action()
 
-
 func deselect_action():
 	selected_build_item=null
 	overlay.visible=false
@@ -58,6 +57,7 @@ func on_tile_selected(tile: Vector2, selected_element) -> void:
 	elif selected_build_item.type==BuildingResource.Type.BUILDING:
 		if map.can_build_area(tile, selected_build_item.area):
 			var building = selected_build_item.instantiate_building(tile)
+			Log.info("Build", tile, selected_build_item.name)
 			map.build(building)
 			city.remove_money(selected_build_item.price)
 
