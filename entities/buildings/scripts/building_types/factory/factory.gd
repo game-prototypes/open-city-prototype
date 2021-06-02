@@ -155,3 +155,19 @@ func _is_transporter_on_route() -> bool:
 
 func _is_collector_on_route() -> bool:
 	return _collector!=null
+
+func load_data(data:Dictionary)->void:
+	.load_data(data)
+	time_left=data.get("time_left")
+	_load_input_resources(data.get("input_resources"))
+	_load_output_resources(data.get("output_resources"))
+
+func _load_input_resources(input_resources:Array):
+	for resource in input_resources:
+		var input_resource=_get_input_resource(resource["resource"])
+		input_resource.load_data(resource)
+
+func _load_output_resources(output_resources:Array):
+	for resource in output_resources:
+		var output_resource=_get_output_resource(resource["resource"])
+		output_resource.load_data(resource)

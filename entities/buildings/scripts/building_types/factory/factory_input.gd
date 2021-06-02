@@ -4,6 +4,7 @@ var required_quantity: int
 var current_quantity: int
 var resource:int
 
+
 func _init(_resource:int, _quantity:int):
 	resource=_resource
 	required_quantity=_quantity
@@ -27,3 +28,7 @@ func serialize()->Dictionary:
 		"current_quantity":current_quantity,
 		"resource":resource
 	}
+
+func load_data(data:Dictionary)->void:
+	required_quantity=data.get("required_quantity")
+	current_quantity=data.get("current_quantity")

@@ -73,3 +73,13 @@ func _spawn_collector():
 
 func _is_collector_on_route() -> bool:
 	return collector!=null
+
+func serialize() -> Dictionary:
+	return Utils.merge_dict(.serialize(), {
+		"current_quantity": current_quantity
+	})
+
+func load_data(data:Dictionary)->void:
+	.load_data(data)
+	current_quantity=data.get("current_quantity")
+

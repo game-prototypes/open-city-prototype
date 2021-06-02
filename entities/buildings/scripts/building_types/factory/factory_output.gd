@@ -27,3 +27,7 @@ func serialize()->Dictionary:
 		"current_quantity":current_quantity,
 		"resource":resource
 	}
+
+func load_data(data:Dictionary)->void:
+	production_quantity=data.get("production_quantity")
+	current_quantity=data.get("current_quantity")

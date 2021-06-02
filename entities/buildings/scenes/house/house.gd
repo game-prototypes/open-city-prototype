@@ -74,11 +74,12 @@ func _on_population_update() -> void:
 func serialize() -> Dictionary:
 	return Utils.merge_dict(.serialize(), {
 		"population": population.population ,
-		"max_population": population.max_population
+		"max_population": population.max_population,
+		"food": food
 	})
-
 
 func load_data(data:Dictionary)->void:
 	.load_data(data)
 	population.population=data.get("population")
 	population.max_population=data.get("max_population")
+	food=data.get("food")
