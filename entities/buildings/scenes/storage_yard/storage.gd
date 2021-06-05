@@ -38,3 +38,19 @@ func get_occupied_space() -> int:
 
 func is_empty()->bool:
 	return stored_quantity==0
+
+func serialize() -> Dictionary:
+	return {
+		"stored_resources":stored_resources,
+		"max_storage":max_storage,
+		"stored_quantity": stored_quantity
+	}
+	
+func load_data(data:Dictionary)->void:
+	max_storage = data.get("max_storage")
+	stored_quantity = data.get("stored_quantity")
+	
+	var raw_stored_resources = data.get("stored_resources")
+	for res in raw_stored_resources:
+		var quantity=raw_stored_resources[res]
+		stored_resources[int(res)] = quantity

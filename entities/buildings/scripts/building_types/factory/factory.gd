@@ -162,12 +162,12 @@ func load_data(data:Dictionary)->void:
 	_load_input_resources(data.get("input_resources"))
 	_load_output_resources(data.get("output_resources"))
 
-func _load_input_resources(input_resources:Array):
-	for resource in input_resources:
+func _load_input_resources(resources:Array):
+	for resource in resources:
 		var input_resource=_get_input_resource(resource["resource"])
 		input_resource.load_data(resource)
 
-func _load_output_resources(output_resources:Array):
-	for resource in output_resources:
+func _load_output_resources(resources:Array):
+	for resource in resources:
 		var output_resource=_get_output_resource(resource["resource"])
 		output_resource.load_data(resource)

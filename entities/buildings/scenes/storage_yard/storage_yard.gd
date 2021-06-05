@@ -48,3 +48,12 @@ func _update_sprites():
 	var is_empty=storage.is_empty()
 	empty_sprite.visible=is_empty
 	full_sprite.visible=!is_empty
+
+func serialize() -> Dictionary:
+	return Utils.merge_dict(.serialize(), {
+		"storage": storage.serialize()
+	})
+
+func load_data(data:Dictionary)->void:
+	.load_data(data)
+	storage.load_data(data.get("storage"))
